@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--meta name="viewport" content="width=device-width, initial-scale=1"-->
+        <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico">
+        <link rel="stylesheet" href="/static/style.css">
+    </head>
+    <body>
+        <div class="base">
+            <header>
+                <div class="left">{% block topleft %}Top Left{% endblock %}</div>
+                <div class="right">{% block topright %}Top Right{% endblock %}</div>
+            </header>
+            <div class="main">
+                {% block content %}Missing content{% endblock %}
+            </div>
+            <div class="footer">
+                Version: 0.1.0 –
+                <a href="/help/">Hilfe</a> –
+                <a href="https://github.com/Niduroki/rate-shoot">Source</a>
+            </div>
+        </div>
+    </body>
+    <script type="text/javascript" src="/static/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/jquery.ui.widget.js"></script>
+    <script type="text/javascript" src="/static/jquery.fileupload.js"></script>
+    <script type="text/javascript" src="/static/imagesloaded.pkgd.js"></script>
+    <script type="text/javascript" src="/static/masonry.pkgd.js"></script>
+    <script type="text/javascript" src="/static/main.js"></script>
+</html>

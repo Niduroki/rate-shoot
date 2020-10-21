@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+{% if pw %}
+    <div>
+        Du verwendest das Standard Passwort. Du solltest es umgehend ändern auf <a href="/admin/password">dieser Seite</a>.
+    </div>
+{% endif %}
+
+<a href="/logout/">Logout</a> – <a href="/admin/password/">Passwort ändern</a> – <a href="/admin/prune/">Bilder säubern</a><br>
+<h2><a href="/admin/create/">Neues Shoot erstellen</a></h2>
+
+<ul>
+    {% for shoot in shoots %}
+    <li>
+        <a href="/admin/{{ shoot.link }}/" class="ui-btn ui-btn-inline">
+            example.com/admin/{{ shoot.link }}/
+        </a>
+        {% if shoot.done %} Grüner Rahmen {% else %} Roter Rahmen {% endif %}
+        – <a href="/admin/{{ shoot.link }}/delete/">Shoot löschen<a>
+    </li>
+    {% else %}
+        Keine aktiven Spiele.
+    {% endfor %}
+</ul>
+{% endblock %}

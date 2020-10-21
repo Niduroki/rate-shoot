@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Neues Shoot erstellen</h2>
+<form method="post">
+   Beschreibung: <input type="text" name="description"><br>
+   Maximale Anzahl Bilder (0=Kein Limit): <input type="number" name="limit"><br>
+   <input type="hidden" id="img_list" name="img_list">
+   <input type="submit">
+</form>
+<hr>
+Bilder hochladen: <input id="fileupload" type="file" name="files[]" data-url="/admin/upload/" multiple><br>
+<div id="progress"><div class="bar" style="width: 0%;"></div></div><br>
+{% endblock %}

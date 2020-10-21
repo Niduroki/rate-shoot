@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block topleft %}{{ shoot.description }} - TODO Filterfunktion einbauen. Filter nach Keep/Unsafe/Nein{% endblock %}
+{% block topright %}
+{% if shoot.max_images != 0 %}
+    {{ shoot.keep_count() }}/{{ shoot.max_images }}
+{% else %}
+    {{ shoot.keep_count() }} Bilder ausgewählt
+{% endif %}
+{% endblock %}
+
+{% block content %}
+
+<div class="pic-grid">
+{% for pic in pics %}
+    <div class="pic-grid-item pic">
+        <a href="/{{ shoot.link }}/{{ pic.filename }}/">
+            <img src="/img/{{ pic.filename }}" class="
+            {% if pic.status %}
+                border
+                {% if pic.status == 'yes' %}green
+                {% elif pic.status == 'unsafe' %}yellow
+                {% elif pic.status == 'no' %}red
+                {% endif %}
+            {% endif %}">
+        </a>
+    </div>
+{% else %}
+   Keine Bilder
+{% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,56 @@
+body {
+    background-color: #444;
+    color: #eee;
+}
+
+a:visited, a:hover, a:active, a:focus, a:link {
+   color: #aaf !important;
+   text-decoration: none !important;
+   outline: none !important;
+}
+
+.main {
+    /**/
+}
+
+header {
+    position: sticky;
+    color: #222;
+    height: 3em;
+    width: 100%;
+    top: 0;
+    z-index: 10;
+    min-height: 3em;
+    background-color: #ccc;
+}
+
+header .left {
+    left: 1%;
+    position: absolute;
+}
+header .right {
+    right: 1%;
+    position: absolute;
+}
+
+.bar {
+    height: 18px;
+    background: green;
+}
+
+.admin-pic, .pic {
+    display: inline-block;
+}
+
+.border.green { box-shadow: 0 1px 1.5em rgba(102,221,102,.8); }
+.border.yellow { box-shadow: 0 1px 1.5em rgba(221,221,0,.8); }
+.border.red { box-shadow: 0 1px 1.5em rgba(255,119,119,.8); }
+
+.pic-grid-item {
+    margin: 0.5%;
+    width: 24%;
+}
+
+.pic-grid-item img {
+    max-width: 100%;
+}

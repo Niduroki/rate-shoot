@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Du solltest einen Link bekommen haben, auf dieser Seite findest du nichts weiteres</h1>
+
+<form method="post" action="/">
+  {% if pw == "1" %}
+     Falsches Passwort!<br>
+  {% elif pw == "2" %}
+     Passwort geändert, bitte erneut anmelden!<br>
+  {% endif %}
+  Admin-Login<br>
+  Passwort: <input type="password" name="password"><br>
+  <input type="submit">
+</form>
+{% endblock %}

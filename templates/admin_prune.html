@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Thumbnails säubern?</h2>
+{% if count == -1 %}
+ Noch nicht gesäubert
+{% else %}
+ Gesäubert.<br>
+ {{ count }} DB Einträge ohne Bilder entfernt.<br>
+ {{ count2 }} Bilder ohne DB Eintrag entfernt.
+{% endif %}
+
+<form method="post">
+  <input type="submit" value="Bilder säubern">
+</form>
+<a href="/admin/">Zurück</a>
+{% endblock %}

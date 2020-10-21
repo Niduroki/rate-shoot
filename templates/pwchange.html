@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<a href="/admin/">Zurück zur Adminseite</a>
+<form method="post">
+  {% if wrongpw %}
+    Passwörter stimmen nicht überein!<br>
+  {% endif %}
+  Neues Passwort: <input type="password" name="password"><br>
+  Neues Passwort wiederholen: <input type="password" name="password2"><br>
+  <input type="submit">
+</form>
+{% endblock %}

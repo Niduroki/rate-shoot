@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<a href="/admin/">Zurück</a>
+<h2>Link zur Public Seite <input type="text" disabled value="example.com/{{ shoot.link }}/"></h2>
+<br>
+Bilder hochladen: <input id="fileupload-overview" type="file" name="files[]" data-url="/admin/upload/" multiple><br>
+<div id="progress"><div class="bar" style="width: 0%;"></div></div><br>
+<hr>
+
+<div class="pic-grid">
+{% for pic in pics %}
+    <div class="pic-grid-item admin-pic">
+       <img src="/img/{{ pic.filename }}" class="
+            {% if pic.status %}
+                border
+                {% if pic.status == 'yes' %}green
+                {% elif pic.status == 'unsafe' %}yellow
+                {% elif pic.status == 'no' %}red
+                {% endif %}
+            {% endif %}"><br>
+        <a href="/admin/{{ shoot.link }}/{{ pic.filename }}/">/admin/{{ shoot.link }}/{{ pic.filename }}/</a>
+    </div>
+{% else %}
+   Keine Bilder
+{% endfor %}
+</div>
+{% endblock %}
