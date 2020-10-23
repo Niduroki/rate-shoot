@@ -126,12 +126,14 @@ def shoot_picture(shoot_link, picturename):
         pic.status = rating
         db_session.commit()
 
-        done_check = db_session.query(db.Pictures).filter(
+        not_rated = db_session.query(db.Pictures).filter(
             db.Pictures.shoot_id == obj.id, db.Pictures.status == None
         ).count()
-        if done_check:
+        if not_rated == 0:
             obj.done = True
-            db_session.commit()
+        elif not_rated > 0:  # sanity
+            obj.done = False
+        db_session.commit()
 
         try:
             next_pic = pic.next_pic()
