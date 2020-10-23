@@ -1,6 +1,8 @@
 {% extends "base.html" %}
+{% block topleft %}<span class="title">Shooting Bilderwahl</span>{% endblock %}
+{% block topright %}<a href="/help/" class="btn green">Hilfe/Tutorial</a>{% endblock %}
 {% block content %}
-<h1>Du solltest einen Link bekommen haben, auf dieser Seite findest du nichts weiteres</h1>
+<h1>Du solltest einen Link bekommen haben.</h1>
 
 <form method="post" action="/">
   {% if pw == "1" %}
@@ -9,7 +11,6 @@
      Passwort geändert, bitte erneut anmelden!<br>
   {% endif %}
   Admin-Login<br>
-  Passwort: <input type="password" name="password"><br>
-  <input type="submit">
+  Passwort: <input type="password" name="password"> <input type="submit">
 </form>
 {% endblock %}

@@ -1,11 +1,18 @@
 {% extends "base.html" %}
-{% block topleft %}{{ shoot.description }} - TODO Filterfunktion einbauen. Filter nach Keep/Unsafe/Nein{% endblock %}
+{% block topleft %}<span class="title">{{ shoot.description }}</span>
+<a id="filter-yes" class="btn green">Filter</a>
+<a id="filter-unsafe" class="btn yellow">Filter</a>
+<a id="filter-no" class="btn red">Filter</a>
+<a id="filter-all" class="btn grey">Nur unbewertet</a>
+{% endblock %}
 {% block topright %}
+<span class="small-title">
 {% if shoot.max_images != 0 %}
     {{ shoot.keep_count() }}/{{ shoot.max_images }}
 {% else %}
-    {{ shoot.keep_count() }} Bilder ausgewählt
+    {{ shoot.keep_count() }}
 {% endif %}
+<small>Bilder ausgewählt</small></span>
 {% endblock %}
 
 {% block content %}

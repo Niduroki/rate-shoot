@@ -1,25 +1,36 @@
 {% extends "base.html" %}
+{% block topright %}
+<a href="/admin/prune/" class="btn yellow">Bilder säubern</a>
+<a href="/admin/password/" class="btn yellow">Passwort ändern</a>
+<a href="/logout/" class="btn yellow">Logout</a>
+{% endblock %}
+{% block topleft %}
+<span class="title">Admin Übersicht</span>
+{% endblock %}
 {% block content %}
 {% if pw %}
-    <div>
+    <div class="btn red">
         Du verwendest das Standard Passwort. Du solltest es umgehend ändern auf <a href="/admin/password">dieser Seite</a>.
     </div>
 {% endif %}
 
-<a href="/logout/">Logout</a> – <a href="/admin/password/">Passwort ändern</a> – <a href="/admin/prune/">Bilder säubern</a><br>
 <h2><a href="/admin/create/">Neues Shoot erstellen</a></h2>
 
-<ul>
+<div class="shoot-grid">
     {% for shoot in shoots %}
-    <li>
-        <a href="/admin/{{ shoot.link }}/" class="ui-btn ui-btn-inline">
-            example.com/admin/{{ shoot.link }}/
-        </a>
-        {% if shoot.done %} Grüner Rahmen {% else %} Roter Rahmen {% endif %}
-        – <a href="/admin/{{ shoot.link }}/delete/">Shoot löschen<a>
-    </li>
+    <div class="shoot-grid-item admin-pic">
+        <a href="/admin/{{ shoot.link }}/">
+            {% if shoot.pictures|length %}
+                <img src="/img/{{ shoot.pictures[0].filename }}" class="border
+                {% if shoot.done %} green {% else %} red {% endif %}">
+            {% else %}
+                Platzhalter Bild hier :)
+            {% endif %}
+        </a><br>
+        {{ shoot.description }} – <a href="/admin/{{ shoot.link }}/delete/">Shoot löschen</a>
+    </div>
     {% else %}
-        Keine aktiven Spiele.
+        Keine aktuellen Shootings.
     {% endfor %}
-</ul>
+</div>
 {% endblock %}

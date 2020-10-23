@@ -1,15 +1,43 @@
 {% extends "base.html" %}
-{% block content %}
-<img src="/img/{{ pic.filename }}">
-TODO zentrieren
-<hr>
+{% block topright %}
+<span class="small-title">
 {% if shoot.max_images != 0 %}
-    {{ shoot.keep_count() }}/{{ shoot.max_images }}<br>
+    {{ shoot.keep_count() }}/{{ shoot.max_images }}
+{% else %}
+    {{ shoot.keep_count() }}
 {% endif %}
-Rating: {{ pic.status }}<br>
-<button id="yes-btn">Keep</button>
-<button id="unsafe-btn">Unsafe</button>
-<button id="no-btn">Don't keep</button>
-
-<a href="{{ pic.next_pic_link() }}">Skip</a> – <a href="/{{ shoot.link }}/">Shoot-Übersicht</a>
+<small>Bilder ausgewählt</small></span>
+{% endblock %}
+{% block topleft %}<span class="title">{{ shoot.description }}</span>
+<a href="/{{ shoot.link }}/">Zurück zur Shoot-Übersicht</a>
+{% endblock %}
+{% block content %}
+<img class="focused
+{% if pic.status %}
+    border
+    {% if pic.status == 'yes' %}green
+    {% elif pic.status == 'unsafe' %}yellow
+    {% elif pic.status == 'no' %}red
+    {% endif %}
+{% endif %}
+" src="/img/{{ pic.filename }}">
+<div style="position: relative">
+    <div class="rating-btns">
+        <a id="yes-btn" class="btn green">Behalten</a>
+        <a id="unsafe-btn" class="btn yellow">Unsicher <small>(+ Kommentar)</small></a>
+        <a id="no-btn" class="btn red">Nicht behalten</a>
+        <a class="btn grey" href="{{ pic.next_pic_link() }}">
+            {% if pic.status %}
+                Nächstes Bild
+            {% else %}
+                Überspringen
+            {% endif %}
+        </a>
+    </div>
+    {% if pic.status == "unsafe" %}
+        <div class="comment-box">
+            Kommentar zum Bild: {{ pic.comment }}
+        </div>
+    {% endif %}
+</div>
 {% endblock %}
