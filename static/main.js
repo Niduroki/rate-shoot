@@ -6,6 +6,13 @@ $(function () {
     $grid.imagesLoaded().progress( function() {
         $grid.masonry('layout');
     });
+    var $shoot_grid = $(".shoot-grid").masonry({
+        itemSelector: '.shoot-grid-item',
+        percentPosition: true
+    });
+    $shoot_grid.imagesLoaded().progress( function() {
+        $grid.masonry('layout');
+    });
 
     $('#fileupload').fileupload({
         dataType: 'json',
@@ -106,5 +113,54 @@ $(function () {
                 },
             });
         }
+    });
+
+    $("#filter-yes").click(function(e){
+        if ($("#filter-yes").hasClass("disabled")) {
+            $("#filter-yes").removeClass("disabled");
+            $(".border.green").css("display", "inline-block");
+        } else {
+            $("#filter-yes").addClass("disabled");
+            $(".border.green").css("display", "none");
+        }
+        $grid.imagesLoaded().progress( function() {
+            $grid.masonry('layout');
+        });
+    });
+    $("#filter-unsafe").click(function(e){
+        if ($("#filter-unsafe").hasClass("disabled")) {
+            $("#filter-unsafe").removeClass("disabled");
+            $(".border.yellow").css("display", "inline-block");
+        } else {
+            $("#filter-unsafe").addClass("disabled");
+            $(".border.yellow").css("display", "none");
+        }
+        $grid.imagesLoaded().progress( function() {
+            $grid.masonry('layout');
+        });
+    });
+    $("#filter-no").click(function(e){
+        if ($("#filter-no").hasClass("disabled")) {
+            $("#filter-no").removeClass("disabled");
+            $(".border.red").css("display", "inline-block");
+        } else {
+            $("#filter-no").addClass("disabled");
+            $(".border.red").css("display", "none");
+        }
+        $grid.imagesLoaded().progress( function() {
+            $grid.masonry('layout');
+        });
+    });
+    $("#filter-all").click(function(e){
+        if ($("#filter-all").hasClass("disabled")) {
+            $("#filter-all").removeClass("disabled");
+            $(".border").css("display", "inline-block");
+        } else {
+            $("#filter-all").addClass("disabled");
+            $(".border").css("display", "none");
+        }
+        $grid.imagesLoaded().progress( function() {
+            $grid.masonry('layout');
+        });
     });
 });
