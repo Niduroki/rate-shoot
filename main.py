@@ -311,29 +311,28 @@ def admin_delete_picture(shoot_link, picturename):
     return jsonify(next=next_link)
 
 
-@app.route('/admin/<link:shoot_link>/delete/', methods=["get", "post"])
+@app.route('/admin/<link:shoot_link>/delete/', methods=["post", ])
 def admin_shoot_delete(shoot_link):
     if not check_login(session):
         abort(403)
 
-    if request.method == "GET":
-        return render_template("admin_shoot_delete.html")
-    elif request.method == "POST":
-        db_session = db.get_session()
-        try:
-            obj = db_session.query(db.Shoot).filter_by(link=shoot_link).one()
-        except NoResultFound:
-            abort(404)
-            raise
+    db_session = db.get_session()
+    try:
+        obj = db_session.query(db.Shoot).filter_by(link=shoot_link).one()
+    except NoResultFound:
+        abort(404)
+        raise
 
-        pics = db_session.query(db.Pictures).all()
-        for pic in pics:
-            picture_path = os.path.join(app.config['UPLOAD_FOLDER'], pic.filename)
+    for pic in obj.pictures:
+        picture_path = os.path.join(app.config['UPLOAD_FOLDER'], pic.filename)
+        try:
             os.unlink(picture_path)
-            db_session.delete(pic)
-        db_session.delete(obj)
-        db_session.commit()
-        return redirect(url_for(".admin"))
+        except FileNotFoundError:
+            pass
+        db_session.delete(pic)
+    db_session.delete(obj)
+    db_session.commit()
+    return redirect(url_for(".admin"))
     
 
 @app.route('/admin/upload/', methods=["post", ])
