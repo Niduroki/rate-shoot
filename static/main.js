@@ -18,8 +18,8 @@ $(function () {
         dataType: 'json',
         done: function (e, data) {
             $.each(data.result.files, function (index, file) {
-                $('<img>').attr("src", file.url).appendTo($('.main'));
-                $('<p></p>').text(file.name).appendTo($('.main'));
+                //$('<img>').attr("src", file.url).appendTo($('.main'));
+                $('<li></li>').text(file.name).appendTo($('#uploaded_list'));
                 old_val = $('#img_list').val();
                 if (old_val === "") {
                     new_val = file.name;
@@ -84,8 +84,8 @@ $(function () {
         });
     });
 
-    $("#unsafe-btn").click(function(e){
-        var comment = prompt("Warum unsicher?");
+    $("#unsafe-btn-submit").click(function(e){
+        var comment = $('#unsafe-comment').val();
         if (comment !== "") {
             $.ajax(".", {
                 data: {rating: "unsafe", comment: comment},

@@ -120,8 +120,9 @@ def shoot_picture(shoot_link, picturename):
         if rating not in ["yes", "unsafe", "no"]:
             abort(400)
 
-        if rating == "yes" and obj.keep_count() == obj.max_images:
-            return jsonify(error="Too many images to keep!"), 400
+        if obj.max_images > 0:
+            if rating == "yes" and obj.keep_count() == obj.max_images:
+                return jsonify(error="Too many images to keep!"), 400
 
         pic.status = rating
         db_session.commit()
@@ -300,7 +301,10 @@ def admin_delete_picture(shoot_link, picturename):
         next_link = url_for('.admin_shoot_overview', shoot_link=shoot_link)
 
     picture_path = os.path.join(app.config['UPLOAD_FOLDER'], pic.filename)
-    os.unlink(picture_path)
+    try:
+        os.unlink(picture_path)
+    except FileNotFoundError:
+        pass
     db_session.delete(pic)
     db_session.commit()
 

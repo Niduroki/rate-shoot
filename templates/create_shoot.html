@@ -1,13 +1,29 @@
 {% extends "base.html" %}
+{% block topright %}
+<a href="/admin/prune/" class="btn yellow">Bilder säubern</a>
+<a href="/admin/password/" class="btn yellow">Passwort ändern</a>
+<a href="/logout/" class="btn yellow">Logout</a>
+{% endblock %}
+{% block topleft %}
+<span class="title">Neues Shoot erstellen</span> <a href="/admin/">Zurück zur Adminseite</a>
+{% endblock %}
 {% block content %}
-<h2>Neues Shoot erstellen</h2>
 <form method="post">
-   Beschreibung: <input type="text" name="description"><br>
-   Maximale Anzahl Bilder (0=Kein Limit): <input type="number" name="limit"><br>
+   <table>
+   <tr>
+      <td>Beschreibung</td><td><input required type="text" name="description"></td>
+   </tr>
+   <tr>
+      <td>Maximale Anzahl Bilder (0=Kein Limit)</td><td><input required type="number" name="limit" value="0"></td>
+   </tr>
+   </table>
    <input type="hidden" id="img_list" name="img_list">
    <input type="submit">
 </form>
-<hr>
 Bilder hochladen: <input id="fileupload" type="file" name="files[]" data-url="/admin/upload/" multiple><br>
 <div id="progress"><div class="bar" style="width: 0%;"></div></div><br>
+<div>
+   Hochgeladene Bilder:
+   <ul id="uploaded_list"></ul>
+</div>
 {% endblock %}

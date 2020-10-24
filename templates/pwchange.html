@@ -1,12 +1,25 @@
 {% extends "base.html" %}
+{% block topright %}
+<a href="/admin/prune/" class="btn yellow">Bilder säubern</a>
+<a href="/admin/password/" class="btn yellow">Passwort ändern</a>
+<a href="/logout/" class="btn yellow">Logout</a>
+{% endblock %}
+{% block topleft %}
+<span class="title">Passwort ändern</span> <a href="/admin/">Zurück zur Adminseite</a>
+{% endblock %}
 {% block content %}
-<a href="/admin/">Zurück zur Adminseite</a>
 <form method="post">
   {% if wrongpw %}
     Passwörter stimmen nicht überein!<br>
   {% endif %}
-  Neues Passwort: <input type="password" name="password"><br>
-  Neues Passwort wiederholen: <input type="password" name="password2"><br>
-  <input type="submit">
+  <table>
+    <tr>
+      <td>Neues Passwort</td><td><input type="password" name="password"></td>
+    </tr>
+    <tr>
+      <td>Neues Passwort wiederholen</td><td><input type="password" name="password2"></td>
+    </tr>
+  </table>
+  <input type="submit" class="btn green">
 </form>
 {% endblock %}

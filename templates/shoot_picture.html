@@ -24,7 +24,7 @@
 <div style="position: relative">
     <div class="rating-btns">
         <a id="yes-btn" class="btn green">Behalten</a>
-        <a id="unsafe-btn" class="btn yellow">Unsicher <small>(+ Kommentar)</small></a>
+        <a href="#unsafe-modal" rel="modal:open" class="btn yellow">Unsicher <small>(+ Kommentar)</small></a>
         <a id="no-btn" class="btn red">Nicht behalten</a>
         <a class="btn grey" href="{{ pic.next_pic_link() }}">
             {% if pic.status %}
@@ -34,10 +34,11 @@
             {% endif %}
         </a>
     </div>
-    {% if pic.status == "unsafe" %}
-        <div class="comment-box">
-            Kommentar zum Bild: {{ pic.comment }}
-        </div>
-    {% endif %}
+</div>
+
+<div id="unsafe-modal" class="modal">
+  <div class="title">Erkläre warum "Unsicher"?</div>
+  <textarea id="unsafe-comment">{% if pic.status == "unsafe" %}{{ pic.comment }}{% endif %}</textarea>
+  <button class="btn yellow" id="unsafe-btn-submit">Senden</button>
 </div>
 {% endblock %}
