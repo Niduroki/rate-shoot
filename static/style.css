@@ -131,13 +131,13 @@ header .right {
 }
 
 .modal { color: #333; }
-
-#unsafe-modal .title {
+.modal .title {
     font-size: 1.5em;
     margin-bottom: .5em;
 }
+.modal .btn { float: right; }
+
 #unsafe-modal textarea {
     width: 99%;
     min-height: 5em;
 }
-#unsafe-modal .btn { float: right; }

@@ -1,16 +1,23 @@
 {% extends "base.html" %}
 {% block topleft %}<span class="title">Shooting Bilderwahl</span>{% endblock %}
-{% block topright %}<a href="/help/" class="btn green">Hilfe/Tutorial</a>{% endblock %}
+{% block topright %}
+<a href="/help/" class="btn green">Hilfe/Tutorial</a>
+<a href="#admin-login" rel="modal:open" class="btn yellow">Admin Login</a>
+{% endblock %}
 {% block content %}
 <h1>Du solltest einen Link bekommen haben.</h1>
+<p>Auf dieser Seite gibt es nichts zu sehen.</p>
 
-<form method="post" action="/">
-  {% if pw == "1" %}
-     Falsches Passwort!<br>
-  {% elif pw == "2" %}
-     Passwort geändert, bitte erneut anmelden!<br>
-  {% endif %}
-  Admin-Login<br>
+{% if pw == "1" %}
+<span class="btn red">Falsches Passwort!</span>
+{% elif pw == "2" %}
+<span class="btn green">Passwort geändert, bitte erneut anmelden!</span>
+{% endif %}
+
+<div id="admin-login" class="modal">
+  <form method="post" action="/">
+      <div class="title">Admin-Login</div>
   Passwort: <input type="password" name="password"> <input type="submit">
 </form>
+</div>
 {% endblock %}
