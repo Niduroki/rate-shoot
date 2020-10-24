@@ -6,12 +6,12 @@
 {% else %}
     {{ shoot.keep_count() }}
 {% endif %}
-<small>Bilder wurden gewählt</small></span>
-<a href="/admin/" class="btn yellow">Shoot Übersicht</a>
+<small>Bilder gewählt</small></span>
+<a href="/admin/" class="btn yellow">Übersicht</a>
 <a href="/logout/" class="btn yellow">Logout</a>
 {% endblock %}
 {% block topleft %}<span class="title">{{ shoot.description }}</span>
-<a href="/admin/{{ shoot.link }}/">Zurück zur Shoot-Übersicht</a>
+<a href="/admin/{{ shoot.link }}/">Zurück zum Shoot</a>
 {% endblock %}
 {% block content %}
 <img class="focused

@@ -135,9 +135,11 @@ $(function () {
     $("#filter-yes").click(function(e){
         if ($("#filter-yes").hasClass("disabled")) {
             $("#filter-yes").removeClass("disabled");
+            $("#filter-yes").html(createIcon("show", "16"));
             $(".border.green").css("display", "inline-block");
         } else {
             $("#filter-yes").addClass("disabled");
+            $("#filter-yes").html(createIcon("hide", "16"));
             $(".border.green").css("display", "none");
         }
         $grid.imagesLoaded().progress( function() {
@@ -147,9 +149,11 @@ $(function () {
     $("#filter-unsafe").click(function(e){
         if ($("#filter-unsafe").hasClass("disabled")) {
             $("#filter-unsafe").removeClass("disabled");
+            $("#filter-unsafe").html(createIcon("show", "16"));
             $(".border.yellow").css("display", "inline-block");
         } else {
             $("#filter-unsafe").addClass("disabled");
+            $("#filter-unsafe").html(createIcon("hide", "16"));
             $(".border.yellow").css("display", "none");
         }
         $grid.imagesLoaded().progress( function() {
@@ -159,9 +163,11 @@ $(function () {
     $("#filter-no").click(function(e){
         if ($("#filter-no").hasClass("disabled")) {
             $("#filter-no").removeClass("disabled");
+            $("#filter-no").html(createIcon("show", "16"));
             $(".border.red").css("display", "inline-block");
         } else {
             $("#filter-no").addClass("disabled");
+            $("#filter-no").html(createIcon("hide", "16"));
             $(".border.red").css("display", "none");
         }
         $grid.imagesLoaded().progress( function() {
@@ -171,13 +177,19 @@ $(function () {
     $("#filter-all").click(function(e){
         if ($("#filter-all").hasClass("disabled")) {
             $("#filter-all").removeClass("disabled");
+            $("#filter-all").text("Alles");
             $(".border").css("display", "inline-block");
         } else {
             $("#filter-all").addClass("disabled");
+            $("#filter-all").text("Unbewertet");
             $(".border").css("display", "none");
         }
         $grid.imagesLoaded().progress( function() {
             $grid.masonry('layout');
         });
     });
+
+    function createIcon(icon, size) {
+        return '<svg class="genericons-neue genericons-neue-hide" width="' + size + 'px" height="' + size + 'px"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/static/genericons-neue.svg#' + icon + '"></use></svg>';
+    }
 });

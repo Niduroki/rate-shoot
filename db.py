@@ -42,7 +42,7 @@ class Pictures(Base):
 
     id = Column(Integer, primary_key=True)
     shoot_id = Column(Integer, ForeignKey('shoot.id'))
-    filename = Column(String)
+    filename = Column(String, unique=True)
     status = Column(String)  # yes/no/unsafe/Null
     comment = Column(String)
 

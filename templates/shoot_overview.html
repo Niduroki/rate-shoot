@@ -1,9 +1,5 @@
 {% extends "base.html" %}
 {% block topleft %}<span class="title">{{ shoot.description }}</span>
-<a id="filter-yes" class="btn green">Filter</a>
-<a id="filter-unsafe" class="btn yellow">Filter</a>
-<a id="filter-no" class="btn red">Filter</a>
-<a id="filter-all" class="btn grey">Nur unbewertet</a>
 {% endblock %}
 {% block topright %}
 <span class="small-title">
@@ -12,7 +8,11 @@
 {% else %}
     {{ shoot.keep_count() }}
 {% endif %}
-<small>Bilder ausgewählt</small></span>
+<small>Bilder gewählt</small></span>
+<a id="filter-yes" class="btn green"><svg class="genericons-neue genericons-neue-show" width="16px" height="16px"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/static/genericons-neue.svg#show"></use></svg></a>
+<a id="filter-unsafe" class="btn yellow"><svg class="genericons-neue genericons-neue-show" width="16px" height="16px"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/static/genericons-neue.svg#show"></use></svg></a>
+<a id="filter-no" class="btn red"><svg class="genericons-neue genericons-neue-show" width="16px" height="16px"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/static/genericons-neue.svg#show"></use></svg></a>
+<a id="filter-all" class="btn grey">Alles</a>
 {% endblock %}
 
 {% block content %}
