@@ -71,8 +71,8 @@ Shoot.pictures = relationship("Pictures", back_populates="shoot")
 def get_session():
     try:
         db_uri = current_app.config["DATABASE"]
-    except KeyError:
-        db_uri = 'sqlite:///data/rate.db'
+    except:
+        db_uri = 'sqlite:////rate-shoot/data/rate.db'
     engine = create_engine(db_uri)
     Base.metadata.create_all(engine)
     return sessionmaker(bind=engine)()
