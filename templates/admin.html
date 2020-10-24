@@ -5,7 +5,7 @@
 <a href="/logout/" class="btn yellow">Logout</a>
 {% endblock %}
 {% block topleft %}
-<span class="title">Admin Übersicht</span>
+<span class="title">Admin Übersicht</span> <a href="/admin/create/">Neues Shoot erstellen</a>
 {% endblock %}
 {% block content %}
 {% if pw %}
@@ -13,8 +13,6 @@
         Du verwendest das Standard Passwort. Du solltest es umgehend ändern auf <a href="/admin/password">dieser Seite</a>.
     </div>
 {% endif %}
-
-<h2><a href="/admin/create/">Neues Shoot erstellen</a></h2>
 
 <div class="shoot-grid">
     {% for shoot in shoots %}
@@ -24,10 +22,15 @@
                 <img src="/img/{{ shoot.pictures[0].filename }}" class="border
                 {% if shoot.done %} green {% else %} red {% endif %}">
             {% else %}
-                Platzhalter Bild hier :)
+                Platzhalter
             {% endif %}
-        </a><br>
-        {{ shoot.description }} – <a href="#delete-modal-{{ shoot.link }}" rel="modal:open" class="btn red">Shoot löschen</a>
+        </a>
+        <div>
+            <div class="half-width">{{ shoot.description }}</div>
+            <div class="half-width">
+             <a href="#delete-modal-{{ shoot.link }}" rel="modal:open" class="btn red">Shoot löschen</a>
+            </div>
+        </div>
     </div>
     {% else %}
         Keine aktuellen Shootings.
