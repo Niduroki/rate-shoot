@@ -59,6 +59,14 @@ $(function () {
         }
     });
 
+    $("#public_link").click(function(){
+        $(this).focus();
+        $(this).select();
+        document.execCommand('copy');
+        $('#copy-confirm').show();
+        $('#copy-confirm').fadeOut(2000);
+    });
+
     $("#yes-btn").click(function(e){
         $.ajax(".", {
             data: {rating: "yes"},
@@ -99,6 +107,16 @@ $(function () {
                 },
             });
         }
+    });
+
+    $("#prune-btn").click(function(e){
+        $.post("/admin/prune/", "", function(data){
+            console.log(data);
+            $("#prune-btn").hide();
+            $('#prune-count-1').text(data.count);
+            $('#prune-count-2').text(data.count2);
+            $("#prune-confirm").show();
+        });
     });
 
     $("#delete-img").click(function(e){

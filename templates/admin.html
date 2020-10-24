@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block topright %}
-<a href="/admin/prune/" class="btn yellow">Bilder säubern</a>
+<a href="#prune-modal" rel="modal:open" class="btn yellow">Bilder säubern</a>
 <a href="/admin/password/" class="btn yellow">Passwort ändern</a>
 <a href="/logout/" class="btn yellow">Logout</a>
 {% endblock %}
@@ -43,4 +43,12 @@
     </form>
 </div>
 {% endfor %}
+<div id="prune-modal" class="modal">
+    <div class="title">Thumbnails säubern?</div>
+    <div id="prune-confirm">
+        <span id="prune-count-1">count</span> DB Einträge ohne Bilder entfernt.<br>
+        <span id="prune-count-2">count2</span> Bilder ohne DB Eintrag entfernt.
+    </div>
+    <button id="prune-btn" type="submit" class="btn red">Bilder säubern</button>
+</div>
 {% endblock %}

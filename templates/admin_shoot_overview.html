@@ -13,27 +13,17 @@
     {{ shoot.keep_count() }}
 {% endif %}
 <small>Bilder wurden gewählt</small></span>
+<a href="#edit-shoot-modal" rel="modal:open" class="btn green">Shoot bearbeiten</a>
 <a href="/admin/" class="btn yellow">Shoot Übersicht</a>
 <a href="/logout/" class="btn yellow">Logout</a>
 {% endblock %}
 {% block content %}
 <div class="top-margin">
     <div class="half-width">
-        <span class="title">Link zur Public Seite</span>
-        <input type="text" disabled value="example.com/{{ shoot.link }}/"> TODO onclick: In Zwischenablage kopieren
-        <br>
-        <form method="post">
-         <table>
-         <tr>
-            <td>Beschreibung</td><td><input required type="text" name="description" value="{{ shoot.description }}"></td>
-         </tr>
-         <tr>
-            <td>Maximale Bilder (0=Kein Limit)</td><td><input required type="number" name="limit" value="{{ shoot.max_images }}"></td>
-         </tr>
-         </table>
-         <input type="hidden" id="img_list" name="img_list">
-         <input type="submit"> TODO functionality
-      </form>
+        <div>
+            <span class="title">Link zur Public Seite</span> <span id="copy-confirm">Kopiert!</span>
+        </div>
+        <input type="text" id="public_link" readonly value="{{ config.SITE_URL }}/{{ shoot.link }}/">
     </div>
     <input id="shoot_link_help" type="hidden" value="{{ shoot.link }}"><!-- required for fileupload in here -->
     <div class="half-width">
@@ -60,5 +50,20 @@
 {% else %}
    Keine Bilder
 {% endfor %}
+</div>
+
+<div id="edit-shoot-modal" class="modal">
+    <div class="title">Shoot bearbeiten</div>
+    <form method="post">
+         <table>
+         <tr>
+            <td>Beschreibung</td><td><input required type="text" name="description" value="{{ shoot.description }}"></td>
+         </tr>
+         <tr>
+            <td>Maximale Bilder (0=Kein Limit)</td><td><input required type="number" name="limit" value="{{ shoot.max_images }}"></td>
+         </tr>
+         </table>
+         <input type="submit">
+    </form>
 </div>
 {% endblock %}

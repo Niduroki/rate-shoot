@@ -18,6 +18,7 @@ try:
     app.secret_key = config.SECRET_KEY
 except ModuleNotFoundError:
     app.config['UPLOAD_FOLDER'] = './data/img'
+    app.config['SITE_URL'] = "example.com"
     app.secret_key = b'tetfhgdfghdfghfdghst'
     # TODO hier eigenständig einen secret_key erstellen? niemand trauert abgelaufenen sessions nach bei der app
 
@@ -252,19 +253,28 @@ def admin_shoot_overview(shoot_link):
         raise
 
     if request.method == "GET":
-        pics = db_session.query(db.Pictures).filter_by(shoot=obj).all()
-        return render_template("admin_shoot_overview.html", shoot=obj, pics=pics)
+        return render_template("admin_shoot_overview.html", shoot=obj, pics=obj.pictures)
     elif request.method == "POST":
         try:
-            images = request.form['img_list'].split(";")
-            for image in images:
-                pic_obj = db.Pictures(shoot=obj, filename=image)
-                db_session.add(pic_obj)
+            # Route 1: Updating Data
+            description = request.form['description']
+            limit = request.form['limit']
+            obj.description = description
+            obj.max_images = limit
             db_session.commit()
+            return redirect(url_for(".admin_shoot_overview", shoot_link=shoot_link))
         except KeyError:
-            abort(400)
+            # Route 2: Uploading images
+            try:
+                images = request.form['img_list'].split(";")
+                for image in images:
+                    pic_obj = db.Pictures(shoot=obj, filename=image)
+                    db_session.add(pic_obj)
+                db_session.commit()
 
-        return jsonify(data="success")
+                return jsonify(data="success")
+            except KeyError:
+                abort(400)
 
 
 @app.route('/admin/<link:shoot_link>/<string:picturename>/')
@@ -353,30 +363,27 @@ def admin_upload():
         }, ])
 
 
-@app.route('/admin/prune/', methods=["get", "post"])
+@app.route('/admin/prune/', methods=["post", ])
 def admin_prune():
     if not check_login(session):
         abort(403)
-        
-    if request.method == "GET":
-        return render_template("admin_prune.html", count=-1)
-    elif request.method == "POST":
-        db_session = db.get_session()
-        pics = db_session.query(db.Pictures).all()
-        count = 0
-        for pic in pics:
-            picture_path = os.path.join(app.config['UPLOAD_FOLDER'], pic.filename)
-            if not os.path.isfile(picture_path):
-                count += 1
-                db_session.delete(pic)
-        db_session.commit()
 
-        count2 = 0
-        for pic in os.listdir(app.config['UPLOAD_FOLDER']):
-            if db_session.query(db.Pictures).filter_by(filename=pic).all() == []:
-                os.unlink(os.path.join(app.config['UPLOAD_FOLDER'], pic))
-                count2 += 1
-        return render_template("admin_prune.html", count=count, count2=count2)
+    db_session = db.get_session()
+    pics = db_session.query(db.Pictures).all()
+    count = 0
+    for pic in pics:
+        picture_path = os.path.join(app.config['UPLOAD_FOLDER'], pic.filename)
+        if not os.path.isfile(picture_path):
+            count += 1
+            db_session.delete(pic)
+    db_session.commit()
+
+    count2 = 0
+    for pic in os.listdir(app.config['UPLOAD_FOLDER']):
+        if db_session.query(db.Pictures).filter_by(filename=pic).all() == []:
+            os.unlink(os.path.join(app.config['UPLOAD_FOLDER'], pic))
+            count2 += 1
+    return jsonify(count=count, count2=count2)
     
 
 @app.route('/img/<filename>')
