@@ -16,6 +16,10 @@ try:
     app.config['UPLOAD_FOLDER'] = config.UPLOAD_FOLDER
     app.config['SITE_URL'] = config.SITE_URL
     app.secret_key = config.SECRET_KEY
+    try:
+        app.config["DATABASE"] = config.DATABASE
+    except AttributeError:
+        pass
 except ModuleNotFoundError:
     data_path = os.path.join(os.path.abspath(os.path.curdir), "data/")
     if not os.path.exists(os.path.join(data_path, "img/")):
