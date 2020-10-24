@@ -1,6 +1,6 @@
 venv
 tmp
-rate.db
+data
 __pycache__
 .pytest_cache
 .idea

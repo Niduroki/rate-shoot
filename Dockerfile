@@ -3,6 +3,7 @@ FROM python:3-slim
 RUN mkdir /rate-shoot/
 WORKDIR /rate-shoot/
 COPY . /rate-shoot/
+RUN mkdir /rate-shoot/data/
 
 VOLUME ["/rate-shooot/data/"]
 
