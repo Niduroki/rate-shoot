@@ -75,7 +75,17 @@ $(function () {
                 window.location = d.next;
             },
             error: function(d){
-                alert("Fehler! " + d.responseJSON.error);
+                if (d.responseJSON.error === "Too many images to keep!") {
+                    $("#yes-btn").addClass("disabled").css("cursor", "not-allowed");
+                    $("#yes-btn").addClass("shake");
+                    $("header .right .small-title").addClass("shake");
+                    setTimeout(function(){
+                        $("#yes-btn").removeClass("shake");
+                        $("header .right .small-title").removeClass("shake");
+                    }, 400);
+                } else {
+                    alert("Fehler! " + d.responseJSON.error);
+                }
             },
         });
     });
