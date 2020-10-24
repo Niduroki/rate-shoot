@@ -4,7 +4,7 @@ body {
     font-family: sans;
 }
 
-.main img.focused {
+.focused, .tutorial img, .tutorial video {
     display: block;
     margin: 2em auto;
     max-width: 90%;
@@ -164,4 +164,8 @@ header .right {
 
 #prune-confirm {
     display: none;
+}
+
+.tutorial {
+    margin: 2em;
 }

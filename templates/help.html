@@ -1,6 +1,47 @@
 {% extends "base.html" %}
+{% block topleft %}<span class="title">Shooting Bilderwahl</span>{% endblock %}
+{% block topright %}
+<a href="/help/" class="btn green">Hilfe/Tutorial</a>
+<a href="#admin-login" rel="modal:open" class="btn yellow">Admin Login</a>
+{% endblock %}
 {% block content %}
-<h2>Hilfe</h2>
-Tutorial
-TODO
+<div class="tutorial">
+    <h1>Hilfe</h1>
+    <p>
+        Um diese Seite verwenden zu können musst du den Link verwenden, den ich dir privat geschickt habe.
+    </p>
+    <img src="/static/tut1.png">
+    <p>
+        Dieser Link führt dich auf eine Übersicht mit Thumbnails aller Bilder.<br>
+        Oben rechts steht , ob es ein Limit gibt, wie viele Bilder du wählen darfst.
+    </p>
+    <img src="/static/tut2.jpg">
+    <p>
+        Klickst du auf ein Bild kommst du auf die Einzelansicht wo du auswählen musst, ob du ein Bild behalten
+        möchtest (es also von mir bearbeitet wird, etc.), oder nicht.
+    </p>
+    <img src="/static/tut3.jpg">
+    <p>
+        Die Auswahlmöglichkeit "Unsicher + Kommentar" ist für Ausnahmen. Bist du dir bei allen/vielen Bildern unsicher
+        schreib mir bitte. Unsicher soll heißen, dass du zu <strong>diesem</strong> Bild etwas zu sagen hast (dafür ist
+        der Kommentar).
+    </p>
+    <p>
+        Mit den Filter Knöpfen oben rechts kannst du nach Behalten/Unsicher/Nicht behalten und unbewerteten
+        Bildern filtern. Bilder mit grünem Rahmen werden behalten, Bilder mit rotem Rahmen nicht, Bilder mit gelben
+        Rahmen sind unsicher.
+    </p>
+    <video src="/static/tut4.webm" autoplay loop></video>
+    <p>
+        Sind alle Bilder bewertet sei so nett und schreibe mir bitte.
+    </p>
+    <img src="/static/tut5.png">
+</div>
+
+<div id="admin-login" class="modal">
+  <form method="post" action="/">
+      <div class="title">Admin-Login</div>
+  Passwort: <input type="password" name="password"> <input type="submit">
+</form>
+</div>
 {% endblock %}
