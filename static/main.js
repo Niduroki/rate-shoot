@@ -43,9 +43,10 @@ $(function () {
         done: function (e, data) {
             $.each(data.result.files, function (index, file) {
                 $.post(".", {img_list: file.name}, function(data){
-                    // TODO hier jedes Bild dynamisch (besser als jetzt) ankleben
-                    $('<img>').attr("src", file.url).appendTo($('.main'));
-                    $('<p></p>').text(file.name).appendTo($('.main'));
+                    var img_link = "/admin/" + $("#shoot_link_help").val() + "/" + file.name + "/";
+                    var img_tag = "<img src='" + file.url + "'>";
+                    var new_elem = $("<div class='pic-grid-item pic'><a href='" + img_link + "'>" + img_tag + "</a></div>");
+                    $grid.append(new_elem).masonry('appended', new_elem);
                 });
             });
         },
@@ -101,18 +102,16 @@ $(function () {
     });
 
     $("#delete-img").click(function(e){
-        if (confirm("Dieses Bild löschen?")) {
-            var href = $("#delete-img").data("target");
-            $.ajax(href, {
-                type: "delete",
-                success: function(d){
-                    window.location = d.next;
-                },
-                error: function(d){
-                    alert("Fehler! " + d.responseJSON.error);
-                },
-            });
-        }
+        var href = $("#delete-img").data("target");
+        $.ajax(href, {
+            type: "delete",
+            success: function(d){
+                window.location = d.next;
+            },
+            error: function(d){
+                alert("Fehler! " + d.responseJSON.error);
+            },
+        });
     });
 
     $("#filter-yes").click(function(e){

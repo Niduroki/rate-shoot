@@ -1,17 +1,49 @@
 {% extends "base.html" %}
-{% block content %}
-<img src="/img/{{ pic.filename }}">
-TODO zentrieren
-<hr>
+{% block topright %}
+<span class="small-title">
 {% if shoot.max_images != 0 %}
-    {{ shoot.keep_count() }}/{{ shoot.max_images }} –
+    {{ shoot.keep_count() }}/{{ shoot.max_images }}
+{% else %}
+    {{ shoot.keep_count() }}
 {% endif %}
-Rating: {{ pic.status }}
-{% if pic.status == "unsafe" %}
- <br>Unsicher Kommentar: {{ pic.comment }}
+<small>Bilder wurden gewählt</small></span>
+<a href="/admin/" class="btn yellow">Shoot Übersicht</a>
+<a href="/logout/" class="btn yellow">Logout</a>
+{% endblock %}
+{% block topleft %}<span class="title">{{ shoot.description }}</span>
+<a href="/admin/{{ shoot.link }}/">Zurück zur Shoot-Übersicht</a>
+{% endblock %}
+{% block content %}
+<img class="focused
+{% if pic.status %}
+    border
+    {% if pic.status == 'yes' %}green
+    {% elif pic.status == 'unsafe' %}yellow
+    {% elif pic.status == 'no' %}red
+    {% endif %}
 {% endif %}
-<br>
+" src="/img/{{ pic.filename }}">
 
-<a href="/admin/{{ pic.next_pic_link() }}">Next</a> – <a href="/admin/{{ shoot.link }}/">Shoot-Übersicht</a> –
-<button id="delete-img" data-target="/admin/{{ shoot.link }}/{{ pic.filename }}/delete/">Löschen</button>
+<div style="position: relative">
+    <div class="rating-btns">
+        <a href="#delete-modal" rel="modal:open" class="btn red">Bild löschen</a>
+        {% if pic.status == "unsafe" %}
+            <a href="#unsafe-modal" rel="modal:open" class="btn yellow">Kommentar anzeigen</a>
+        {% endif %}
+        <a class="btn grey" href="/admin/{{ pic.next_pic_link() }}">Nächstes Bild</a>
+    </div>
+</div>
+
+
+<div id="delete-modal" class="modal">
+    <div class="title">Dieses Bild wirklich löschen?</div>
+    <button id="delete-img" class="btn red" data-target="/admin/{{ shoot.link }}/{{ pic.filename }}/delete/">Bild Löschen</button>
+</div>
+
+{% if pic.status == "unsafe" %}
+<div id="unsafe-modal" class="modal">
+  <div class="title">Unsicher-Kommentar</div>
+  <textarea id="unsafe-comment" disabled>{{ pic.comment }}</textarea>
+</div>
+{% endif %}
 {% endblock %}

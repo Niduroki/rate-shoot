@@ -27,10 +27,20 @@
                 Platzhalter Bild hier :)
             {% endif %}
         </a><br>
-        {{ shoot.description }} – <a href="/admin/{{ shoot.link }}/delete/">Shoot löschen</a>
+        {{ shoot.description }} – <a href="#delete-modal-{{ shoot.link }}" rel="modal:open" class="btn red">Shoot löschen</a>
     </div>
     {% else %}
         Keine aktuellen Shootings.
     {% endfor %}
 </div>
+
+
+{% for shoot in shoots %}
+<div id="delete-modal-{{ shoot.link }}" class="modal">
+  <div class="title">Shoot "{{ shoot.description }}" und Bilder löschen?</div>
+    <form method="post" action="/admin/{{ shoot.link }}/delete/">
+        <input type="submit" class="btn red" value="Löschen">
+    </form>
+</div>
+{% endfor %}
 {% endblock %}

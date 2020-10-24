@@ -141,3 +141,13 @@ header .right {
     width: 99%;
     min-height: 5em;
 }
+
+.form, .top-margin {
+    margin-top: 1em;
+}
+.half-width {
+    display: inline-grid;
+    width: 47%;
+    margin-left: 1%;
+    margin-right: 1%;
+}
