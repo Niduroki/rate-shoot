@@ -1,12 +1,12 @@
 FROM python:3-slim
 
-RUN mkdir /rate-shooot/
-WORKDIR /rate-shooot/
-COPY . /rate-shooot/
+RUN mkdir /rate-shoot/
+WORKDIR /rate-shoot/
+COPY . /rate-shoot/
 
 VOLUME ["/rate-shooot/data/"]
 
-RUN apt-get update && apt-get install -y gcc && pip install -r /dbakel/requirements.txt
+RUN apt-get update && apt-get install -y gcc && pip install -r /rate-shoot/requirements.txt
 
 EXPOSE 80
 
