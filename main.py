@@ -17,10 +17,14 @@ try:
     app.config['SITE_URL'] = config.SITE_URL
     app.secret_key = config.SECRET_KEY
 except ModuleNotFoundError:
-    app.config['UPLOAD_FOLDER'] = './data/img'
-    app.config['SITE_URL'] = "example.com"
-    app.secret_key = b'tetfhgdfghdfghfdghst'
-    # TODO hier eigenständig einen secret_key erstellen? niemand trauert abgelaufenen sessions nach bei der app
+    data_path = os.path.join(os.path.abspath(os.path.curdir), "data/")
+    if not os.path.exists(os.path.join(data_path, "img/")):
+        os.mkdir(os.path.join(data_path, "img/"))
+    with open(data_path + "config.py", "w") as f:
+        f.write("UPLOAD_FOLDER = '" + os.path.join(data_path, "img/") + "'\n")
+        f.write("SITE_URL = 'change.me.in.config.py'\n")
+        f.write("SECRET_KEY = " + str(os.urandom(20)) + "\n")
+    db.get_session()
 
 
 class LinkConverter(BaseConverter):
