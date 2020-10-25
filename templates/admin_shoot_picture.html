@@ -43,7 +43,7 @@
 {% if pic.status == "unsafe" %}
 <div id="unsafe-modal" class="modal">
   <div class="title">Unsicher-Kommentar</div>
-  <textarea id="unsafe-comment" disabled>{{ pic.comment }}</textarea>
+  <textarea id="unsafe-comment" readonly>{{ pic.comment }}</textarea>
 </div>
 {% endif %}
 {% endblock %}

@@ -130,15 +130,27 @@ header .right {
     max-width: 100%;
 }
 
-.modal { color: #333; }
+.modal {
+    color: #333;
+    /*overflow-y: scroll;
+    max-height: 80%;*/
+}
 .modal .title {
     font-size: 1.5em;
     margin-bottom: .5em;
 }
 .modal .btn { float: right; }
 
-#unsafe-modal textarea {
-    width: 99%;
+.modal ul {
+    padding-left: 0;
+    /*overflow-y: scroll;*/
+    overflow-x: hidden;
+    max-height: 20em;
+}
+.modal ul li { list-style-type: none;}
+
+.modal textarea {
+    width: 98%;
     min-height: 5em;
 }
 
@@ -151,15 +163,22 @@ header .right {
     margin-left: 1%;
     margin-right: 1%;
 }
-.half-width .title {
+.half-width .title, .third-width .title {
     font-size: 1.5em;
     width: 70%;
     display: inline-block;
 }
-.half-width #copy-confirm {
+.third-width #copy-confirm {
     float: right;
     width: 25%;
     display: none;
+}
+
+.third-width {
+    display: inline-grid;
+    width: 30%;
+    margin-left: 1%;
+    margin-right: 1%;
 }
 
 #prune-confirm {

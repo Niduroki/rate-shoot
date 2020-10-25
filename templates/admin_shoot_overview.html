@@ -13,22 +13,25 @@
 <a id="filter-unsafe" class="btn yellow"><svg class="genericons-neue genericons-neue-show" width="16px" height="16px"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/static/genericons-neue.svg#show"></use></svg></a>
 <a id="filter-no" class="btn red"><svg class="genericons-neue genericons-neue-show" width="16px" height="16px"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/static/genericons-neue.svg#show"></use></svg></a>
 <a id="filter-all" class="btn grey">Alles</a>
-<a href="#edit-shoot-modal" rel="modal:open" class="btn green">Shoot bearbeiten</a>
 <a href="/admin/" class="btn yellow">Übersicht</a>
 <a href="/logout/" class="btn yellow">Logout</a>
 {% endblock %}
 {% block content %}
 <div class="top-margin">
-    <div class="half-width">
+    <div class="third-width">
         <div>
             <span class="title">Link zur Public Seite</span> <span id="copy-confirm">Kopiert!</span>
         </div>
         <input type="text" id="public_link" readonly value="{{ config.SITE_URL }}/{{ shoot.link }}/">
     </div>
     <input id="shoot_link_help" type="hidden" value="{{ shoot.link }}"><!-- required for fileupload in here -->
-    <div class="half-width">
+    <div class="third-width">
         Mehr Bilder hochladen<input id="fileupload-overview" type="file" name="files[]" data-url="/admin/upload/" multiple><br>
         <div id="progress"><div class="bar" style="width: 0%;"></div></div>
+    </div>
+    <div class="third-width">
+        <a href="#keep-modal" rel="modal:open" class="btn green" style="margin-bottom: .2em;">Keep/Unsicher Dateinamen</a>
+        <a href="#edit-shoot-modal" rel="modal:open" class="btn yellow">Shoot bearbeiten</a>
     </div>
 </div>
 <hr>
@@ -65,5 +68,27 @@
          </table>
          <input type="submit">
     </form>
+</div>
+
+<div id="keep-modal" class="modal">
+    <div class="title">Liste zu behaltener Bilder</div>
+    <ul>
+        {% for pic in pics %}
+            {% if pic.status == 'yes' %}
+                <li>{{ pic.filename }}</li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+    <div class="title">Liste unsicherer Bilder</div>
+    <ul>
+        {% for pic in pics %}
+            {% if pic.status == 'unsafe' %}
+                <li>
+                    {{ pic.filename }}<br>
+                    <textarea id="unsafe-comment" readonly>{{ pic.comment }}</textarea>
+                </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
 </div>
 {% endblock %}
