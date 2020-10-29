@@ -11,7 +11,7 @@ $(function () {
         percentPosition: true
     });
     $shoot_grid.imagesLoaded().progress( function() {
-        $grid.masonry('layout');
+        $shoot_grid.masonry('layout');
     });
 
     $('#fileupload').fileupload({
