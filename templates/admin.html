@@ -19,7 +19,7 @@
     <div class="shoot-grid-item admin-pic">
         <a href="/admin/{{ shoot.link }}/">
             {% if shoot.pictures|length %}
-                <img src="/img/{{ shoot.pictures[0].filename }}" class="border
+                <img src="/img/{{ shoot.pictures[0].filename }}" class="focused border
                 {% if shoot.done %} green {% else %} red {% endif %}">
             {% else %}
                 Platzhalter
