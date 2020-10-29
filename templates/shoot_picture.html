@@ -1,4 +1,6 @@
 {% extends "base.html" %}
+{% block title %}{{ shoot.description }}{% endblock %}
+{% block topleft %}<span class="title">{{ shoot.description }}</span>
 {% block topright %}
 <span class="small-title">
 {% if shoot.max_images != 0 %}
@@ -8,7 +10,6 @@
 {% endif %}
 <small>Bilder gewählt</small></span>
 {% endblock %}
-{% block topleft %}<span class="title">{{ shoot.description }}</span>
 <a href="/{{ shoot.link }}/">Zurück zur Shoot-Übersicht</a>
 {% endblock %}
 {% block content %}

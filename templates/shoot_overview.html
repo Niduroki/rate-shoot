@@ -1,6 +1,6 @@
 {% extends "base.html" %}
-{% block topleft %}<span class="title">{{ shoot.description }}</span>
-{% endblock %}
+{% block title %}{{ shoot.description }}{% endblock %}
+{% block topleft %}<span class="title">{{ shoot.description }}</span>{% endblock %}
 {% block topright %}
 <span class="small-title">
 {% if shoot.max_images != 0 %}
