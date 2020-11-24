@@ -364,10 +364,15 @@ def admin_upload():
         return jsonify(error="No file selected")
     if file:
         sec_filename = secure_filename(filename)
+        # Check if the file already exists and rename it silently
+        if os.path.isfile(os.path.join(app.config['UPLOAD_FOLDER'], sec_filename)):
+            sec_filename = os.path.splitext(sec_filename)[0] + "_conflict" + os.path.splitext(sec_filename)[1]
+
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], sec_filename))
+
         return jsonify(files=[{
-            "name": filename,
-            "url": "/img/" + filename,
+            "name": sec_filename,
+            "url": "/img/" + sec_filename,
         }, ])
 
 
