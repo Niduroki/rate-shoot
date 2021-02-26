@@ -13,7 +13,8 @@
 <a href="/{{ shoot.link }}/">Zurück zur Shoot-Übersicht</a>
 {% endblock %}
 {% block content %}
-<img class="focused
+<figure>
+<img id="current_pic" class="focused
 {% if pic.status %}
     border
     {% if pic.status == 'yes' %}green
@@ -22,6 +23,8 @@
     {% endif %}
 {% endif %}
 " src="/img/{{ pic.filename }}">
+    <div id="exif-block"></div>
+</figure>
 <div style="position: relative">
     <div class="rating-btns">
         <a id="yes-btn" class="btn green">Behalten</a>

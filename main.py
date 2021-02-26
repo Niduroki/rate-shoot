@@ -8,6 +8,7 @@ from werkzeug.routing import BaseConverter
 from werkzeug.utils import secure_filename
 from sqlalchemy.orm.exc import NoResultFound
 from passlib.hash import pbkdf2_sha256
+from exif import Image as exif_image
 
 app = Flask(__name__)
 
@@ -116,7 +117,8 @@ def shoot_picture(shoot_link, picturename):
         raise
 
     if request.method == "GET":
-        return render_template("shoot_picture.html", shoot=obj, pic=pic)
+        exif = exif_image(os.path.join(app.config['UPLOAD_FOLDER'], pic.filename))
+        return render_template("shoot_picture.html", shoot=obj, pic=pic, exif=exif)
     elif request.method == "POST":
         try:
             rating = request.form['rating']
@@ -294,7 +296,8 @@ def admin_shoot_picture(shoot_link, picturename):
     try:
         obj = db_session.query(db.Shoot).filter_by(link=shoot_link).one()
         pic = db_session.query(db.Pictures).filter_by(shoot=obj, filename=picturename).one()
-        return render_template("admin_shoot_picture.html", shoot=obj, pic=pic)
+        exif = exif_image(os.path.join(app.config['UPLOAD_FOLDER'], pic.filename))
+        return render_template("admin_shoot_picture.html", shoot=obj, pic=pic, exif=exif)
     except NoResultFound:
         abort(404)
 

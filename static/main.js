@@ -67,6 +67,20 @@ $(function () {
         $('#copy-confirm').fadeOut(2000);
     });
 
+
+
+    $("#current_pic").hover(function(){
+        EXIF.getData($("#current_pic")[0], function() {
+            var data = EXIF.getAllTags(this);
+            console.log(data);
+            data.DateTimeOriginal
+            data.ExposureTime.numerator/data.ExposureTime.denominator
+            data.FNumber
+            data.FocalLength
+            data.ISOSpeedRatings
+        });
+    });
+
     $("#yes-btn").click(function(e){
         $.ajax(".", {
             data: {rating: "yes"},

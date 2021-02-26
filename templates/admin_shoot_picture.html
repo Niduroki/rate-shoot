@@ -15,15 +15,20 @@
 <a href="/admin/{{ shoot.link }}/">Zurück zum Shoot</a>
 {% endblock %}
 {% block content %}
-<img class="focused
-{% if pic.status %}
-    border
-    {% if pic.status == 'yes' %}green
-    {% elif pic.status == 'unsafe' %}yellow
-    {% elif pic.status == 'no' %}red
+<figure>
+    <img id="current_pic" class="focused
+    {% if pic.status %}
+        border
+        {% if pic.status == 'yes' %}green
+        {% elif pic.status == 'unsafe' %}yellow
+        {% elif pic.status == 'no' %}red
+        {% endif %}
     {% endif %}
-{% endif %}
-" src="/img/{{ pic.filename }}">
+    " src="/img/{{ pic.filename }}">
+    <div id="img_info">
+
+    </div>
+</figure>
 
 <div style="position: relative">
     <div class="rating-btns">
