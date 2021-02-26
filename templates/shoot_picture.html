@@ -1,16 +1,25 @@
 {% extends "base.html" %}
 {% block title %}{{ shoot.description }}{% endblock %}
-{% block topleft %}<span class="title">{{ shoot.description }}</span>
+{% block topleft %}
+<span class="title">{{ shoot.description }}</span>
+<a href="/{{ shoot.link }}/">{% trans %}Back to shoot overview{% endtrans %}</a>
+{% endblock %}
 {% block topright %}
 <span class="small-title">
 {% if shoot.max_images != 0 %}
-    {{ shoot.keep_count() }}/{{ shoot.max_images }}
+    {% trans trimmed count=shoot.keep_count(), max=shoot.max_images %}
+    {{ count }}/{{ max }} <small>image chosen
+    {% pluralize max %}
+    {{ count }}/{{ max }} <small>images chosen
+    {% endtrans %}
 {% else %}
-    {{ shoot.keep_count() }}
+    {% trans trimmed count=shoot.keep_count() %}
+    {{ count }} <small>image chosen
+    {% pluralize %}
+    {{ count }} <small>images chosen
+    {% endtrans %}
 {% endif %}
-<small>Bilder gewählt</small></span>
-{% endblock %}
-<a href="/{{ shoot.link }}/">Zurück zur Shoot-Übersicht</a>
+</small></span>
 {% endblock %}
 {% block content %}
 <img class="focused
@@ -24,22 +33,22 @@
 " src="/img/{{ pic.filename }}">
 <div style="position: relative">
     <div class="rating-btns">
-        <a id="yes-btn" class="btn green">Behalten</a>
-        <a href="#unsafe-modal" rel="modal:open" class="btn yellow">Unsicher <small>(+ Kommentar)</small></a>
-        <a id="no-btn" class="btn red">Nicht behalten</a>
+        <a id="yes-btn" class="btn green">{% trans %}Keep{% endtrans %}</a>
+        <a href="#unsafe-modal" rel="modal:open" class="btn yellow">{% trans %}Insecure <small>(+ Comment)</small>{% endtrans %}</a>
+        <a id="no-btn" class="btn red">{% trans %}Don't keep{% endtrans %}</a>
         <a class="btn grey" href="{{ pic.next_pic_link() }}">
             {% if pic.status %}
-                Nächstes Bild
+                {% trans %}Next image{% endtrans %}
             {% else %}
-                Überspringen
+                {% trans %}Skip{% endtrans %}
             {% endif %}
         </a>
     </div>
 </div>
 
 <div id="unsafe-modal" class="modal">
-  <div class="title">Erkläre warum "Unsicher"?</div>
+  <div class="title">{% trans %}Explain why "insecure"?{% endtrans %}</div>
   <textarea id="unsafe-comment">{% if pic.status == "unsafe" %}{{ pic.comment }}{% endif %}</textarea>
-  <button class="btn yellow" id="unsafe-btn-submit">Senden</button>
+  <button class="btn yellow" id="unsafe-btn-submit">{% trans %}Submit{% endtrans %}</button>
 </div>
 {% endblock %}

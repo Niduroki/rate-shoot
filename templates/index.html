@@ -1,23 +1,23 @@
 {% extends "base.html" %}
-{% block topleft %}<span class="title">Shooting Bilderwahl</span>{% endblock %}
+{% block topleft %}<span class="title">{% trans %}Choose shoot pictures{% endtrans %}</span>{% endblock %}
 {% block topright %}
-<a href="/help/" class="btn green">Hilfe/Tutorial</a>
-<a href="#admin-login" rel="modal:open" class="btn yellow">Admin Login</a>
+<a href="/help/" class="btn green">{% trans %}Help/Tutorial{% endtrans %}</a>
+<a href="#admin-login" rel="modal:open" class="btn yellow">{% trans %}Admin Login{% endtrans %}</a>
 {% endblock %}
 {% block content %}
-<h1>Du solltest einen Link bekommen haben.</h1>
-<p>Auf dieser Seite gibt es nichts zu sehen.</p>
+<h1>{% trans %}You should have received a link.{% endtrans %}</h1>
+<p>{% trans %}There is nothing to see on this page.{% endtrans %}</p>
 
 {% if pw == "1" %}
-<span class="btn red">Falsches Passwort!</span>
+<span class="btn red">{% trans %}Wrong password!{% endtrans %}</span>
 {% elif pw == "2" %}
-<span class="btn green">Passwort geändert, bitte erneut anmelden!</span>
+<span class="btn green">{% trans %}Password changed, please login again!{% endtrans %}</span>
 {% endif %}
 
 <div id="admin-login" class="modal">
   <form method="post" action="/">
-      <div class="title">Admin-Login</div>
-  Passwort: <input type="password" name="password"> <input type="submit">
+      <div class="title">{% trans %}Admin-Login{% endtrans %}</div>
+  {% trans %}Password:{% endtrans %} <input type="password" name="password"> <input type="submit">
 </form>
 </div>
 {% endblock %}

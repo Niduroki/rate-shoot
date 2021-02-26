@@ -1,16 +1,17 @@
 {% extends "base.html" %}
 {% block topright %}
-<a href="#prune-modal" rel="modal:open" class="btn yellow">Bilder säubern</a>
-<a href="/admin/password/" class="btn yellow">Passwort ändern</a>
-<a href="/logout/" class="btn yellow">Logout</a>
+<a href="#prune-modal" rel="modal:open" class="btn yellow">{% trans %}Prune images{% endtrans %}</a>
+<a href="/admin/password/" class="btn yellow">{% trans %}Change password{% endtrans %}</a>
+<a href="/logout/" class="btn yellow">{% trans %}Logout{% endtrans %}</a>
 {% endblock %}
 {% block topleft %}
-<span class="title">Admin Übersicht</span> <a href="/admin/create/">Neues Shoot erstellen</a>
+<span class="title">{% trans %}Admin overview{% endtrans %}</span>
+<a href="/admin/create/">{% trans %}Create new shoot{% endtrans %}</a>
 {% endblock %}
 {% block content %}
 {% if pw %}
     <div class="btn red">
-        Du verwendest das Standard Passwort. Du solltest es umgehend ändern auf <a href="/admin/password">dieser Seite</a>.
+        {% trans %}You are using the default password. You should change it immediately on <a href="/admin/password">this site</a>.{% endtrans %}
     </div>
 {% endif %}
 
@@ -22,36 +23,36 @@
                 <img src="/img/{{ shoot.pictures[0].filename }}" class="focused border
                 {% if shoot.done %} green {% else %} red {% endif %}">
             {% else %}
-                Platzhalter
+                {% trans %}Placeholder{% endtrans %}
             {% endif %}
         </a>
         <div>
             <div class="half-width">{{ shoot.description }}</div>
             <div class="half-width">
-             <a href="#delete-modal-{{ shoot.link }}" rel="modal:open" class="btn red">Shoot löschen</a>
+             <a href="#delete-modal-{{ shoot.link }}" rel="modal:open" class="btn red">{% trans %}Delete shoot{% endtrans %}</a>
             </div>
         </div>
     </div>
     {% else %}
-        Keine aktuellen Shootings.
+        {% trans %}No shoots.{% endtrans %}
     {% endfor %}
 </div>
 
 
 {% for shoot in shoots %}
 <div id="delete-modal-{{ shoot.link }}" class="modal">
-  <div class="title">Shoot "{{ shoot.description }}" und Bilder löschen?</div>
+  <div class="title">{% trans description=shoot.description %}Delete shoot "{{ description }}" and its images?{% endtrans %}</div>
     <form method="post" action="/admin/{{ shoot.link }}/delete/">
-        <input type="submit" class="btn red" value="Löschen">
+        <input type="submit" class="btn red" value="{% trans %}Delete{% endtrans %}">
     </form>
 </div>
 {% endfor %}
 <div id="prune-modal" class="modal">
-    <div class="title">Thumbnails säubern?</div>
+    <div class="title">{% trans %}Prune thumbnails?{% endtrans %}</div>
     <div id="prune-confirm">
-        <span id="prune-count-1">count</span> DB Einträge ohne Bilder entfernt.<br>
-        <span id="prune-count-2">count2</span> Bilder ohne DB Eintrag entfernt.
+        {% trans %}Removed <span id="prune-count-1">count</span> DB entries without images.{% endtrans %}<br>
+        {% trans %}Removed <span id="prune-count-2">count2</span> images without DB entry.{% endtrans %}
     </div>
-    <button id="prune-btn" type="submit" class="btn red">Bilder säubern</button>
+    <button id="prune-btn" type="submit" class="btn red">{% trans %}Prune images{% endtrans %}</button>
 </div>
 {% endblock %}

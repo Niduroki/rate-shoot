@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 {% block topright %}
-<a href="/admin/password/" class="btn yellow">Passwort ändern</a>
-<a href="/logout/" class="btn yellow">Logout</a>
+<a href="/admin/password/" class="btn yellow">{% trans %}Change password{% endtrans %}</a>
+<a href="/logout/" class="btn yellow">{% trans %}Logout{% endtrans %}</a>
 {% endblock %}
 {% block topleft %}
-<span class="title">Neues Shoot erstellen</span> <a href="/admin/">Zurück zur Adminseite</a>
+<span class="title">{% trans %}Create new shoot{% endtrans %}</span> <a href="/admin/">{% trans %}Back to admin page{% endtrans %}</a>
 {% endblock %}
 {% block content %}
 <div class="form">
@@ -12,10 +12,10 @@
       <form method="post">
          <table>
          <tr>
-            <td>Beschreibung</td><td><input required type="text" name="description"></td>
+            <td>{% trans %}Description{% endtrans %}</td><td><input required type="text" name="description"></td>
          </tr>
          <tr>
-            <td>Maximale Bilder (0=Kein Limit)</td><td><input required type="number" name="limit" value="0"></td>
+            <td>{% trans %}Maximum amount of images (0=No limit){% endtrans %}</td><td><input required type="number" name="limit" value="0"></td>
          </tr>
          </table>
          <input type="hidden" id="img_list" name="img_list">
@@ -23,13 +23,13 @@
       </form>
    </div>
    <div class="half-width">
-      Bilder hochladen<br>
+      {% trans %}Upload images{% endtrans %}<br>
       <input id="fileupload" type="file" name="files[]" data-url="/admin/upload/" multiple><br>
       <div id="progress"><div class="bar" style="width: 0%;"></div></div>
    </div>
 </div>
 <div>
-   Hochgeladene Bilder:
+   {% trans %}Uploaded images:{% endtrans %}
    <ul id="uploaded_list"></ul>
 </div>
 {% endblock %}

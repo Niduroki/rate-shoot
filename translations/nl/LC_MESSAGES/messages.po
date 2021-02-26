@@ -1,0 +1,317 @@
+# Dutch translations for PROJECT.
+# Copyright (C) 2021 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2021-02-26 11:29+0100\n"
+"PO-Revision-Date: 2021-02-26 11:29+0100\n"
+"Last-Translator: \n"
+"Language: nl\n"
+"Language-Team: nl <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.0\n"
+
+#: templates/admin.html:3 templates/admin.html:56 templates/pwchange.html:3
+msgid "Prune images"
+msgstr "Foto's opruimen"
+
+#: templates/admin.html:4 templates/create_shoot.html:3
+#: templates/pwchange.html:4 templates/pwchange.html:8
+msgid "Change password"
+msgstr "Wachtwoord veranderen"
+
+#: templates/admin.html:5 templates/admin_shoot_overview.html:25
+#: templates/admin_shoot_picture.html:24 templates/create_shoot.html:4
+#: templates/pwchange.html:5
+msgid "Logout"
+msgstr "Afmelden"
+
+#: templates/admin.html:8
+msgid "Admin overview"
+msgstr "Admin overzicht"
+
+#: templates/admin.html:9 templates/create_shoot.html:7
+msgid "Create new shoot"
+msgstr "Nieuwe shoot creëren"
+
+#: templates/admin.html:14
+msgid ""
+"You are using the default password. You should change it immediately on "
+"<a href=\"/admin/password\">this site</a>."
+msgstr ""
+"Je gebruikt het standaard wachtwoork. Je moet het onmiddellijk wijzigen "
+"op <a href=\"/admin/password\">deze pagina</a>."
+
+#: templates/admin.html:26
+msgid "Placeholder"
+msgstr "Placeholder"
+
+#: templates/admin.html:32
+msgid "Delete shoot"
+msgstr "Shoot verwijderen"
+
+#: templates/admin.html:37
+msgid "No shoots."
+msgstr "Geen shoots."
+
+#: templates/admin.html:44
+#, python-format
+msgid "Delete shoot \"%(description)s\" and its images?"
+msgstr "Shoot \"%(description)s\" en zijn foto's verwijderen?"
+
+#: templates/admin.html:46
+msgid "Delete"
+msgstr "Verwijderen"
+
+#: templates/admin.html:51
+msgid "Prune thumbnails?"
+msgstr "Thumbnails verwijderen?"
+
+#: templates/admin.html:53
+msgid "Removed <span id=\"prune-count-1\">count</span> DB entries without images."
+msgstr "<span id=\"prune-count-1\">count</span> DB items zonder foto's verwijderd."
+
+#: templates/admin.html:54
+msgid "Removed <span id=\"prune-count-2\">count2</span> images without DB entry."
+msgstr "<span id=\"prune-count-2\">count2</span> foto's zonder DB item verwijderd."
+
+#: templates/admin_shoot_overview.html:7 templates/admin_shoot_picture.html:10
+#: templates/shoot_overview.html:7 templates/shoot_picture.html:10
+#, python-format
+msgid "%(count)s/%(max)s <small>image chosen"
+msgid_plural "%(count)s/%(max)s <small>images chosen"
+msgstr[0] "%(count)s/%(max)s <small>foto gekozen."
+msgstr[1] "%(count)s/%(max)s <small>foto gekozen"
+
+#: templates/admin_shoot_overview.html:13 templates/admin_shoot_picture.html:16
+#: templates/shoot_overview.html:13 templates/shoot_picture.html:16
+#, python-format
+msgid "%(count)s <small>image chosen"
+msgid_plural "%(count)s <small>images chosen"
+msgstr[0] "%(count)s <small>foto gekozen"
+msgstr[1] "%(count)s <small>foto's gekozen"
+
+#: templates/admin_shoot_overview.html:23
+msgid "All"
+msgstr "Alle"
+
+#: templates/admin_shoot_overview.html:24 templates/admin_shoot_picture.html:23
+msgid "Overview"
+msgstr "Overzicht"
+
+#: templates/admin_shoot_overview.html:31
+msgid "Link to public page"
+msgstr "Link naar publieke pagina"
+
+#: templates/admin_shoot_overview.html:31
+msgid "Copied!"
+msgstr "Gekopieerd!"
+
+#: templates/admin_shoot_overview.html:37
+msgid "Upload more images"
+msgstr "Meer foto's uploaden"
+
+#: templates/admin_shoot_overview.html:41
+msgid "Keep/Insecure filenames"
+msgstr "Houden/Onzeker filenamen"
+
+#: templates/admin_shoot_overview.html:42
+#: templates/admin_shoot_overview.html:67
+msgid "Edit shoot"
+msgstr "Shoot wijzigen"
+
+#: templates/admin_shoot_overview.html:62 templates/shoot_overview.html:43
+msgid "No images"
+msgstr "Geen foto's"
+
+#: templates/admin_shoot_overview.html:71 templates/create_shoot.html:15
+msgid "Description"
+msgstr "Omschrijving"
+
+#: templates/admin_shoot_overview.html:74 templates/create_shoot.html:18
+msgid "Maximum amount of images (0=No limit)"
+msgstr "Maximaal antaal foto's (0=Geen limiet)"
+
+#: templates/admin_shoot_overview.html:82
+msgid "List of images to keep"
+msgstr "Lijst van foto's te houden"
+
+#: templates/admin_shoot_overview.html:90
+msgid "List of insecure images"
+msgstr "Lijst van onzeker foto's"
+
+#: templates/admin_shoot_picture.html:5
+msgid "Back to shoot"
+msgstr "Terug naar het shoot"
+
+#: templates/admin_shoot_picture.html:39 templates/admin_shoot_picture.html:50
+msgid "Delete image"
+msgstr "Foto verwijderen"
+
+#: templates/admin_shoot_picture.html:41
+msgid "Show comment"
+msgstr "Toon commentaar"
+
+#: templates/admin_shoot_picture.html:43 templates/shoot_picture.html:41
+msgid "Next image"
+msgstr "Volgende foto"
+
+#: templates/admin_shoot_picture.html:49
+msgid "Really delete this image?"
+msgstr "Dit foto echt verwijderen?"
+
+#: templates/admin_shoot_picture.html:55
+msgid "Insecure-comment"
+msgstr "Onzeker commentaar"
+
+#: templates/base.html:21
+msgid "Help"
+msgstr "Hulp"
+
+#: templates/create_shoot.html:7 templates/pwchange.html:9
+msgid "Back to admin page"
+msgstr "Terug naar admin pagina"
+
+#: templates/create_shoot.html:26
+msgid "Upload images"
+msgstr "Foto's uploaden"
+
+#: templates/create_shoot.html:32
+msgid "Uploaded images:"
+msgstr "Geüploade foto's:"
+
+#: templates/help.html:2 templates/index.html:2
+msgid "Choose shoot pictures"
+msgstr "Shoot foto's kiezen"
+
+#: templates/help.html:11
+msgid "To use this site you have to use the link you have received."
+msgstr "Om deze pagina te gebruiken moet je de link gebruiken die je gestuurd was."
+
+#: templates/help.html:15
+msgid ""
+"This link leads you to an overview with thumbnails of all images.<br> In "
+"the top right you can see, if there is a limit of how many images you may"
+" choose."
+msgstr ""
+"Dit link leidt je naar een overzicht met thumbnails van alle foto's.<br> "
+"Boven rechts kunt je zien, of eer een limit is hoeveel foto's je kiezen "
+"kunt."
+
+#: templates/help.html:22
+msgid ""
+"If you click on an image, you will go to single-view, where you can "
+"choose whether you want to keep the image (meaning it is going to be "
+"edited, etc.) or not."
+msgstr ""
+"Als je op een foto klikt, ga je naar één overzicht, waar je kiezen kunt, "
+"of je het foto houden wilt (dus het wordt bewerkt, etc.), of niet."
+
+#: templates/help.html:29
+msgid ""
+"The option \"Insecure + Comment\" is for exceptions. If you are uncertain"
+" about many/all images, please write the photographer. Insecure means, "
+"that you have something to say aboout <strong>this</strong> image (which "
+"is what the comment-field is for)."
+msgstr ""
+"De optie \"onzeker + commentaar\" is voor uitzonderingen. Als je met "
+"veel/alle foto's onzeker bent, schrijv de fotograaf alsjeblieft. Onzeker "
+"betekent, dat je iets over <strong>dit</strong> foto te zeggen hebt (er "
+"is het commentaar box voor)."
+
+#: templates/help.html:36
+msgid ""
+"Using the filter buttons in the top right, you can filter by "
+"Keep/Insecure/Don't keep and unrated images. Images with a green border "
+"are being kept, images with a red border not, images with a yellow border"
+" are insecure."
+msgstr ""
+"Met de filter knopjes boven rechts, kunt je naar houden/onzeker/niet "
+"houden filteren. Foto's met een groene frame beteken houden, foto's met "
+"en roode frame niet houden, foto's met een geele frame onzeker."
+
+#: templates/help.html:43
+msgid "When you are done rating all images, please write your contact."
+msgstr ""
+"Als je klaar bent met het beordeelen, stuur jouw contact een berichtje, "
+"alsjeblieft."
+
+#: templates/index.html:4
+msgid "Help/Tutorial"
+msgstr "Hulp/Tutorial"
+
+#: templates/index.html:5
+msgid "Admin Login"
+msgstr "Admin Login"
+
+#: templates/index.html:8
+msgid "You should have received a link."
+msgstr "Je zou een link moeten hebben."
+
+#: templates/index.html:9
+msgid "There is nothing to see on this page."
+msgstr "Er ist niets op deze pagina te zien."
+
+#: templates/index.html:12
+msgid "Wrong password!"
+msgstr "Foute wachtwoord!"
+
+#: templates/index.html:14
+msgid "Password changed, please login again!"
+msgstr "Wachtwoord verandert, opnieuw inloggen alsjeblieft!"
+
+#: templates/index.html:19
+msgid "Admin-Login"
+msgstr "Admin-Login"
+
+#: templates/index.html:20
+msgid "Password:"
+msgstr "Wachtwoord:"
+
+#: templates/pwchange.html:14
+msgid "Passwords do not match!"
+msgstr "Wachtwoorden komen niet overeen!"
+
+#: templates/pwchange.html:18
+msgid "New password"
+msgstr "Nieuwe wachtwoord"
+
+#: templates/pwchange.html:21
+msgid "Repeat new password"
+msgstr "Nieuwe wachtwoord herhalen"
+
+#: templates/shoot_picture.html:5
+msgid "Back to shoot overview"
+msgstr "Terug naar shoot overzicht"
+
+#: templates/shoot_picture.html:36
+msgid "Keep"
+msgstr "Houden"
+
+#: templates/shoot_picture.html:37
+msgid "Insecure <small>(+ Comment)</small>"
+msgstr "Onzeker <small>(+ commentaar)</small>"
+
+#: templates/shoot_picture.html:38
+msgid "Don't keep"
+msgstr "Niet houden"
+
+#: templates/shoot_picture.html:43
+msgid "Skip"
+msgstr "Overspringen"
+
+#: templates/shoot_picture.html:50
+msgid "Explain why \"insecure\"?"
+msgstr "Leg uit waarom \"onzeker\"?"
+
+#: templates/shoot_picture.html:52
+msgid "Submit"
+msgstr "Verzenden"
+

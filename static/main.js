@@ -75,7 +75,7 @@ $(function () {
                 window.location = d.next;
             },
             error: function(d){
-                if (d.responseJSON.error === "Too many images to keep!") {
+                if (d.responseJSON.error === "too_many") {
                     $("#yes-btn").addClass("disabled").css("cursor", "not-allowed");
                     $("#yes-btn").addClass("shake");
                     $("header .right .small-title").addClass("shake");

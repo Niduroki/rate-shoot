@@ -1,23 +1,24 @@
 {% extends "base.html" %}
 {% block topright %}
-<a href="/admin/prune/" class="btn yellow">Bilder säubern</a>
-<a href="/admin/password/" class="btn yellow">Passwort ändern</a>
-<a href="/logout/" class="btn yellow">Logout</a>
+<a href="/admin/prune/" class="btn yellow">{% trans %}Prune images{% endtrans %}</a>
+<a href="/admin/password/" class="btn yellow">{% trans %}Change password{% endtrans %}</a>
+<a href="/logout/" class="btn yellow">{% trans %}Logout{% endtrans %}</a>
 {% endblock %}
 {% block topleft %}
-<span class="title">Passwort ändern</span> <a href="/admin/">Zurück zur Adminseite</a>
+<span class="title">{% trans %}Change password{% endtrans %}</span>
+<a href="/admin/">{% trans %}Back to admin page{% endtrans %}</a>
 {% endblock %}
 {% block content %}
 <form method="post">
   {% if wrongpw %}
-    Passwörter stimmen nicht überein!<br>
+    {% trans %}Passwords do not match!{% endtrans %}<br>
   {% endif %}
   <table>
     <tr>
-      <td>Neues Passwort</td><td><input type="password" name="password"></td>
+      <td>{% trans %}New password{% endtrans %}</td><td><input type="password" name="password"></td>
     </tr>
     <tr>
-      <td>Neues Passwort wiederholen</td><td><input type="password" name="password2"></td>
+      <td>{% trans %}Repeat new password{% endtrans %}</td><td><input type="password" name="password2"></td>
     </tr>
   </table>
   <input type="submit" class="btn green">

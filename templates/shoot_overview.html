@@ -4,11 +4,19 @@
 {% block topright %}
 <span class="small-title">
 {% if shoot.max_images != 0 %}
-    {{ shoot.keep_count() }}/{{ shoot.max_images }}
+    {% trans trimmed count=shoot.keep_count(), max=shoot.max_images %}
+    {{ count }}/{{ max }} <small>image chosen
+    {% pluralize max %}
+    {{ count }}/{{ max }} <small>images chosen
+    {% endtrans %}
 {% else %}
-    {{ shoot.keep_count() }}
+    {% trans trimmed count=shoot.keep_count() %}
+    {{ count }} <small>image chosen
+    {% pluralize %}
+    {{ count }} <small>images chosen
+    {% endtrans %}
 {% endif %}
-<small>Bilder gewählt</small></span>
+</small></span>
 <a id="filter-yes" class="btn green"><svg class="genericons-neue genericons-neue-show" width="16px" height="16px"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/static/genericons-neue.svg#show"></use></svg></a>
 <a id="filter-unsafe" class="btn yellow"><svg class="genericons-neue genericons-neue-show" width="16px" height="16px"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/static/genericons-neue.svg#show"></use></svg></a>
 <a id="filter-no" class="btn red"><svg class="genericons-neue genericons-neue-show" width="16px" height="16px"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/static/genericons-neue.svg#show"></use></svg></a>
@@ -32,7 +40,7 @@
         </a>
     </div>
 {% else %}
-   Keine Bilder
+   {% trans %}No images{% endtrans %}
 {% endfor %}
 </div>
 {% endblock %}

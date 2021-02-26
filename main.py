@@ -1,4 +1,5 @@
 from flask import Flask, session, render_template, request, redirect, url_for, abort, jsonify, send_from_directory
+from flask_babel import Babel
 from string import ascii_lowercase
 from random import choice
 from datetime import datetime
@@ -20,6 +21,11 @@ try:
         app.config["DATABASE"] = config.DATABASE
     except AttributeError:
         pass
+    app.config['LANGUAGES'] = {
+        'en': 'English',
+        'de': 'Deutsch',
+        'nl': 'Nederlands',
+    }
 except ModuleNotFoundError:
     data_path = os.path.join(os.path.abspath(os.path.curdir), "data/")
     if not os.path.exists(os.path.join(data_path, "img/")):
@@ -29,6 +35,12 @@ except ModuleNotFoundError:
         f.write("SITE_URL = 'change.me.in.config.py'\n")
         f.write("SECRET_KEY = " + str(os.urandom(20)) + "\n")
     db.get_session()
+
+babel = Babel(app)
+
+@babel.localeselector
+def get_locale():
+    return request.accept_languages.best_match(app.config['LANGUAGES'].keys())
 
 
 class LinkConverter(BaseConverter):
@@ -121,7 +133,7 @@ def shoot_picture(shoot_link, picturename):
         try:
             rating = request.form['rating']
             if rating == "unsafe":
-                pic.comment = request.form['comment']  # Bei Unsafe muss ein Kommentar dabei sein!
+                pic.comment = request.form['comment']  # Unsafe must have a comment!
         except KeyError:
             abort(400)
             raise
@@ -131,7 +143,7 @@ def shoot_picture(shoot_link, picturename):
 
         if obj.max_images > 0:
             if rating == "yes" and obj.keep_count() == obj.max_images:
-                return jsonify(error="Too many images to keep!"), 400
+                return jsonify(error="too_many"), 400
 
         pic.status = rating
         db_session.commit()

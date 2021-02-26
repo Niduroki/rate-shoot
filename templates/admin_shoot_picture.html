@@ -1,18 +1,27 @@
 {% extends "base.html" %}
 {% block title %}{{ shoot.description }}{% endblock %}
-{% block topleft %}<span class="title">{{ shoot.description }}</span>
+{% block topleft %}
+<span class="title">{{ shoot.description }}</span>
+<a href="/admin/{{ shoot.link }}/">{% trans %}Back to shoot{% endtrans %}</a>
+{% endblock %}
 {% block topright %}
 <span class="small-title">
 {% if shoot.max_images != 0 %}
-    {{ shoot.keep_count() }}/{{ shoot.max_images }}
+    {% trans trimmed count=shoot.keep_count(), max=shoot.max_images %}
+    {{ count }}/{{ max }} <small>image chosen
+    {% pluralize max %}
+    {{ count }}/{{ max }} <small>images chosen
+    {% endtrans %}
 {% else %}
-    {{ shoot.keep_count() }}
+    {% trans trimmed count=shoot.keep_count() %}
+    {{ count }} <small>image chosen
+    {% pluralize %}
+    {{ count }} <small>images chosen
+    {% endtrans %}
 {% endif %}
-<small>Bilder gewählt</small></span>
-<a href="/admin/" class="btn yellow">Übersicht</a>
-<a href="/logout/" class="btn yellow">Logout</a>
-{% endblock %}
-<a href="/admin/{{ shoot.link }}/">Zurück zum Shoot</a>
+</small></span>
+<a href="/admin/" class="btn yellow">{% trans %}Overview{% endtrans %}</a>
+<a href="/logout/" class="btn yellow">{% trans %}Logout{% endtrans %}</a>
 {% endblock %}
 {% block content %}
 <img class="focused
@@ -27,23 +36,23 @@
 
 <div style="position: relative">
     <div class="rating-btns">
-        <a href="#delete-modal" rel="modal:open" class="btn red">Bild löschen</a>
+        <a href="#delete-modal" rel="modal:open" class="btn red">{% trans %}Delete image{% endtrans %}</a>
         {% if pic.status == "unsafe" %}
-            <a href="#unsafe-modal" rel="modal:open" class="btn yellow">Kommentar anzeigen</a>
+            <a href="#unsafe-modal" rel="modal:open" class="btn yellow">{% trans %}Show comment{% endtrans %}</a>
         {% endif %}
-        <a class="btn grey" href="/admin/{{ pic.next_pic_link() }}">Nächstes Bild</a>
+        <a class="btn grey" href="/admin/{{ pic.next_pic_link() }}">{% trans %}Next image{% endtrans %}</a>
     </div>
 </div>
 
 
 <div id="delete-modal" class="modal">
-    <div class="title">Dieses Bild wirklich löschen?</div>
-    <button id="delete-img" class="btn red" data-target="/admin/{{ shoot.link }}/{{ pic.filename }}/delete/">Bild Löschen</button>
+    <div class="title">{% trans %}Really delete this image?{% endtrans %}</div>
+    <button id="delete-img" class="btn red" data-target="/admin/{{ shoot.link }}/{{ pic.filename }}/delete/">{% trans %}Delete image{% endtrans %}</button>
 </div>
 
 {% if pic.status == "unsafe" %}
 <div id="unsafe-modal" class="modal">
-  <div class="title">Unsicher-Kommentar</div>
+  <div class="title">{% trans %}Insecure-comment{% endtrans %}</div>
   <textarea id="unsafe-comment" readonly>{{ pic.comment }}</textarea>
 </div>
 {% endif %}

@@ -1,0 +1,300 @@
+# Translations template for PROJECT.
+# Copyright (C) 2021 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2021-02-26 11:29+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.0\n"
+
+#: templates/admin.html:3 templates/admin.html:56 templates/pwchange.html:3
+msgid "Prune images"
+msgstr ""
+
+#: templates/admin.html:4 templates/create_shoot.html:3
+#: templates/pwchange.html:4 templates/pwchange.html:8
+msgid "Change password"
+msgstr ""
+
+#: templates/admin.html:5 templates/admin_shoot_overview.html:25
+#: templates/admin_shoot_picture.html:24 templates/create_shoot.html:4
+#: templates/pwchange.html:5
+msgid "Logout"
+msgstr ""
+
+#: templates/admin.html:8
+msgid "Admin overview"
+msgstr ""
+
+#: templates/admin.html:9 templates/create_shoot.html:7
+msgid "Create new shoot"
+msgstr ""
+
+#: templates/admin.html:14
+msgid ""
+"You are using the default password. You should change it immediately on "
+"<a href=\"/admin/password\">this site</a>."
+msgstr ""
+
+#: templates/admin.html:26
+msgid "Placeholder"
+msgstr ""
+
+#: templates/admin.html:32
+msgid "Delete shoot"
+msgstr ""
+
+#: templates/admin.html:37
+msgid "No shoots."
+msgstr ""
+
+#: templates/admin.html:44
+#, python-format
+msgid "Delete shoot \"%(description)s\" and its images?"
+msgstr ""
+
+#: templates/admin.html:46
+msgid "Delete"
+msgstr ""
+
+#: templates/admin.html:51
+msgid "Prune thumbnails?"
+msgstr ""
+
+#: templates/admin.html:53
+msgid "Removed <span id=\"prune-count-1\">count</span> DB entries without images."
+msgstr ""
+
+#: templates/admin.html:54
+msgid "Removed <span id=\"prune-count-2\">count2</span> images without DB entry."
+msgstr ""
+
+#: templates/admin_shoot_overview.html:7 templates/admin_shoot_picture.html:10
+#: templates/shoot_overview.html:7 templates/shoot_picture.html:10
+#, python-format
+msgid "%(count)s/%(max)s <small>image chosen"
+msgid_plural "%(count)s/%(max)s <small>images chosen"
+msgstr[0] ""
+msgstr[1] ""
+
+#: templates/admin_shoot_overview.html:13 templates/admin_shoot_picture.html:16
+#: templates/shoot_overview.html:13 templates/shoot_picture.html:16
+#, python-format
+msgid "%(count)s <small>image chosen"
+msgid_plural "%(count)s <small>images chosen"
+msgstr[0] ""
+msgstr[1] ""
+
+#: templates/admin_shoot_overview.html:23
+msgid "All"
+msgstr ""
+
+#: templates/admin_shoot_overview.html:24 templates/admin_shoot_picture.html:23
+msgid "Overview"
+msgstr ""
+
+#: templates/admin_shoot_overview.html:31
+msgid "Link to public page"
+msgstr ""
+
+#: templates/admin_shoot_overview.html:31
+msgid "Copied!"
+msgstr ""
+
+#: templates/admin_shoot_overview.html:37
+msgid "Upload more images"
+msgstr ""
+
+#: templates/admin_shoot_overview.html:41
+msgid "Keep/Insecure filenames"
+msgstr ""
+
+#: templates/admin_shoot_overview.html:42
+#: templates/admin_shoot_overview.html:67
+msgid "Edit shoot"
+msgstr ""
+
+#: templates/admin_shoot_overview.html:62 templates/shoot_overview.html:43
+msgid "No images"
+msgstr ""
+
+#: templates/admin_shoot_overview.html:71 templates/create_shoot.html:15
+msgid "Description"
+msgstr ""
+
+#: templates/admin_shoot_overview.html:74 templates/create_shoot.html:18
+msgid "Maximum amount of images (0=No limit)"
+msgstr ""
+
+#: templates/admin_shoot_overview.html:82
+msgid "List of images to keep"
+msgstr ""
+
+#: templates/admin_shoot_overview.html:90
+msgid "List of insecure images"
+msgstr ""
+
+#: templates/admin_shoot_picture.html:5
+msgid "Back to shoot"
+msgstr ""
+
+#: templates/admin_shoot_picture.html:39 templates/admin_shoot_picture.html:50
+msgid "Delete image"
+msgstr ""
+
+#: templates/admin_shoot_picture.html:41
+msgid "Show comment"
+msgstr ""
+
+#: templates/admin_shoot_picture.html:43 templates/shoot_picture.html:41
+msgid "Next image"
+msgstr ""
+
+#: templates/admin_shoot_picture.html:49
+msgid "Really delete this image?"
+msgstr ""
+
+#: templates/admin_shoot_picture.html:55
+msgid "Insecure-comment"
+msgstr ""
+
+#: templates/base.html:21
+msgid "Help"
+msgstr ""
+
+#: templates/create_shoot.html:7 templates/pwchange.html:9
+msgid "Back to admin page"
+msgstr ""
+
+#: templates/create_shoot.html:26
+msgid "Upload images"
+msgstr ""
+
+#: templates/create_shoot.html:32
+msgid "Uploaded images:"
+msgstr ""
+
+#: templates/help.html:2 templates/index.html:2
+msgid "Choose shoot pictures"
+msgstr ""
+
+#: templates/help.html:11
+msgid "To use this site you have to use the link you have received."
+msgstr ""
+
+#: templates/help.html:15
+msgid ""
+"This link leads you to an overview with thumbnails of all images.<br> In "
+"the top right you can see, if there is a limit of how many images you may"
+" choose."
+msgstr ""
+
+#: templates/help.html:22
+msgid ""
+"If you click on an image, you will go to single-view, where you can "
+"choose whether you want to keep the image (meaning it is going to be "
+"edited, etc.) or not."
+msgstr ""
+
+#: templates/help.html:29
+msgid ""
+"The option \"Insecure + Comment\" is for exceptions. If you are uncertain"
+" about many/all images, please write the photographer. Insecure means, "
+"that you have something to say aboout <strong>this</strong> image (which "
+"is what the comment-field is for)."
+msgstr ""
+
+#: templates/help.html:36
+msgid ""
+"Using the filter buttons in the top right, you can filter by "
+"Keep/Insecure/Don't keep and unrated images. Images with a green border "
+"are being kept, images with a red border not, images with a yellow border"
+" are insecure."
+msgstr ""
+
+#: templates/help.html:43
+msgid "When you are done rating all images, please write your contact."
+msgstr ""
+
+#: templates/index.html:4
+msgid "Help/Tutorial"
+msgstr ""
+
+#: templates/index.html:5
+msgid "Admin Login"
+msgstr ""
+
+#: templates/index.html:8
+msgid "You should have received a link."
+msgstr ""
+
+#: templates/index.html:9
+msgid "There is nothing to see on this page."
+msgstr ""
+
+#: templates/index.html:12
+msgid "Wrong password!"
+msgstr ""
+
+#: templates/index.html:14
+msgid "Password changed, please login again!"
+msgstr ""
+
+#: templates/index.html:19
+msgid "Admin-Login"
+msgstr ""
+
+#: templates/index.html:20
+msgid "Password:"
+msgstr ""
+
+#: templates/pwchange.html:14
+msgid "Passwords do not match!"
+msgstr ""
+
+#: templates/pwchange.html:18
+msgid "New password"
+msgstr ""
+
+#: templates/pwchange.html:21
+msgid "Repeat new password"
+msgstr ""
+
+#: templates/shoot_picture.html:5
+msgid "Back to shoot overview"
+msgstr ""
+
+#: templates/shoot_picture.html:36
+msgid "Keep"
+msgstr ""
+
+#: templates/shoot_picture.html:37
+msgid "Insecure <small>(+ Comment)</small>"
+msgstr ""
+
+#: templates/shoot_picture.html:38
+msgid "Don't keep"
+msgstr ""
+
+#: templates/shoot_picture.html:43
+msgid "Skip"
+msgstr ""
+
+#: templates/shoot_picture.html:50
+msgid "Explain why \"insecure\"?"
+msgstr ""
+
+#: templates/shoot_picture.html:52
+msgid "Submit"
+msgstr ""
+
