@@ -7,10 +7,10 @@ RUN mkdir /rate-shoot/data/
 
 RUN apt-get update && apt-get install -y gcc && pip install -r /rate-shoot/requirements.txt
 
-EXPOSE 80
+EXPOSE 8000
 
-RUN useradd rate-shoot && chown -R rate-shoot /rate-shoot
-USER dbakel
+RUN useradd uwsgi && chown -R uwsgi /rate-shoot
+USER uwsgi
 
 VOLUME ["/rate-shooot/data/"]
 

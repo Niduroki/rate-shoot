@@ -9,7 +9,7 @@ Intention is for you to upload thumbnails of a photoshoot, so a model can look o
 
 ## Docker
 
-Expose port 80.
+Expose port 8000.
 Volume `/rate-shoot/data` for database and thumbnails.
 
 ### Update notes
