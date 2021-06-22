@@ -46,10 +46,6 @@ class Pictures(Base):
     status = Column(String)  # yes/no/unsafe/Null
     comment = Column(String)
 
-    __mapper_args__ = {
-        "order_by": filename
-    }
-
     shoot = relationship("Shoot", back_populates="pictures")
     
     def next_pic(self):

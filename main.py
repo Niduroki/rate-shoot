@@ -112,7 +112,7 @@ def shoot_overview(shoot_link):
         abort(404)
         raise
 
-    pics = db_session.query(db.Pictures).filter_by(shoot=obj).all()
+    pics = db_session.query(db.Pictures).filter_by(shoot=obj).order_by(db.Pictures.filename).all()
 
     return render_template("shoot_overview.html", shoot=obj, pics=pics)
 
@@ -273,7 +273,8 @@ def admin_shoot_overview(shoot_link):
         raise
 
     if request.method == "GET":
-        return render_template("admin_shoot_overview.html", shoot=obj, pics=obj.pictures)
+        pics = db_session.query(db.Pictures).filter_by(shoot=obj).order_by(db.Pictures.filename).all()
+        return render_template("admin_shoot_overview.html", shoot=obj, pics=pics)
     elif request.method == "POST":
         try:
             # Route 1: Updating Data

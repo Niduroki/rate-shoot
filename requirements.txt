@@ -4,3 +4,4 @@ uwsgi==2.0.19.1
 pytest==6.2.4
 passlib==1.7.4
 Flask-Babel==2.0.0
+alembic==1.6.5
