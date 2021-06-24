@@ -32,6 +32,10 @@ a:visited, a:hover, a:active, a:focus, a:link {
    outline: none !important;
 }
 
+.hidden { display: none; }
+.relative { position: relative; }
+.fit-width { width: fit-content; }
+
 .btn {
    background-color: #4CAF50;
    border: none;
@@ -53,13 +57,16 @@ small {
     font-size: .6em;
 }
 .btn.green {background-color: #4CAF50;}
+.btn.turquoise {background-color: #4CAFAF;}
 .btn.yellow {background-color: #dc0; color: #666 !important;}
 .btn.red {background-color: #f33;}
 .btn.grey {background-color: #aaa;}
 .btn.green.disabled {background-color: #9ac7a2;}
+.btn.turquoise.disabled {background-color: #9ac7c7;}
 .btn.yellow.disabled {background-color: #993;}
 .btn.red.disabled {background-color: #944;}
 .btn.grey.disabled {background-color: #444;}
+.btn.grey.active {background-color: #666;} /* for star ratings */
 
 header .title { font-size: 2em; margin-right: 1em;}
 header .small-title { font-size: 1.5em; }
@@ -113,6 +120,7 @@ header .right {
 }
 
 .border.green { box-shadow: 0 1px 1.5em rgba(102,221,102,.8); }
+.border.turquoise { box-shadow: 0 1px 1.5em rgba(102,221,221,.8); }
 .border.yellow { box-shadow: 0 1px 1.5em rgba(221,221,0,.8); }
 .border.red { box-shadow: 0 1px 1.5em rgba(255,119,119,.8); }
 
@@ -187,6 +195,15 @@ header .right {
 
 .tutorial {
     margin: 2em;
+}
+
+.pic-grid-item.pic {
+    position: relative;
+}
+.star-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 /* Taken from https://stackoverflow.com/questions/36962903/javascript-shake-html-element */

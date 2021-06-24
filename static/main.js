@@ -84,7 +84,53 @@ $(function () {
                         $("header .right .small-title").removeClass("shake");
                     }, 400);
                 } else {
-                    alert("Fehler! " + d.responseJSON.error);
+                    alert("Error! " + d.responseJSON.error);
+                }
+            },
+        });
+    });
+
+    $("#yes-edited-btn").click(function(e){
+        $.ajax(".", {
+            data: {rating: "yes_edited"},
+            type: "post",
+            success: function(d){
+                window.location = d.next;
+            },
+            error: function(d){
+                if (d.responseJSON.error === "too_many") {
+                    $("#yes-edited-btn").addClass("disabled").css("cursor", "not-allowed");
+                    $("#yes-edited-btn").addClass("shake");
+                    $("header .right .small-title").addClass("shake");
+                    setTimeout(function(){
+                        $("#yes-edited-btn").removeClass("shake");
+                        $("header .right .small-title").removeClass("shake");
+                    }, 400);
+                } else {
+                    alert("Error! " + d.responseJSON.error);
+                }
+            },
+        });
+    });
+
+    $("#yes-unedited-btn").click(function(e){
+        $.ajax(".", {
+            data: {rating: "yes_unedited"},
+            type: "post",
+            success: function(d){
+                window.location = d.next;
+            },
+            error: function(d){
+                if (d.responseJSON.error === "too_many") {
+                    $("#yes-unedited-btn").addClass("disabled").css("cursor", "not-allowed");
+                    $("#yes-unedited-btn").addClass("shake");
+                    $("header .right .small-title").addClass("shake");
+                    setTimeout(function(){
+                        $("#yes-unedited-btn").removeClass("shake");
+                        $("header .right .small-title").removeClass("shake");
+                    }, 400);
+                } else {
+                    alert("Error! " + d.responseJSON.error);
                 }
             },
         });
@@ -98,7 +144,7 @@ $(function () {
                 window.location = d.next;
             },
             error: function(d){
-                alert("Fehler! " + d.responseJSON.error);
+                alert("Error! " + d.responseJSON.error);
             },
         });
     });
@@ -113,7 +159,7 @@ $(function () {
                     window.location = d.next;
                 },
                 error: function(d){
-                    alert("Fehler! " + d.responseJSON.error);
+                    alert("Error! " + d.responseJSON.error);
                 },
             });
         }
@@ -137,7 +183,7 @@ $(function () {
                 window.location = d.next;
             },
             error: function(d){
-                alert("Fehler! " + d.responseJSON.error);
+                alert("Error! " + d.responseJSON.error);
             },
         });
     });
@@ -146,11 +192,13 @@ $(function () {
         if ($("#filter-yes").hasClass("disabled")) {
             $("#filter-yes").removeClass("disabled");
             $("#filter-yes").html(createIcon("show", "16"));
-            $(".border.green").css("display", "inline-block");
+            $(".border.green").parent().css("display", "inline-block");
+            $(".border.turquoise").parent().css("display", "inline-block");
         } else {
             $("#filter-yes").addClass("disabled");
             $("#filter-yes").html(createIcon("hide", "16"));
-            $(".border.green").css("display", "none");
+            $(".border.green").parent().css("display", "none");
+            $(".border.turquoise").parent().css("display", "none");
         }
         $grid.imagesLoaded().progress( function() {
             $grid.masonry('layout');
@@ -160,11 +208,11 @@ $(function () {
         if ($("#filter-unsafe").hasClass("disabled")) {
             $("#filter-unsafe").removeClass("disabled");
             $("#filter-unsafe").html(createIcon("show", "16"));
-            $(".border.yellow").css("display", "inline-block");
+            $(".border.yellow").parent().css("display", "inline-block");
         } else {
             $("#filter-unsafe").addClass("disabled");
             $("#filter-unsafe").html(createIcon("hide", "16"));
-            $(".border.yellow").css("display", "none");
+            $(".border.yellow").parent().css("display", "none");
         }
         $grid.imagesLoaded().progress( function() {
             $grid.masonry('layout');
@@ -174,11 +222,11 @@ $(function () {
         if ($("#filter-no").hasClass("disabled")) {
             $("#filter-no").removeClass("disabled");
             $("#filter-no").html(createIcon("show", "16"));
-            $(".border.red").css("display", "inline-block");
+            $(".border.red").parent().css("display", "inline-block");
         } else {
             $("#filter-no").addClass("disabled");
             $("#filter-no").html(createIcon("hide", "16"));
-            $(".border.red").css("display", "none");
+            $(".border.red").parent().css("display", "none");
         }
         $grid.imagesLoaded().progress( function() {
             $grid.masonry('layout');
@@ -188,14 +236,74 @@ $(function () {
         if ($("#filter-all").hasClass("disabled")) {
             $("#filter-all").removeClass("disabled");
             $("#filter-all").text("Alles");
-            $(".border").css("display", "inline-block");
+            $(".border").parent().css("display", "inline-block");
         } else {
             $("#filter-all").addClass("disabled");
             $("#filter-all").text("Unbewertet");
-            $(".border").css("display", "none");
+            $(".border").parent().css("display", "none");
         }
         $grid.imagesLoaded().progress( function() {
             $grid.masonry('layout');
+        });
+    });
+
+     $("#unedited_checkbox").click(function(e){
+        if ($('#unedited_checkbox').prop('checked')) {
+            $('#max_unedited_count').removeClass('hidden');
+        } else {
+            $('#max_unedited_count').addClass('hidden');
+        }
+     });
+
+    $('#star-none-btn').click(function(e){
+        $.ajax(".", {
+            data: {rating: "/"},
+            type: "post",
+            success: function(d){
+                window.location.reload(false);
+            },
+            error: function(d){
+                alert("Error! " + d.responseJSON.error);
+            },
+        });
+    });
+
+    $('#star-zero-btn').click(function(e){
+        $.ajax(".", {
+            data: {rating: "0"},
+            type: "post",
+            success: function(d){
+                window.location.reload(false);
+            },
+            error: function(d){
+                alert("Error! " + d.responseJSON.error);
+            },
+        });
+    });
+
+    $('#star-half-btn').click(function(e){
+        $.ajax(".", {
+            data: {rating: "1"},
+            type: "post",
+            success: function(d){
+                window.location.reload(false);
+            },
+            error: function(d){
+                alert("Error! " + d.responseJSON.error);
+            },
+        });
+    });
+
+    $('#star-full-btn').click(function(e){
+        $.ajax(".", {
+            data: {rating: "2"},
+            type: "post",
+            success: function(d){
+                window.location.reload(false);
+            },
+            error: function(d){
+                alert("Error! " + d.responseJSON.error);
+            },
         });
     });
 

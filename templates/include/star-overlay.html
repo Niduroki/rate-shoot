@@ -1,0 +1,11 @@
+{% if pic.star_rating is not none %}
+    <div class="star-overlay">
+        {% if pic.star_rating == 0 %}
+        <svg class="genericons-neue genericons-neue-show" width="16px" height="16px"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/static/genericons-neue.svg#star-empty"></use></svg>
+        {% elif pic.star_rating == 1 %}
+        <svg class="genericons-neue genericons-neue-show" width="16px" height="16px"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/static/genericons-neue.svg#star-half"></use></svg>
+        {% elif pic.star_rating == 2 %}
+        <svg class="genericons-neue genericons-neue-show" width="16px" height="16px"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/static/genericons-neue.svg#star"></use></svg>
+        {% endif %}
+    </div>
+{% endif %}

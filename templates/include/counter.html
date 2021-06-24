@@ -1,0 +1,45 @@
+<span class="small-title">
+    {% if shoot.unedited_images %}
+        {% if shoot.max_images != 0 %}
+            {% trans trimmed count=shoot.keep_count().edited, max=shoot.max_images %}
+                {{ count }}/{{ max }} <small>edited image</small>
+            {% pluralize max %}
+                {{ count }}/{{ max }} <small>edited images</small>
+            {% endtrans %}
+        {% else %}
+            {% trans trimmed count=shoot.keep_count().edited %}
+                {{ count }} <small>edited image</small>
+            {% pluralize %}
+                {{ count }} <small>edited images</small>
+            {% endtrans %}
+        {% endif %}
+        –
+        {% if shoot.max_unedited != 0 %}
+            {% trans trimmed count=shoot.keep_count().unedited, max=shoot.max_unedited %}
+                {{ count }}/{{ max }} <small>unedited image</small>
+            {% pluralize max %}
+                {{ count }}/{{ max }} <small>unedited images</small>
+            {% endtrans %}
+        {% else %}
+            {% trans trimmed count=shoot.keep_count().unedited %}
+                {{ count }} <small>unedited image</small>
+            {% pluralize %}
+                {{ count }} <small>unedited images</small>
+            {% endtrans %}
+        {% endif %}
+    {% else %}
+        {% if shoot.max_images != 0 %}
+            {% trans trimmed count=shoot.keep_count(), max=shoot.max_images %}
+                {{ count }}/{{ max }} <small>image chosen</small>
+            {% pluralize max %}
+                {{ count }}/{{ max }} <small>images chosen</small>
+            {% endtrans %}
+        {% else %}
+            {% trans trimmed count=shoot.keep_count() %}
+                {{ count }} <small>image chosen</small>
+            {% pluralize %}
+                {{ count }} <small>images chosen</small>
+            {% endtrans %}
+        {% endif %}
+    {% endif %}
+</span>

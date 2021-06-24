@@ -5,37 +5,33 @@
 <a href="/admin/{{ shoot.link }}/">{% trans %}Back to shoot{% endtrans %}</a>
 {% endblock %}
 {% block topright %}
-<span class="small-title">
-{% if shoot.max_images != 0 %}
-    {% trans trimmed count=shoot.keep_count(), max=shoot.max_images %}
-    {{ count }}/{{ max }} <small>image chosen
-    {% pluralize max %}
-    {{ count }}/{{ max }} <small>images chosen
-    {% endtrans %}
-{% else %}
-    {% trans trimmed count=shoot.keep_count() %}
-    {{ count }} <small>image chosen
-    {% pluralize %}
-    {{ count }} <small>images chosen
-    {% endtrans %}
-{% endif %}
-</small></span>
+{% include "include/counter.html" %}
 <a href="/admin/" class="btn yellow">{% trans %}Overview{% endtrans %}</a>
 <a href="/logout/" class="btn yellow">{% trans %}Logout{% endtrans %}</a>
 {% endblock %}
 {% block content %}
-<img class="focused
-{% if pic.status %}
+<div class="focused relative fit-width">
+<img class="{% if pic.status %}
     border
     {% if pic.status == 'yes' %}green
+    {% elif pic.status == 'yes_edited' %}green
+    {% elif pic.status == 'yes_unedited' %}turquoise
     {% elif pic.status == 'unsafe' %}yellow
     {% elif pic.status == 'no' %}red
     {% endif %}
-{% endif %}
-" src="/img/{{ pic.filename }}">
+{% endif %}" src="/img/{{ pic.filename }}">
+{% include "include/star-overlay.html" %}
+</div>
 
 <div style="position: relative">
     <div class="rating-btns">
+        {% if pic.star_rating is not none %}
+            <a id="star-none-btn" class="btn grey">{% trans %}Remove star{% endtrans %}</a>
+        {% endif %}
+        <a id="star-zero-btn" class="btn grey {% if pic.star_rating == 0 %}active{% endif %}"><svg class="genericons-neue genericons-neue-show" width="16px" height="16px"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/static/genericons-neue.svg#star-empty"></use></svg></a>
+        <a id="star-half-btn" class="btn grey {% if pic.star_rating == 1 %}active{% endif %}"><svg class="genericons-neue genericons-neue-show" width="16px" height="16px"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/static/genericons-neue.svg#star-half"></use></svg></a>
+        <a id="star-full-btn" class="btn grey {% if pic.star_rating == 2 %}active{% endif %}"><svg class="genericons-neue genericons-neue-show" width="16px" height="16px"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/static/genericons-neue.svg#star"></use></svg></a>
+        –
         <a href="#delete-modal" rel="modal:open" class="btn red">{% trans %}Delete image{% endtrans %}</a>
         {% if pic.status == "unsafe" %}
             <a href="#unsafe-modal" rel="modal:open" class="btn yellow">{% trans %}Show comment{% endtrans %}</a>

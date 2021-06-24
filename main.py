@@ -135,15 +135,27 @@ def shoot_picture(shoot_link, picturename):
             if rating == "unsafe":
                 pic.comment = request.form['comment']  # Unsafe must have a comment!
         except KeyError:
-            abort(400)
-            raise
+            return jsonify(error="Missing rating/comment data"), 400
 
-        if rating not in ["yes", "unsafe", "no"]:
-            abort(400)
+        if rating not in ["yes_edited", "yes_unedited", "yes", "unsafe", "no"]:
+            return jsonify(error="invalid rating"), 400
+        if not obj.unedited_images and rating in ["yes_edited", "yes_unedited"]:
+            return jsonify(error="Not accepting edited/unedited data"), 400
 
-        if obj.max_images > 0:
-            if rating == "yes" and obj.keep_count() == obj.max_images:
-                return jsonify(error="too_many"), 400
+        if obj.max_images > 0 and (  # If there is a limit for max (edited) images
+            # and we want to keep this image, but we're full already
+            (rating == "yes" and obj.keep_count() == obj.max_images)
+            or
+            # alternatively with edited/unedited options
+            (rating == "yes_edited" and obj.keep_count()['edited'] == obj.max_images)
+        ):
+            return jsonify(error="too_many"), 400
+
+        if obj.unedited_images and obj.max_unedited > 0 and (  # If there is a limit for max unedited images
+            # and we want to keep this image, but we're full already
+            rating == "yes_unedited" and obj.keep_count()['unedited'] == obj.max_unedited
+        ):
+            return jsonify(error="too_many"), 400
 
         pic.status = rating
         db_session.commit()
@@ -234,6 +246,21 @@ def admin_createshoot():
         try:
             description = request.form['description']
             limit = request.form['limit']
+            try:
+                # Unedited is checked
+                if request.form['unedited'] == "on":
+                    unedited = True
+                try:
+                    # Read Unedited limit
+                    limit_unedited = request.form['limit_unedited']
+                except KeyError:
+                    # If it's not there: Error out
+                    abort(400)
+                    raise
+            except KeyError:
+                # Unedited is not checked -> Limit unedited is None
+                unedited = False
+                limit_unedited = None
         except KeyError:
             abort(400)
             raise
@@ -242,6 +269,7 @@ def admin_createshoot():
         db_session = db.get_session()
         obj = db.Shoot(
             link=link, description=description, max_images=limit, done=False,
+            unedited_images=unedited, max_unedited=limit_unedited,
             creation=datetime.now()
         )
         db_session.add(obj)
@@ -280,8 +308,44 @@ def admin_shoot_overview(shoot_link):
             # Route 1: Updating Data
             description = request.form['description']
             limit = request.form['limit']
+
+            try:
+                # Unedited is checked
+                if request.form['unedited'] == "on":
+                    unedited = True
+                try:
+                    # Read Unedited limit
+                    limit_unedited = request.form['limit_unedited']
+                except KeyError:
+                    # If it's not there: Error out
+                    abort(400)
+                    raise
+            except KeyError:
+                # Unedited is not checked -> Limit unedited is None
+                unedited = False
+                limit_unedited = None
+
+            if obj.unedited_images and not unedited:
+                # If we allowed unedited images before, but now don't we are going to ...
+                # Change all yes_edited into yes ...
+                # and change all yes_unedited to unsafe with a "Unedited" comment
+                for picture in obj.pictures:
+                    if picture.status == "yes_edited":
+                        picture.status = "yes"
+                    elif picture.status == "yes_unedited":
+                        picture.status = "unsafe"
+                        picture.comment = "Unedited"
+            elif not obj.unedited_images and unedited:
+                # If it is the other way around (before: Only edited, now: unedited) ...
+                # We are going to make all yes into yes_edited
+                for picture in obj.pictures:
+                    if picture.status == "yes":
+                        picture.status = "yes_edited"
+
             obj.description = description
             obj.max_images = limit
+            obj.unedited_images = unedited
+            obj.max_unedited = limit_unedited
             db_session.commit()
             return redirect(url_for(".admin_shoot_overview", shoot_link=shoot_link))
         except KeyError:
@@ -298,7 +362,7 @@ def admin_shoot_overview(shoot_link):
                 abort(400)
 
 
-@app.route('/admin/<link:shoot_link>/<string:picturename>/')
+@app.route('/admin/<link:shoot_link>/<string:picturename>/', methods=["get", "post"])
 def admin_shoot_picture(shoot_link, picturename):
     if not check_login(session):
         abort(403)
@@ -307,9 +371,26 @@ def admin_shoot_picture(shoot_link, picturename):
     try:
         obj = db_session.query(db.Shoot).filter_by(link=shoot_link).one()
         pic = db_session.query(db.Pictures).filter_by(shoot=obj, filename=picturename).one()
-        return render_template("admin_shoot_picture.html", shoot=obj, pic=pic)
     except NoResultFound:
         abort(404)
+        raise
+
+    if request.method == "GET":
+        return render_template("admin_shoot_picture.html", shoot=obj, pic=pic)
+    else:
+        try:
+            raw_rating = request.form['rating']
+            if raw_rating not in ["/", "0", "1", "2"]:
+                return jsonify(error="Invalid rating"), 400
+            if raw_rating == "/":
+                rating = None
+            else:
+                rating = int(raw_rating)
+            pic.star_rating = rating
+            db_session.commit()
+            return jsonify(data="success")
+        except KeyError:
+            abort(400)
 
 
 @app.route('/admin/<link:shoot_link>/<string:picturename>/delete/', methods=["delete", ])

@@ -8,14 +8,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-02-26 11:29+0100\n"
+"POT-Creation-Date: 2021-06-24 12:38+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.9.0\n"
+"Generated-By: Babel 2.9.1\n"
 
 #: templates/admin.html:3 templates/admin.html:56 templates/pwchange.html:3
 msgid "Prune images"
@@ -26,8 +26,8 @@ msgstr ""
 msgid "Change password"
 msgstr ""
 
-#: templates/admin.html:5 templates/admin_shoot_overview.html:25
-#: templates/admin_shoot_picture.html:24 templates/create_shoot.html:4
+#: templates/admin.html:5 templates/admin_shoot_overview.html:11
+#: templates/admin_shoot_picture.html:10 templates/create_shoot.html:4
 #: templates/pwchange.html:5
 msgid "Logout"
 msgstr ""
@@ -79,68 +79,72 @@ msgstr ""
 msgid "Removed <span id=\"prune-count-2\">count2</span> images without DB entry."
 msgstr ""
 
-#: templates/admin_shoot_overview.html:7 templates/admin_shoot_picture.html:10
-#: templates/shoot_overview.html:7 templates/shoot_picture.html:10
-#, python-format
-msgid "%(count)s/%(max)s <small>image chosen"
-msgid_plural "%(count)s/%(max)s <small>images chosen"
-msgstr[0] ""
-msgstr[1] ""
-
-#: templates/admin_shoot_overview.html:13 templates/admin_shoot_picture.html:16
-#: templates/shoot_overview.html:13 templates/shoot_picture.html:16
-#, python-format
-msgid "%(count)s <small>image chosen"
-msgid_plural "%(count)s <small>images chosen"
-msgstr[0] ""
-msgstr[1] ""
-
-#: templates/admin_shoot_overview.html:23
+#: templates/admin_shoot_overview.html:9
 msgid "All"
 msgstr ""
 
-#: templates/admin_shoot_overview.html:24 templates/admin_shoot_picture.html:23
+#: templates/admin_shoot_overview.html:10 templates/admin_shoot_picture.html:9
 msgid "Overview"
 msgstr ""
 
-#: templates/admin_shoot_overview.html:31
+#: templates/admin_shoot_overview.html:17
 msgid "Link to public page"
 msgstr ""
 
-#: templates/admin_shoot_overview.html:31
+#: templates/admin_shoot_overview.html:17
 msgid "Copied!"
 msgstr ""
 
-#: templates/admin_shoot_overview.html:37
+#: templates/admin_shoot_overview.html:23
 msgid "Upload more images"
 msgstr ""
 
-#: templates/admin_shoot_overview.html:41
+#: templates/admin_shoot_overview.html:27
 msgid "Keep/Insecure filenames"
 msgstr ""
 
-#: templates/admin_shoot_overview.html:42
-#: templates/admin_shoot_overview.html:67
+#: templates/admin_shoot_overview.html:28
+#: templates/admin_shoot_overview.html:55
 msgid "Edit shoot"
 msgstr ""
 
-#: templates/admin_shoot_overview.html:62 templates/shoot_overview.html:43
+#: templates/admin_shoot_overview.html:50 templates/shoot_overview.html:32
 msgid "No images"
 msgstr ""
 
-#: templates/admin_shoot_overview.html:71 templates/create_shoot.html:15
+#: templates/admin_shoot_overview.html:59 templates/create_shoot.html:15
 msgid "Description"
 msgstr ""
 
-#: templates/admin_shoot_overview.html:74 templates/create_shoot.html:18
+#: templates/admin_shoot_overview.html:62 templates/create_shoot.html:18
 msgid "Maximum amount of images (0=No limit)"
 msgstr ""
 
-#: templates/admin_shoot_overview.html:82
+#: templates/admin_shoot_overview.html:65 templates/create_shoot.html:21
+msgid "Also keep unedited images?"
+msgstr ""
+
+#: templates/admin_shoot_overview.html:68
+msgid "Unticking this means that all \"Unedited\" data will be lost!"
+msgstr ""
+
+#: templates/admin_shoot_overview.html:72 templates/create_shoot.html:24
+msgid "Maximum amount of unedited images (0=No limit)"
+msgstr ""
+
+#: templates/admin_shoot_overview.html:81
+msgid "List of edited images to keep"
+msgstr ""
+
+#: templates/admin_shoot_overview.html:89
+msgid "List of unedited images to keep"
+msgstr ""
+
+#: templates/admin_shoot_overview.html:98
 msgid "List of images to keep"
 msgstr ""
 
-#: templates/admin_shoot_overview.html:90
+#: templates/admin_shoot_overview.html:107
 msgid "List of insecure images"
 msgstr ""
 
@@ -148,23 +152,27 @@ msgstr ""
 msgid "Back to shoot"
 msgstr ""
 
-#: templates/admin_shoot_picture.html:39 templates/admin_shoot_picture.html:50
+#: templates/admin_shoot_picture.html:29
+msgid "Remove star"
+msgstr ""
+
+#: templates/admin_shoot_picture.html:35 templates/admin_shoot_picture.html:46
 msgid "Delete image"
 msgstr ""
 
-#: templates/admin_shoot_picture.html:41
+#: templates/admin_shoot_picture.html:37
 msgid "Show comment"
 msgstr ""
 
-#: templates/admin_shoot_picture.html:43 templates/shoot_picture.html:41
+#: templates/admin_shoot_picture.html:39 templates/shoot_picture.html:35
 msgid "Next image"
 msgstr ""
 
-#: templates/admin_shoot_picture.html:49
+#: templates/admin_shoot_picture.html:45
 msgid "Really delete this image?"
 msgstr ""
 
-#: templates/admin_shoot_picture.html:55
+#: templates/admin_shoot_picture.html:51
 msgid "Insecure-comment"
 msgstr ""
 
@@ -176,11 +184,11 @@ msgstr ""
 msgid "Back to admin page"
 msgstr ""
 
-#: templates/create_shoot.html:26
+#: templates/create_shoot.html:32
 msgid "Upload images"
 msgstr ""
 
-#: templates/create_shoot.html:32
+#: templates/create_shoot.html:38
 msgid "Uploaded images:"
 msgstr ""
 
@@ -274,27 +282,77 @@ msgstr ""
 msgid "Back to shoot overview"
 msgstr ""
 
-#: templates/shoot_picture.html:36
+#: templates/shoot_picture.html:26
+msgid "Keep edited"
+msgstr ""
+
+#: templates/shoot_picture.html:27
+msgid "Keep unedited"
+msgstr ""
+
+#: templates/shoot_picture.html:29
 msgid "Keep"
 msgstr ""
 
-#: templates/shoot_picture.html:37
+#: templates/shoot_picture.html:31
 msgid "Insecure <small>(+ Comment)</small>"
 msgstr ""
 
-#: templates/shoot_picture.html:38
+#: templates/shoot_picture.html:32
 msgid "Don't keep"
 msgstr ""
 
-#: templates/shoot_picture.html:43
+#: templates/shoot_picture.html:37
 msgid "Skip"
 msgstr ""
 
-#: templates/shoot_picture.html:50
+#: templates/shoot_picture.html:44
 msgid "Explain why \"insecure\"?"
 msgstr ""
 
-#: templates/shoot_picture.html:52
+#: templates/shoot_picture.html:46
 msgid "Submit"
 msgstr ""
+
+#: templates/include/counter.html:4
+#, python-format
+msgid "%(count)s/%(max)s <small>edited image</small>"
+msgid_plural "%(count)s/%(max)s <small>edited images</small>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: templates/include/counter.html:10
+#, python-format
+msgid "%(count)s <small>edited image</small>"
+msgid_plural "%(count)s <small>edited images</small>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: templates/include/counter.html:18
+#, python-format
+msgid "%(count)s/%(max)s <small>unedited image</small>"
+msgid_plural "%(count)s/%(max)s <small>unedited images</small>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: templates/include/counter.html:24
+#, python-format
+msgid "%(count)s <small>unedited image</small>"
+msgid_plural "%(count)s <small>unedited images</small>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: templates/include/counter.html:32
+#, python-format
+msgid "%(count)s/%(max)s <small>image chosen</small>"
+msgid_plural "%(count)s/%(max)s <small>images chosen</small>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: templates/include/counter.html:38
+#, python-format
+msgid "%(count)s <small>image chosen</small>"
+msgid_plural "%(count)s <small>images chosen</small>"
+msgstr[0] ""
+msgstr[1] ""
 

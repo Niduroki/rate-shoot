@@ -17,6 +17,12 @@
          <tr>
             <td>{% trans %}Maximum amount of images (0=No limit){% endtrans %}</td><td><input required type="number" name="limit" value="0"></td>
          </tr>
+         <tr>
+            <td>{% trans %}Also keep unedited images?{% endtrans %}</td><td><input id="unedited_checkbox" type="checkbox" name="unedited" value="on"></td>
+         </tr>
+         <tr id="max_unedited_count" class="hidden">
+            <td>{% trans %}Maximum amount of unedited images (0=No limit){% endtrans %}</td><td><input type="number" name="limit_unedited" value="0"></td>
+         </tr>
          </table>
          <input type="hidden" id="img_list" name="img_list">
          <input type="submit">
@@ -32,4 +38,5 @@
    {% trans %}Uploaded images:{% endtrans %}
    <ul id="uploaded_list"></ul>
 </div>
+<!-- TODO ideally we'd accept star ratings right here, but :effort: ... at least for now -->
 {% endblock %}

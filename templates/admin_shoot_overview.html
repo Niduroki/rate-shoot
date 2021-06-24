@@ -2,21 +2,7 @@
 {% block title %}{{ shoot.description }}{% endblock %}
 {% block topleft %}<span class="title">{{ shoot.description }}</span>{% endblock %}
 {% block topright %}
-<span class="small-title">
-{% if shoot.max_images != 0 %}
-    {% trans trimmed count=shoot.keep_count(), max=shoot.max_images %}
-    {{ count }}/{{ max }} <small>image chosen
-    {% pluralize max %}
-    {{ count }}/{{ max }} <small>images chosen
-    {% endtrans %}
-{% else %}
-    {% trans trimmed count=shoot.keep_count() %}
-    {{ count }} <small>image chosen
-    {% pluralize %}
-    {{ count }} <small>images chosen
-    {% endtrans %}
-{% endif %}
-</small></span>
+{% include "include/counter.html" %}
 <a id="filter-yes" class="btn green"><svg class="genericons-neue genericons-neue-show" width="16px" height="16px"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/static/genericons-neue.svg#show"></use></svg></a>
 <a id="filter-unsafe" class="btn yellow"><svg class="genericons-neue genericons-neue-show" width="16px" height="16px"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/static/genericons-neue.svg#show"></use></svg></a>
 <a id="filter-no" class="btn red"><svg class="genericons-neue genericons-neue-show" width="16px" height="16px"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/static/genericons-neue.svg#show"></use></svg></a>
@@ -52,11 +38,13 @@
             {% if pic.status %}
                 border
                 {% if pic.status == 'yes' %}green
+                {% elif pic.status == 'yes_edited' %}green
+                {% elif pic.status == 'yes_unedited' %}turquoise
                 {% elif pic.status == 'unsafe' %}yellow
                 {% elif pic.status == 'no' %}red
                 {% endif %}
             {% endif %}">
-        </a>
+           {% include "include/star-overlay.html" %}
     </div>
 {% else %}
     {% trans %}No images{% endtrans %}
@@ -73,12 +61,40 @@
          <tr>
             <td>{% trans %}Maximum amount of images (0=No limit){% endtrans %}</td><td><input required type="number" name="limit" value="{{ shoot.max_images }}"></td>
          </tr>
+         <tr>
+            <td>{% trans %}Also keep unedited images?{% endtrans %}</td>
+            <td>
+                <input id="unedited_checkbox" type="checkbox" name="unedited" value="on" {% if shoot.unedited_images %}checked{% endif %}><br>
+                {%if shoot.unedited_images %}<small>{% trans %}Unticking this means that all "Unedited" data will be lost!{% endtrans %}</small>{% endif %}
+            </td>
+         </tr>
+         <tr id="max_unedited_count" {% if not shoot.unedited_images %}class="hidden"{% endif %}>
+            <td>{% trans %}Maximum amount of unedited images (0=No limit){% endtrans %}</td><td><input type="number" name="limit_unedited" value="{% if shoot.unedited_images %}{{ shoot.max_unedited }}{% else %}0{% endif %}"></td>
+         </tr>
          </table>
          <input type="submit">
     </form>
 </div>
 
 <div id="keep-modal" class="modal">
+    {% if shoot.unedited_images %}
+    <div class="title">{% trans %}List of edited images to keep{% endtrans %}</div>
+    <ul>
+        {% for pic in pics %}
+            {% if pic.status == 'yes_edited' %}
+                <li>{{ pic.filename }}</li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+    <div class="title">{% trans %}List of unedited images to keep{% endtrans %}</div>
+    <ul>
+        {% for pic in pics %}
+            {% if pic.status == 'yes_unedited' %}
+                <li>{{ pic.filename }}</li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+    {% else %}
     <div class="title">{% trans %}List of images to keep{% endtrans %}</div>
     <ul>
         {% for pic in pics %}
@@ -87,6 +103,7 @@
             {% endif %}
         {% endfor %}
     </ul>
+    {% endif %}
     <div class="title">{% trans %}List of insecure images{% endtrans %}</div>
     <ul>
         {% for pic in pics %}

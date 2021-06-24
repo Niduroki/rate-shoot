@@ -23,14 +23,24 @@ class Shoot(Base):
     link = Column(String)
     description = Column(String)
     creation = Column(DateTime)
-    max_images = Column(Integer)  # max images to give a "keep" to
+    max_images = Column(Integer)  # max images to give a "keep" to (if we also accept unedited images, this is edited)
     done = Column(Boolean)
+    unedited_images = Column(Boolean)  # Whether we can also choose unedited images
+    max_unedited = Column(Integer)  # max unedited images to keep
 
     def keep_count(self):
-        count = 0
-        for pic in self.pictures:
-            if pic.status == "yes":
-                count += 1
+        if self.unedited_images:
+            count = {'edited': 0, 'unedited': 0}
+            for pic in self.pictures:
+                if pic.status == "yes_edited":
+                    count['edited'] += 1
+                elif pic.status == "yes_unedited":
+                    count['unedited'] += 1
+        else:
+            count = 0
+            for pic in self.pictures:
+                if pic.status == "yes":
+                    count += 1
         return count
 
     def __repr__(self):
@@ -43,7 +53,8 @@ class Pictures(Base):
     id = Column(Integer, primary_key=True)
     shoot_id = Column(Integer, ForeignKey('shoot.id'))
     filename = Column(String, unique=True)
-    status = Column(String)  # yes/no/unsafe/Null
+    star_rating = Column(Integer)
+    status = Column(String)  # Keep/Don't keep
     comment = Column(String)
 
     shoot = relationship("Shoot", back_populates="pictures")

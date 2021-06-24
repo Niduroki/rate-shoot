@@ -2,21 +2,7 @@
 {% block title %}{{ shoot.description }}{% endblock %}
 {% block topleft %}<span class="title">{{ shoot.description }}</span>{% endblock %}
 {% block topright %}
-<span class="small-title">
-{% if shoot.max_images != 0 %}
-    {% trans trimmed count=shoot.keep_count(), max=shoot.max_images %}
-    {{ count }}/{{ max }} <small>image chosen
-    {% pluralize max %}
-    {{ count }}/{{ max }} <small>images chosen
-    {% endtrans %}
-{% else %}
-    {% trans trimmed count=shoot.keep_count() %}
-    {{ count }} <small>image chosen
-    {% pluralize %}
-    {{ count }} <small>images chosen
-    {% endtrans %}
-{% endif %}
-</small></span>
+{% include "include/counter.html" %}
 <a id="filter-yes" class="btn green"><svg class="genericons-neue genericons-neue-show" width="16px" height="16px"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/static/genericons-neue.svg#show"></use></svg></a>
 <a id="filter-unsafe" class="btn yellow"><svg class="genericons-neue genericons-neue-show" width="16px" height="16px"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/static/genericons-neue.svg#show"></use></svg></a>
 <a id="filter-no" class="btn red"><svg class="genericons-neue genericons-neue-show" width="16px" height="16px"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/static/genericons-neue.svg#show"></use></svg></a>
@@ -33,10 +19,13 @@
             {% if pic.status %}
                 border
                 {% if pic.status == 'yes' %}green
+                {% elif pic.status == 'yes_edited' %}green
+                {% elif pic.status == 'yes_unedited' %}turquoise
                 {% elif pic.status == 'unsafe' %}yellow
                 {% elif pic.status == 'no' %}red
                 {% endif %}
             {% endif %}">
+            {% include "include/star-overlay.html" %}
         </a>
     </div>
 {% else %}

@@ -5,35 +5,29 @@
 <a href="/{{ shoot.link }}/">{% trans %}Back to shoot overview{% endtrans %}</a>
 {% endblock %}
 {% block topright %}
-<span class="small-title">
-{% if shoot.max_images != 0 %}
-    {% trans trimmed count=shoot.keep_count(), max=shoot.max_images %}
-    {{ count }}/{{ max }} <small>image chosen
-    {% pluralize max %}
-    {{ count }}/{{ max }} <small>images chosen
-    {% endtrans %}
-{% else %}
-    {% trans trimmed count=shoot.keep_count() %}
-    {{ count }} <small>image chosen
-    {% pluralize %}
-    {{ count }} <small>images chosen
-    {% endtrans %}
-{% endif %}
-</small></span>
+{% include "include/counter.html" %}
 {% endblock %}
 {% block content %}
-<img class="focused
-{% if pic.status %}
+<div class="focused relative fit-width">
+<img class="{% if pic.status %}
     border
     {% if pic.status == 'yes' %}green
+    {% elif pic.status == 'yes_edited' %}green
+    {% elif pic.status == 'yes_unedited' %}turquoise
     {% elif pic.status == 'unsafe' %}yellow
     {% elif pic.status == 'no' %}red
     {% endif %}
-{% endif %}
-" src="/img/{{ pic.filename }}">
+{% endif %}" src="/img/{{ pic.filename }}">
+{% include "include/star-overlay.html" %}
+</div>
 <div style="position: relative">
     <div class="rating-btns">
-        <a id="yes-btn" class="btn green">{% trans %}Keep{% endtrans %}</a>
+        {% if shoot.unedited_images %}
+            <a id="yes-edited-btn" class="btn green">{% trans %}Keep edited{% endtrans %}</a>
+            <a id="yes-unedited-btn" class="btn turquoise">{% trans %}Keep unedited{% endtrans %}</a>
+        {% else %}
+            <a id="yes-btn" class="btn green">{% trans %}Keep{% endtrans %}</a>
+        {% endif %}
         <a href="#unsafe-modal" rel="modal:open" class="btn yellow">{% trans %}Insecure <small>(+ Comment)</small>{% endtrans %}</a>
         <a id="no-btn" class="btn red">{% trans %}Don't keep{% endtrans %}</a>
         <a class="btn grey" href="{{ pic.next_pic_link() }}">

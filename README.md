@@ -14,4 +14,6 @@ Volume `/rate-shoot/data` for database and thumbnails.
 
 ### Update notes
 
+There is a database migration to be executed, as of 2021-06-24, to do so call alembic upgrade head, in the base directory (maybe through your docker container).
+
 Dropped root-privileges on this image on 2021-03-21, you need to to a `chown -R 1000 volume-dir` on your volume directory for the data, sometime before or after the next update.
