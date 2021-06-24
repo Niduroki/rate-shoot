@@ -5,7 +5,7 @@ WORKDIR /rate-shoot/
 COPY . /rate-shoot/
 RUN mkdir /rate-shoot/data/
 
-RUN apt-get update && apt-get install -y gcc && pip install -r /rate-shoot/requirements.txt
+RUN apt-get update && apt-get install -y gcc fonts-freefont-ttf && pip install -r /rate-shoot/requirements.txt
 
 EXPOSE 8000
 
