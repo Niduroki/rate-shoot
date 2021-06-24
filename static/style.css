@@ -165,6 +165,9 @@ header .right {
 .form, .top-margin {
     margin-top: 1em;
 }
+.small-bot-margin {
+    margin-bottom: .4em;
+}
 .half-width {
     display: inline-grid;
     width: 47%;

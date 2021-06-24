@@ -20,7 +20,12 @@
     </div>
     <input id="shoot_link_help" type="hidden" value="{{ shoot.link }}"><!-- required for fileupload in here -->
     <div class="third-width">
-        {% trans %}Upload more images{% endtrans %} <input id="fileupload-overview" type="file" name="files[]" data-url="/admin/upload/" multiple><br>
+        <div class="small-bot-margin">
+            {% trans %}Upload more images{% endtrans %} <input id="fileupload-overview" type="file" name="files[]" data-url="/admin/upload/" multiple>
+        </div>
+        <div class="small-bot-margin">
+        <label for="watermark-checkbox">{% trans %}Apply watermark{% endtrans %}</label> <input id="watermark-checkbox" type="checkbox" name="watermark" value="on" checked>
+        </div>
         <div id="progress"><div class="bar" style="width: 0%;"></div></div>
     </div>
     <div class="third-width">

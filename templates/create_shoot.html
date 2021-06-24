@@ -29,8 +29,13 @@
       </form>
    </div>
    <div class="half-width">
-      {% trans %}Upload images{% endtrans %}<br>
-      <input id="fileupload" type="file" name="files[]" data-url="/admin/upload/" multiple><br>
+      <div class="small-bot-margin">
+         {% trans %}Upload images{% endtrans %}<br>
+         <input id="fileupload" type="file" name="files[]" data-url="/admin/upload/" multiple>
+      </div>
+      <div class="small-bot-margin">
+         <label for="watermark-checkbox">{% trans %}Apply watermark{% endtrans %}</label> <input id="watermark-checkbox" type="checkbox" name="watermark" value="on" checked>
+      <div>
       <div id="progress"><div class="bar" style="width: 0%;"></div></div>
    </div>
 </div>

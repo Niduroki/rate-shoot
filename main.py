@@ -9,6 +9,7 @@ from werkzeug.routing import BaseConverter
 from werkzeug.utils import secure_filename
 from sqlalchemy.orm.exc import NoResultFound
 from passlib.hash import pbkdf2_sha256
+from PIL import Image, ImageFont, ImageDraw
 
 app = Flask(__name__)
 
@@ -452,6 +453,10 @@ def admin_upload():
     if not check_login(session):
         abort(403)
 
+    try:
+        watermark = request.form['watermark'] == "true"
+    except KeyError:
+        return jsonify(error="No watermark instructions"), 400
     file = request.files["files[]"]
     filename = file.filename.replace(" ", "_")
     if filename == '':  # when no file is selected filename is empty, without data
@@ -463,6 +468,22 @@ def admin_upload():
             sec_filename = os.path.splitext(sec_filename)[0] + "_conflict" + os.path.splitext(sec_filename)[1]
 
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], sec_filename))
+
+        if watermark:
+            # Apply a watermark
+            img = Image.open(os.path.join(app.config['UPLOAD_FOLDER'], sec_filename)).convert("RGBA")
+            fnt = ImageFont.truetype("FreeSans", size=img.width//4)
+            txt_img = Image.new("RGBA", img.size, (255, 255, 255, 0))
+            draw = ImageDraw.Draw(txt_img)
+            offset = draw.textsize("SAMPLE", font=fnt)
+            draw.text(
+                (img.width//2 - (offset[0]//2), img.height//2 - (offset[1]//2)),
+                "SAMPLE", font=fnt, fill=(255, 255, 255, 30)
+            )
+            rot = txt_img.rotate(30, expand=False, fillcolor=(255, 255, 255, 0))
+            out = Image.alpha_composite(img, rot)
+            out.convert("RGB").save(os.path.join(app.config['UPLOAD_FOLDER'], sec_filename))
+            # If there is no watermark to apply we have nothing to do in an else, or so
 
         return jsonify(files=[{
             "name": sec_filename,

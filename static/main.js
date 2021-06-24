@@ -16,6 +16,10 @@ $(function () {
 
     $('#fileupload').fileupload({
         dataType: 'json',
+        formData: function(e) {
+            var watermark = $('#watermark-checkbox').prop("checked");
+            return [{name: 'watermark', value: watermark}];
+        },
         done: function (e, data) {
             $.each(data.result.files, function (index, file) {
                 //$('<img>').attr("src", file.url).appendTo($('.main'));
@@ -40,6 +44,10 @@ $(function () {
 
     $('#fileupload-overview').fileupload({
         dataType: 'json',
+        formData: function(e) {
+            var watermark = $('#watermark-checkbox').prop("checked");
+            return [{name: 'watermark', value: watermark}];
+        },
         done: function (e, data) {
             $.each(data.result.files, function (index, file) {
                 $.post(".", {img_list: file.name}, function(data){
