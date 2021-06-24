@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-06-24 12:38+0200\n"
+"POT-Creation-Date: 2021-06-24 17:50+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -95,56 +95,60 @@ msgstr ""
 msgid "Copied!"
 msgstr ""
 
-#: templates/admin_shoot_overview.html:23
+#: templates/admin_shoot_overview.html:24
 msgid "Upload more images"
 msgstr ""
 
-#: templates/admin_shoot_overview.html:27
+#: templates/admin_shoot_overview.html:27 templates/create_shoot.html:37
+msgid "Apply watermark"
+msgstr ""
+
+#: templates/admin_shoot_overview.html:32
 msgid "Keep/Insecure filenames"
 msgstr ""
 
-#: templates/admin_shoot_overview.html:28
-#: templates/admin_shoot_overview.html:55
+#: templates/admin_shoot_overview.html:33
+#: templates/admin_shoot_overview.html:60
 msgid "Edit shoot"
 msgstr ""
 
-#: templates/admin_shoot_overview.html:50 templates/shoot_overview.html:32
+#: templates/admin_shoot_overview.html:55 templates/shoot_overview.html:32
 msgid "No images"
 msgstr ""
 
-#: templates/admin_shoot_overview.html:59 templates/create_shoot.html:15
+#: templates/admin_shoot_overview.html:64 templates/create_shoot.html:15
 msgid "Description"
 msgstr ""
 
-#: templates/admin_shoot_overview.html:62 templates/create_shoot.html:18
+#: templates/admin_shoot_overview.html:67 templates/create_shoot.html:18
 msgid "Maximum amount of images (0=No limit)"
 msgstr ""
 
-#: templates/admin_shoot_overview.html:65 templates/create_shoot.html:21
+#: templates/admin_shoot_overview.html:70 templates/create_shoot.html:21
 msgid "Also keep unedited images?"
 msgstr ""
 
-#: templates/admin_shoot_overview.html:68
+#: templates/admin_shoot_overview.html:73
 msgid "Unticking this means that all \"Unedited\" data will be lost!"
 msgstr ""
 
-#: templates/admin_shoot_overview.html:72 templates/create_shoot.html:24
+#: templates/admin_shoot_overview.html:77 templates/create_shoot.html:24
 msgid "Maximum amount of unedited images (0=No limit)"
 msgstr ""
 
-#: templates/admin_shoot_overview.html:81
+#: templates/admin_shoot_overview.html:86
 msgid "List of edited images to keep"
 msgstr ""
 
-#: templates/admin_shoot_overview.html:89
+#: templates/admin_shoot_overview.html:94
 msgid "List of unedited images to keep"
 msgstr ""
 
-#: templates/admin_shoot_overview.html:98
+#: templates/admin_shoot_overview.html:103
 msgid "List of images to keep"
 msgstr ""
 
-#: templates/admin_shoot_overview.html:107
+#: templates/admin_shoot_overview.html:112
 msgid "List of insecure images"
 msgstr ""
 
@@ -184,11 +188,11 @@ msgstr ""
 msgid "Back to admin page"
 msgstr ""
 
-#: templates/create_shoot.html:32
+#: templates/create_shoot.html:33
 msgid "Upload images"
 msgstr ""
 
-#: templates/create_shoot.html:38
+#: templates/create_shoot.html:43
 msgid "Uploaded images:"
 msgstr ""
 
