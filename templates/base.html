@@ -8,7 +8,7 @@
         <title>{% block title %}Rate Shoot{% endblock %}</title>
         <meta property="og:type" content="object" />
         <meta property="og:image" content="/static/favicon.ico" />
-        <meta property="og:title" content="{% block title %}Rate Shoot{% endblock %}" />
+        <meta property="og:title" content="{{ self.title() }}" />
         <meta property="og:description" content="A site to rate images from a photoshooting" />
     </head>
     <body>
@@ -21,7 +21,7 @@
                 {% block content %}Missing content{% endblock %}
             </div>
             <footer>
-                V 0.3.1 –
+                V 0.3.2 –
                 <a href="/help/">{% trans %}Help{% endtrans %}</a> –
                 <a href="https://github.com/Niduroki/rate-shoot">Source</a>
             </footer>
