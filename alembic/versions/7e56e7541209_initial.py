@@ -17,53 +17,43 @@ depends_on = None
 
 
 def downgrade():
-    op.drop_table('Links')
-    op.drop_table('sites')
-    op.drop_table('config')
-    op.drop_table('users')
+    op.drop_table('passwords')
+    op.drop_table('shoot')
+    op.drop_table('pictures')
 
 
 def upgrade():
     try:
-        op.create_table('users',
+        op.create_table('passwords',
         sa.Column('id', sa.INTEGER(), nullable=False),
-        sa.Column('username', sa.VARCHAR(), nullable=True),
         sa.Column('password', sa.VARCHAR(), nullable=True),
-        sa.Column('admin', sa.BOOLEAN(), nullable=True),
-        sa.CheckConstraint('admin IN (0, 1)'),
         sa.PrimaryKeyConstraint('id'),
-        sa.UniqueConstraint('username')
         )
-        op.create_table('config',
+        
+        op.create_table('shoot',
         sa.Column('id', sa.INTEGER(), nullable=False),
-        sa.Column('key', sa.VARCHAR(), nullable=True),
-        sa.Column('value', sa.VARCHAR(), nullable=True),
-        sa.PrimaryKeyConstraint('id'),
-        sa.UniqueConstraint('key')
-        )
-        op.create_table('sites',
-        sa.Column('id', sa.INTEGER(), nullable=False),
-        sa.Column('owner_id', sa.INTEGER(), nullable=True),
-        sa.Column('name', sa.VARCHAR(), nullable=True),
-        sa.Column('seo_description', sa.VARCHAR(), nullable=True),
-        sa.Column('seo_author', sa.VARCHAR(), nullable=True),
-        sa.Column('image', sa.VARCHAR(), nullable=True),
-        sa.Column('bio', sa.VARCHAR(), nullable=True),
-        sa.Column('footer', sa.VARCHAR(), nullable=True),
-        sa.ForeignKeyConstraint(['owner_id'], ['users.id'], ),
-        sa.PrimaryKeyConstraint('id'),
-        sa.UniqueConstraint('image'),
-        sa.UniqueConstraint('name')
-        )
-        op.create_table('Links',
-        sa.Column('id', sa.INTEGER(), nullable=False),
-        sa.Column('site_id', sa.INTEGER(), nullable=True),
-        sa.Column('icon', sa.VARCHAR(), nullable=True),
         sa.Column('link', sa.VARCHAR(), nullable=True),
-        sa.Column('text', sa.VARCHAR(), nullable=True),
-        sa.Column('order', sa.INTEGER(), nullable=True),
-        sa.ForeignKeyConstraint(['site_id'], ['sites.id'], ),
-        sa.PrimaryKeyConstraint('id')
+        sa.Column('description', sa.VARCHAR(), nullable=True),
+        sa.Column('creation', sa.DATETIME(), nullable=True),  # TODO datetime valid identifier?
+        sa.Column('max_images', sa.INTEGER(), nullable=False),
+        sa.Column('done', sa.BOOLEAN(), nullable=True),
+        sa.Column('unedited_images', sa.BOOLEAN(), nullable=True),
+        sa.Column('max_unedited', sa.INTEGER(), nullable=False),
+        sa.PrimaryKeyConstraint('id'),
+        sa.CheckConstraint('done IN (0, 1)'),
+        sa.CheckConstraint('unedited_images IN (0, 1)'),
+        )
+        
+        op.create_table('pictures',
+        sa.Column('id', sa.INTEGER(), nullable=False),
+        sa.Column('shoot_id', sa.INTEGER(), nullable=True),
+        sa.Column('filename', sa.VARCHAR(), nullable=True),
+        sa.Column('star_rating', sa.INTEGER(), nullable=True),
+        sa.Column('status', sa.VARCHAR(), nullable=True),
+        sa.Column('comment', sa.VARCHAR(), nullable=True),
+        sa.ForeignKeyConstraint(['shoot_id'], ['shoot.id'], ),
+        sa.PrimaryKeyConstraint('id'),
+        sa.UniqueConstraint('filename'),
         )
     except sa.exc.OperationalError:
         pass  # Tables probably exist already - skip
