@@ -76,7 +76,7 @@ class Pictures(Base):
         return f"ID: {self.id}, for shoot id: {self.shoot_id}"
 
 
-Shoot.pictures = relationship("Pictures", back_populates="shoot")
+Shoot.pictures = relationship("Pictures", back_populates="shoot", order_by="Pictures.filename")
 
 
 def get_session():
