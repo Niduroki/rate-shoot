@@ -125,8 +125,12 @@ header .right {
 .border.red { box-shadow: 0 1px 1.5em rgba(255,119,119,.8); }
 
 .pic-grid-item {
-    margin: 0.5%;
     width: 24%;
+}
+
+.pic-grid-item > a {
+    display: inline-block;
+    margin: 0.5em;
 }
 
 .shoot-grid-item {
@@ -205,8 +209,8 @@ header .right {
 }
 .star-overlay {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 0.5em;
+    left: 0.5em;
 }
 
 /* Taken from https://stackoverflow.com/questions/36962903/javascript-shake-html-element */
