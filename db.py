@@ -27,6 +27,7 @@ class Shoot(Base):
     done = Column(Boolean)
     unedited_images = Column(Boolean)  # Whether we can also choose unedited images
     max_unedited = Column(Integer)  # max unedited images to keep
+    choose_one = Column(Boolean)
 
     def keep_count(self):
         if self.unedited_images:

@@ -23,6 +23,12 @@
          <tr id="max_unedited_count" class="hidden">
             <td>{% trans %}Maximum amount of unedited images (0=No limit){% endtrans %}</td><td><input type="number" name="limit_unedited" value="0"></td>
          </tr>
+         <tr>
+            <td>{% trans %}"Choose one" selection?{% endtrans %}</td><td><input id="choose_one_checkbox" type="checkbox" name="choose_one" value="on"></td>
+         </tr>
+         <tr id="choose_one_explanation">
+            <td><small>{% trans %}This means, that you will get to compare two images, and choose one to keep{% endtrans %}</small></td>
+         </tr>
          </table>
          <input type="hidden" id="img_list" name="img_list">
          <input type="submit">
