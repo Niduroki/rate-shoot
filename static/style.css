@@ -138,9 +138,12 @@ header .right {
     width: 48%;
 }
 
-.pic-grid-item img, .shoot-grid-item img {
-    max-width: 100%;
+.shoot-grid-item img {
+    max-width: 80%;
+    max-height: 30em;
 }
+
+.pic-grid-item img { max-width: 100%; }
 
 .modal {
     color: #333;
