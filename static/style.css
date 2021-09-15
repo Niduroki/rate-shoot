@@ -16,6 +16,11 @@ body {
     margin-right: -50%;
     transform: translate(-50%, -50%);
 }
+.filename {
+    text-align: center;
+    margin: .5em;
+    font-size: .75em;
+}
 
 .comment-box {
     position: absolute;

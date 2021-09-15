@@ -37,6 +37,9 @@
             <a href="#unsafe-modal" rel="modal:open" class="btn yellow">{% trans %}Show comment{% endtrans %}</a>
         {% endif %}
         <a class="btn grey" href="/admin/{{ pic.next_pic_link() }}">{% trans %}Next image{% endtrans %}</a>
+        <div class="filename">
+            {{ pic.filename }}
+        </div>
     </div>
 </div>
 
