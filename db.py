@@ -83,7 +83,7 @@ def get_session():
     try:
         db_uri = current_app.config["DATABASE"]
     except:
-        db_uri = 'sqlite:////rate-shoot/data/rate.db'
+        db_uri = 'sqlite:////app/data/rate.db'
     engine = create_engine(db_uri)
     Base.metadata.create_all(engine)
     return sessionmaker(bind=engine)()

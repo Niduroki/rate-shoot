@@ -1,21 +1,26 @@
-FROM python:3-slim
+FROM python:3-alpine
 
-RUN mkdir /rate-shoot/
-WORKDIR /rate-shoot/
-COPY . /rate-shoot/
-RUN mkdir /rate-shoot/data/
+RUN mkdir /app/
+WORKDIR /app/
 
-RUN apt-get update && apt-get install -y gcc fonts-freefont-ttf
-ENV VIRTUAL_ENV=/rate-shoot/venv
+ENV VIRTUAL_ENV=/app/venv
 RUN python -m venv $VIRTUAL_ENV
 ENV PATH="$VIRTUAL_ENV/bin:$PATH"
 
+COPY . /app/
+RUN mkdir /app/data/
+
 EXPOSE 8000
 
-RUN useradd uwsgi && chown -R uwsgi /rate-shoot
-USER uwsgi
-RUN pip install --no-cache-dir -r /rate-shoot/requirements.txt
+RUN adduser -S app && chown -R app /app
 
-VOLUME ["/rate-shooot/data/"]
+# Remove gcc & musl-dev when Pillow is installed
+RUN apk add --no-cache gcc g++ musl-dev zlib-dev jpeg-dev freetype-dev ttf-freefont \
+    && pip install --no-cache-dir -r /app/requirements.txt gunicorn \
+    && apk del gcc g++ musl-dev
 
-CMD [ "uwsgi", "rate-shoot-py.ini"]
+USER app
+
+VOLUME ["/app/data/"]
+
+CMD [ "gunicorn", "-b", "0.0.0.0:8000", "main:app"]
