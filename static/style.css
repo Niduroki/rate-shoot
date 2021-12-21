@@ -1,7 +1,7 @@
 body {
     background-color: #444;
     color: #eee;
-    font-family: sans;
+    font-family: sans-serif;
 }
 
 .focused, .tutorial img, .tutorial video {
