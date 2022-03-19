@@ -1,7 +1,7 @@
-Flask==2.0.2
-sqlalchemy==1.4.31
-pytest==7.0.1
+Flask==2.0.3
+sqlalchemy==1.4.32
+pytest==7.1.1
 passlib==1.7.4
 Flask-Babel==2.0.0
-alembic==1.7.6
+alembic==1.7.7
 Pillow==9.0.1
