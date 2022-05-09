@@ -7,17 +7,61 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-06-24 17:50+0200\n"
-"PO-Revision-Date: 2021-06-24 17:56+0200\n"
+"POT-Creation-Date: 2022-05-09 19:15+0200\n"
+"PO-Revision-Date: 2022-05-09 19:23+0200\n"
 "Last-Translator: \n"
-"Language: nl\n"
 "Language-Team: nl <LL@li.org>\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Generated-By: Babel 2.9.1\n"
-"X-Generator: Poedit 3.0\n"
+"X-Generator: Poedit 3.0.1\n"
+
+#: templates/404.html:2
+msgid "404 - Not found"
+msgstr "404 - Niet gevonden"
+
+#: templates/404.html:4 templates/index.html:4
+msgid "Help/Tutorial"
+msgstr "Hulp/Tutorial"
+
+#: templates/404.html:5 templates/index.html:5
+msgid "Admin Login"
+msgstr "Admin Login"
+
+#: templates/404.html:8
+msgid "This page does not exist."
+msgstr "Dit pagina bestaat niet."
+
+#: templates/404.html:9
+msgid "Something appeared to have gone wrong …"
+msgstr "Er is iets fout gegaan …"
+
+#: templates/404.html:12
+msgid ""
+"If you are expecting images to choose from here, you have either,<br>\n"
+"1) used a wrong link, or<br>\n"
+"2) the choice is done, and the intermediary images have been removed.<br><br>\n"
+"Keep in mind, that images on this site are not final, and should not be seen as "
+"such. Final, edited images will follow soon!<br>\n"
+"If there are any more questions however, do not hesitate to contact me!\n"
+msgstr ""
+"Als je hier foto's verwacht, van die je kiezen kunt, heb je,<br>\n"
+"1) een foute link gebruikt, of<br>\n"
+"2) het keuze is gedaant, en de tussenfoto's zijn verwijderd.<br><br>\n"
+"Denk eran, dat de foto's op deze pagina niet klaar zijn. Klaar foto's gaan er "
+"weldra zijn.<br>\n"
+"Als je maar steeds vragen heeft, kontakteer me alsjeblieft.\n"
+
+#: templates/404.html:22 templates/index.html:19
+msgid "Admin-Login"
+msgstr "Admin-Login"
+
+#: templates/404.html:23 templates/index.html:20
+msgid "Password:"
+msgstr "Wachtwoord:"
 
 #: templates/admin.html:3 templates/admin.html:56 templates/pwchange.html:3
 msgid "Prune images"
@@ -111,48 +155,48 @@ msgstr "Plaats watermerk"
 msgid "Keep/Insecure filenames"
 msgstr "Houden/Onzeker filenamen"
 
-#: templates/admin_shoot_overview.html:33 templates/admin_shoot_overview.html:60
+#: templates/admin_shoot_overview.html:33 templates/admin_shoot_overview.html:61
 msgid "Edit shoot"
 msgstr "Shoot wijzigen"
 
-#: templates/admin_shoot_overview.html:55 templates/shoot_overview.html:32
+#: templates/admin_shoot_overview.html:56 templates/shoot_overview.html:32
 msgid "No images"
 msgstr "Geen foto's"
 
-#: templates/admin_shoot_overview.html:64 templates/create_shoot.html:15
+#: templates/admin_shoot_overview.html:65 templates/create_shoot.html:15
 msgid "Description"
 msgstr "Omschrijving"
 
-#: templates/admin_shoot_overview.html:67 templates/create_shoot.html:18
+#: templates/admin_shoot_overview.html:68 templates/create_shoot.html:18
 msgid "Maximum amount of images (0=No limit)"
 msgstr "Maximaal antaal foto's (0=Geen limiet)"
 
-#: templates/admin_shoot_overview.html:70 templates/create_shoot.html:21
+#: templates/admin_shoot_overview.html:71 templates/create_shoot.html:21
 msgid "Also keep unedited images?"
 msgstr "Niet bewerkte foto's ook houden?"
 
-#: templates/admin_shoot_overview.html:73
+#: templates/admin_shoot_overview.html:74
 msgid "Unticking this means that all \"Unedited\" data will be lost!"
 msgstr ""
 "Dit te verwijderen betekent dat alle \"Niet bewerkt\" data zal verloren gaan!"
 
-#: templates/admin_shoot_overview.html:77 templates/create_shoot.html:24
+#: templates/admin_shoot_overview.html:78 templates/create_shoot.html:24
 msgid "Maximum amount of unedited images (0=No limit)"
 msgstr "Maximaal antaal niet bewerkte foto's (0=Geen limiet)"
 
-#: templates/admin_shoot_overview.html:86
+#: templates/admin_shoot_overview.html:87
 msgid "List of edited images to keep"
 msgstr "Lijst van bewerkte foto's te houden"
 
-#: templates/admin_shoot_overview.html:94
+#: templates/admin_shoot_overview.html:95
 msgid "List of unedited images to keep"
 msgstr "Lijst van niet bewerkte foto's te houden"
 
-#: templates/admin_shoot_overview.html:103
+#: templates/admin_shoot_overview.html:104
 msgid "List of images to keep"
 msgstr "Lijst van foto's te houden"
 
-#: templates/admin_shoot_overview.html:112
+#: templates/admin_shoot_overview.html:113
 msgid "List of insecure images"
 msgstr "Lijst van onzeker foto's"
 
@@ -164,7 +208,7 @@ msgstr "Terug naar het shoot"
 msgid "Remove star"
 msgstr "Ster verwijderen"
 
-#: templates/admin_shoot_picture.html:35 templates/admin_shoot_picture.html:46
+#: templates/admin_shoot_picture.html:35 templates/admin_shoot_picture.html:49
 msgid "Delete image"
 msgstr "Foto verwijderen"
 
@@ -176,15 +220,15 @@ msgstr "Toon commentaar"
 msgid "Next image"
 msgstr "Volgende foto"
 
-#: templates/admin_shoot_picture.html:45
+#: templates/admin_shoot_picture.html:48
 msgid "Really delete this image?"
 msgstr "Dit foto echt verwijderen?"
 
-#: templates/admin_shoot_picture.html:51
+#: templates/admin_shoot_picture.html:54
 msgid "Insecure-comment"
 msgstr "Onzeker commentaar"
 
-#: templates/base.html:21
+#: templates/base.html:25
 msgid "Help"
 msgstr "Hulp"
 
@@ -253,14 +297,6 @@ msgstr ""
 "Als je klaar bent met het beordeelen, stuur jouw contact een berichtje, "
 "alsjeblieft."
 
-#: templates/index.html:4
-msgid "Help/Tutorial"
-msgstr "Hulp/Tutorial"
-
-#: templates/index.html:5
-msgid "Admin Login"
-msgstr "Admin Login"
-
 #: templates/index.html:8
 msgid "You should have received a link."
 msgstr "Je zou een link moeten hebben."
@@ -276,14 +312,6 @@ msgstr "Foute wachtwoord!"
 #: templates/index.html:14
 msgid "Password changed, please login again!"
 msgstr "Wachtwoord verandert, opnieuw inloggen alsjeblieft!"
-
-#: templates/index.html:19
-msgid "Admin-Login"
-msgstr "Admin-Login"
-
-#: templates/index.html:20
-msgid "Password:"
-msgstr "Wachtwoord:"
 
 #: templates/pwchange.html:14
 msgid "Passwords do not match!"
@@ -325,11 +353,11 @@ msgstr "Niet houden"
 msgid "Skip"
 msgstr "Overspringen"
 
-#: templates/shoot_picture.html:44
+#: templates/shoot_picture.html:47
 msgid "Explain why \"insecure\"?"
 msgstr "Leg uit waarom \"onzeker\"?"
 
-#: templates/shoot_picture.html:46
+#: templates/shoot_picture.html:49
 msgid "Submit"
 msgstr "Verzenden"
 

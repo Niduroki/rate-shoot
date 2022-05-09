@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block topleft %}<span class="title">{% trans %}404 - Not found{% endtrans %}</span>{% endblock %}
+{% block topright %}
+<a href="/help/" class="btn green">{% trans %}Help/Tutorial{% endtrans %}</a>
+<a href="#admin-login" rel="modal:open" class="btn yellow">{% trans %}Admin Login{% endtrans %}</a>
+{% endblock %}
+{% block content %}
+<h1>{% trans %}This page does not exist.{% endtrans %}</h1>
+<p>{% trans %}Something appeared to have gone wrong …{% endtrans %}</p>
+{% if request.path|length == 11 or request.path|length == 12 %}{# This indicates that this could be a shooting link that has been removed #}
+<br><p>
+{% trans %}If you are expecting images to choose from here, you have either,<br>
+1) used a wrong link, or<br>
+2) the choice is done, and the intermediary images have been removed.<br><br>
+Keep in mind, that images on this site are not final, and should not be seen as such. Final, edited images will follow soon!<br>
+If there are any more questions however, do not hesitate to contact me!
+{% endtrans %}</p>
+{% endif %}
+
+<div id="admin-login" class="modal">
+  <form method="post" action="/">
+      <div class="title">{% trans %}Admin-Login{% endtrans %}</div>
+  {% trans %}Password:{% endtrans %} <input type="password" name="password"> <input type="submit">
+</form>
+</div>
+{% endblock %}

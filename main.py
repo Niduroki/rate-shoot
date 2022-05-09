@@ -64,6 +64,11 @@ def check_login(session):
     return False
 
 
+@app.errorhandler(404)
+def not_found(e):
+    return render_template("404.html")
+
+
 @app.route('/', methods=["get", "post"])
 def index():
     if request.method == "GET":

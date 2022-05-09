@@ -7,17 +7,63 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-06-24 17:50+0200\n"
-"PO-Revision-Date: 2021-06-24 17:50+0200\n"
+"POT-Creation-Date: 2022-05-09 19:15+0200\n"
+"PO-Revision-Date: 2022-05-09 19:17+0200\n"
 "Last-Translator: \n"
-"Language: de\n"
 "Language-Team: de <LL@li.org>\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Generated-By: Babel 2.9.1\n"
-"X-Generator: Poedit 3.0\n"
+"X-Generator: Poedit 3.0.1\n"
+
+#: templates/404.html:2
+msgid "404 - Not found"
+msgstr "404 - Nicht gefunden"
+
+#: templates/404.html:4 templates/index.html:4
+msgid "Help/Tutorial"
+msgstr "Hilfe/Anleitung"
+
+#: templates/404.html:5 templates/index.html:5
+msgid "Admin Login"
+msgstr "Admin Login"
+
+#: templates/404.html:8
+msgid "This page does not exist."
+msgstr "Diese Seite existiert nicht."
+
+#: templates/404.html:9
+msgid "Something appeared to have gone wrong …"
+msgstr "Irgendwas scheint schiefgelaufen zu sein …"
+
+#: templates/404.html:12
+msgid ""
+"If you are expecting images to choose from here, you have either,<br>\n"
+"1) used a wrong link, or<br>\n"
+"2) the choice is done, and the intermediary images have been removed.<br><br>\n"
+"Keep in mind, that images on this site are not final, and should not be seen as "
+"such. Final, edited images will follow soon!<br>\n"
+"If there are any more questions however, do not hesitate to contact me!\n"
+msgstr ""
+"Falls du hier Bilder erwartest aus denen du auswählen sollst hast du entweder,"
+"<br>\n"
+"1) einen falschen Link verwendet, oder<br>\n"
+"2) die Auswahl ist vorbei, und die Zwischenbilder wurden entfernt.<br><br>\n"
+"Bitte halte im Hinterkopf, dass die Bilder auf dieser Webseite nicht fertig "
+"sind, und nicht als solche gesehen werden sollten. Die bearbeiteten Bilder sind "
+"bald fertig!<br>\n"
+"Falls du noch weitere Fragen hast, kontaktiere mich gerne!\n"
+
+#: templates/404.html:22 templates/index.html:19
+msgid "Admin-Login"
+msgstr "Admin-Login"
+
+#: templates/404.html:23 templates/index.html:20
+msgid "Password:"
+msgstr "Passwort:"
 
 #: templates/admin.html:3 templates/admin.html:56 templates/pwchange.html:3
 msgid "Prune images"
@@ -111,48 +157,48 @@ msgstr "Wasserzeichen anwenden"
 msgid "Keep/Insecure filenames"
 msgstr "Behalten/Unsicher Dateinamen"
 
-#: templates/admin_shoot_overview.html:33 templates/admin_shoot_overview.html:60
+#: templates/admin_shoot_overview.html:33 templates/admin_shoot_overview.html:61
 msgid "Edit shoot"
 msgstr "Shooting bearbeiten"
 
-#: templates/admin_shoot_overview.html:55 templates/shoot_overview.html:32
+#: templates/admin_shoot_overview.html:56 templates/shoot_overview.html:32
 msgid "No images"
 msgstr "Keine Bilder"
 
-#: templates/admin_shoot_overview.html:64 templates/create_shoot.html:15
+#: templates/admin_shoot_overview.html:65 templates/create_shoot.html:15
 msgid "Description"
 msgstr "Beschreibung"
 
-#: templates/admin_shoot_overview.html:67 templates/create_shoot.html:18
+#: templates/admin_shoot_overview.html:68 templates/create_shoot.html:18
 msgid "Maximum amount of images (0=No limit)"
 msgstr "Maximale Anzahl an Bildern (0=Kein Limit)"
 
-#: templates/admin_shoot_overview.html:70 templates/create_shoot.html:21
+#: templates/admin_shoot_overview.html:71 templates/create_shoot.html:21
 msgid "Also keep unedited images?"
 msgstr "Auch unbearbeitete Bilder behalten?"
 
-#: templates/admin_shoot_overview.html:73
+#: templates/admin_shoot_overview.html:74
 msgid "Unticking this means that all \"Unedited\" data will be lost!"
 msgstr ""
 "Diesen Haken entfernen heißt, dass alle \"Unbearbeitet\" Daten verloren gehen!"
 
-#: templates/admin_shoot_overview.html:77 templates/create_shoot.html:24
+#: templates/admin_shoot_overview.html:78 templates/create_shoot.html:24
 msgid "Maximum amount of unedited images (0=No limit)"
 msgstr "Maximale Anzahl unbearbeiteter Bilder (0=Kein Limit)"
 
-#: templates/admin_shoot_overview.html:86
+#: templates/admin_shoot_overview.html:87
 msgid "List of edited images to keep"
 msgstr "Liste bearbeiteter zu behaltener Bilder"
 
-#: templates/admin_shoot_overview.html:94
+#: templates/admin_shoot_overview.html:95
 msgid "List of unedited images to keep"
 msgstr "Liste unbearbeiteter zu behaltener Bilder"
 
-#: templates/admin_shoot_overview.html:103
+#: templates/admin_shoot_overview.html:104
 msgid "List of images to keep"
 msgstr "Liste zu behaltener Bilder"
 
-#: templates/admin_shoot_overview.html:112
+#: templates/admin_shoot_overview.html:113
 msgid "List of insecure images"
 msgstr "Liste unsicherer Bilder"
 
@@ -164,7 +210,7 @@ msgstr "Zurück zum Shooting"
 msgid "Remove star"
 msgstr "Stern entfernen"
 
-#: templates/admin_shoot_picture.html:35 templates/admin_shoot_picture.html:46
+#: templates/admin_shoot_picture.html:35 templates/admin_shoot_picture.html:49
 msgid "Delete image"
 msgstr "Bild löschen"
 
@@ -176,15 +222,15 @@ msgstr "Kommentar anzeigen"
 msgid "Next image"
 msgstr "Nächstes Bild"
 
-#: templates/admin_shoot_picture.html:45
+#: templates/admin_shoot_picture.html:48
 msgid "Really delete this image?"
 msgstr "Dieses Bild wirklich löschen?"
 
-#: templates/admin_shoot_picture.html:51
+#: templates/admin_shoot_picture.html:54
 msgid "Insecure-comment"
 msgstr "Unsicher Kommentar"
 
-#: templates/base.html:21
+#: templates/base.html:25
 msgid "Help"
 msgstr "Hilfe"
 
@@ -255,14 +301,6 @@ msgstr ""
 "Wenn du mit dem bewerten aller Bilder fertig bist, schreibe bitte deinem "
 "Kontakt."
 
-#: templates/index.html:4
-msgid "Help/Tutorial"
-msgstr "Hilfe/Anleitung"
-
-#: templates/index.html:5
-msgid "Admin Login"
-msgstr "Admin Login"
-
 #: templates/index.html:8
 msgid "You should have received a link."
 msgstr "Du solltest einen Link erhalten haben."
@@ -278,14 +316,6 @@ msgstr "Falsches Passwort!"
 #: templates/index.html:14
 msgid "Password changed, please login again!"
 msgstr "Passwort geändert, bitte neu anmelden!"
-
-#: templates/index.html:19
-msgid "Admin-Login"
-msgstr "Admin-Login"
-
-#: templates/index.html:20
-msgid "Password:"
-msgstr "Passwort:"
 
 #: templates/pwchange.html:14
 msgid "Passwords do not match!"
@@ -327,11 +357,11 @@ msgstr "Nicht behalten"
 msgid "Skip"
 msgstr "Überspringen"
 
-#: templates/shoot_picture.html:44
+#: templates/shoot_picture.html:47
 msgid "Explain why \"insecure\"?"
 msgstr "Erkläre warum \"Unsicher\"?"
 
-#: templates/shoot_picture.html:46
+#: templates/shoot_picture.html:49
 msgid "Submit"
 msgstr "Senden"
 
