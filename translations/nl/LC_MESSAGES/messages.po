@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-05-09 19:15+0200\n"
-"PO-Revision-Date: 2022-05-09 19:23+0200\n"
+"POT-Creation-Date: 2022-07-20 17:06+0200\n"
+"PO-Revision-Date: 2022-07-20 17:08+0200\n"
 "Last-Translator: \n"
 "Language-Team: nl <LL@li.org>\n"
 "Language: nl\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Generated-By: Babel 2.9.1\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.1\n"
 
 #: templates/404.html:2
 msgid "404 - Not found"
@@ -88,8 +88,8 @@ msgstr "Nieuwe shoot creëren"
 
 #: templates/admin.html:14
 msgid ""
-"You are using the default password. You should change it immediately on <a href="
-"\"/admin/password\">this site</a>."
+"You are using the default password. You should change it immediately on <a "
+"href=\"/admin/password\">this site</a>."
 msgstr ""
 "Je gebruikt het standaard wachtwoork. Je moet het onmiddellijk wijzigen op <a "
 "href=\"/admin/password\">deze pagina</a>."
@@ -204,27 +204,27 @@ msgstr "Lijst van onzeker foto's"
 msgid "Back to shoot"
 msgstr "Terug naar het shoot"
 
-#: templates/admin_shoot_picture.html:29
+#: templates/admin_shoot_picture.html:30
 msgid "Remove star"
 msgstr "Ster verwijderen"
 
-#: templates/admin_shoot_picture.html:35 templates/admin_shoot_picture.html:49
+#: templates/admin_shoot_picture.html:36 templates/admin_shoot_picture.html:50
 msgid "Delete image"
 msgstr "Foto verwijderen"
 
-#: templates/admin_shoot_picture.html:37
+#: templates/admin_shoot_picture.html:38
 msgid "Show comment"
 msgstr "Toon commentaar"
 
-#: templates/admin_shoot_picture.html:39 templates/shoot_picture.html:35
+#: templates/admin_shoot_picture.html:40 templates/shoot_picture.html:36
 msgid "Next image"
 msgstr "Volgende foto"
 
-#: templates/admin_shoot_picture.html:48
+#: templates/admin_shoot_picture.html:49
 msgid "Really delete this image?"
 msgstr "Dit foto echt verwijderen?"
 
-#: templates/admin_shoot_picture.html:54
+#: templates/admin_shoot_picture.html:55
 msgid "Insecure-comment"
 msgstr "Onzeker commentaar"
 
@@ -329,35 +329,35 @@ msgstr "Nieuwe wachtwoord herhalen"
 msgid "Back to shoot overview"
 msgstr "Terug naar shoot overzicht"
 
-#: templates/shoot_picture.html:26
+#: templates/shoot_picture.html:27
 msgid "Keep edited"
 msgstr "Bewerkt houden"
 
-#: templates/shoot_picture.html:27
+#: templates/shoot_picture.html:28
 msgid "Keep unedited"
 msgstr "Niet bewerkt houden"
 
-#: templates/shoot_picture.html:29
+#: templates/include/rating-overlay.html:8 templates/shoot_picture.html:30
 msgid "Keep"
 msgstr "Houden"
 
-#: templates/shoot_picture.html:31
+#: templates/shoot_picture.html:32
 msgid "Insecure <small>(+ Comment)</small>"
 msgstr "Onzeker <small>(+ commentaar)</small>"
 
-#: templates/shoot_picture.html:32
+#: templates/include/rating-overlay.html:12 templates/shoot_picture.html:33
 msgid "Don't keep"
 msgstr "Niet houden"
 
-#: templates/shoot_picture.html:37
+#: templates/shoot_picture.html:38
 msgid "Skip"
 msgstr "Overspringen"
 
-#: templates/shoot_picture.html:47
+#: templates/shoot_picture.html:48
 msgid "Explain why \"insecure\"?"
 msgstr "Leg uit waarom \"onzeker\"?"
 
-#: templates/shoot_picture.html:49
+#: templates/shoot_picture.html:50
 msgid "Submit"
 msgstr "Verzenden"
 
@@ -402,3 +402,15 @@ msgid "%(count)s <small>image chosen</small>"
 msgid_plural "%(count)s <small>images chosen</small>"
 msgstr[0] "%(count)s <small>foto gekozen</small>"
 msgstr[1] "%(count)s <small>foto's gekozen</small>"
+
+#: templates/include/rating-overlay.html:9
+msgid "Edited"
+msgstr "Bewerkt"
+
+#: templates/include/rating-overlay.html:10
+msgid "Uneditet"
+msgstr "Niet bewerkt"
+
+#: templates/include/rating-overlay.html:11
+msgid "Insecure"
+msgstr "Onzeker"

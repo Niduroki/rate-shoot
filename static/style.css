@@ -40,6 +40,7 @@ a:visited, a:hover, a:active, a:focus, a:link {
 .hidden { display: none; }
 .relative { position: relative; }
 .fit-width { width: fit-content; }
+.fit-width img { max-width: 100%;}
 
 .btn {
    background-color: #4CAF50;
@@ -226,6 +227,21 @@ header .right {
     top: 0;
     left: 0;
 }
+
+.rating-overlay {
+    position: absolute;
+    bottom: .25em;
+    right: 0;
+    padding: .25em;
+    background-color: rgba(255,255,255,0.3);
+    border-radius: .3em 0 0 0;
+    color: #000;
+}
+.rating-overlay.green { background-color: rgba(102,221,102,.8); }
+.rating-overlay.turquoise { background-color: rgba(102,221,221,.8); }
+.rating-overlay.yellow { background-color: rgba(221,221,0,.8); }
+.rating-overlay.red { background-color: rgba(255,119,119,.8); }
+
 
 /* Taken from https://stackoverflow.com/questions/36962903/javascript-shake-html-element */
 @-webkit-keyframes shake {

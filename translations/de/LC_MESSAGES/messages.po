@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-05-09 19:15+0200\n"
-"PO-Revision-Date: 2022-05-09 19:17+0200\n"
+"POT-Creation-Date: 2022-07-20 17:06+0200\n"
+"PO-Revision-Date: 2022-07-20 17:07+0200\n"
 "Last-Translator: \n"
 "Language-Team: de <LL@li.org>\n"
 "Language: de\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Generated-By: Babel 2.9.1\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.1\n"
 
 #: templates/404.html:2
 msgid "404 - Not found"
@@ -90,8 +90,8 @@ msgstr "Neues Shoot erstellen"
 
 #: templates/admin.html:14
 msgid ""
-"You are using the default password. You should change it immediately on <a href="
-"\"/admin/password\">this site</a>."
+"You are using the default password. You should change it immediately on <a "
+"href=\"/admin/password\">this site</a>."
 msgstr ""
 "Du verwendest das Standard-Password. Du solltest es auf <a href=\"/admin/"
 "password\">dieser Seite</a> umgehend ändern."
@@ -206,27 +206,27 @@ msgstr "Liste unsicherer Bilder"
 msgid "Back to shoot"
 msgstr "Zurück zum Shooting"
 
-#: templates/admin_shoot_picture.html:29
+#: templates/admin_shoot_picture.html:30
 msgid "Remove star"
 msgstr "Stern entfernen"
 
-#: templates/admin_shoot_picture.html:35 templates/admin_shoot_picture.html:49
+#: templates/admin_shoot_picture.html:36 templates/admin_shoot_picture.html:50
 msgid "Delete image"
 msgstr "Bild löschen"
 
-#: templates/admin_shoot_picture.html:37
+#: templates/admin_shoot_picture.html:38
 msgid "Show comment"
 msgstr "Kommentar anzeigen"
 
-#: templates/admin_shoot_picture.html:39 templates/shoot_picture.html:35
+#: templates/admin_shoot_picture.html:40 templates/shoot_picture.html:36
 msgid "Next image"
 msgstr "Nächstes Bild"
 
-#: templates/admin_shoot_picture.html:48
+#: templates/admin_shoot_picture.html:49
 msgid "Really delete this image?"
 msgstr "Dieses Bild wirklich löschen?"
 
-#: templates/admin_shoot_picture.html:54
+#: templates/admin_shoot_picture.html:55
 msgid "Insecure-comment"
 msgstr "Unsicher Kommentar"
 
@@ -333,35 +333,35 @@ msgstr "Neues Passwort wiederholen"
 msgid "Back to shoot overview"
 msgstr "Zurück zur Shooting Übersicht"
 
-#: templates/shoot_picture.html:26
+#: templates/shoot_picture.html:27
 msgid "Keep edited"
 msgstr "Bearbeitet behalten"
 
-#: templates/shoot_picture.html:27
+#: templates/shoot_picture.html:28
 msgid "Keep unedited"
 msgstr "Unbearbeitet behalten"
 
-#: templates/shoot_picture.html:29
+#: templates/include/rating-overlay.html:8 templates/shoot_picture.html:30
 msgid "Keep"
 msgstr "Behalten"
 
-#: templates/shoot_picture.html:31
+#: templates/shoot_picture.html:32
 msgid "Insecure <small>(+ Comment)</small>"
 msgstr "Unsicher <small>(+ Kommentar)</small>"
 
-#: templates/shoot_picture.html:32
+#: templates/include/rating-overlay.html:12 templates/shoot_picture.html:33
 msgid "Don't keep"
 msgstr "Nicht behalten"
 
-#: templates/shoot_picture.html:37
+#: templates/shoot_picture.html:38
 msgid "Skip"
 msgstr "Überspringen"
 
-#: templates/shoot_picture.html:47
+#: templates/shoot_picture.html:48
 msgid "Explain why \"insecure\"?"
 msgstr "Erkläre warum \"Unsicher\"?"
 
-#: templates/shoot_picture.html:49
+#: templates/shoot_picture.html:50
 msgid "Submit"
 msgstr "Senden"
 
@@ -406,3 +406,15 @@ msgid "%(count)s <small>image chosen</small>"
 msgid_plural "%(count)s <small>images chosen</small>"
 msgstr[0] "%(count)s <small>Bild gewählt</small>"
 msgstr[1] "%(count)s <small>Bilder gewählt</small>"
+
+#: templates/include/rating-overlay.html:9
+msgid "Edited"
+msgstr "Bearbeitet"
+
+#: templates/include/rating-overlay.html:10
+msgid "Uneditet"
+msgstr "Unbearbeitet"
+
+#: templates/include/rating-overlay.html:11
+msgid "Insecure"
+msgstr "Unsicher"

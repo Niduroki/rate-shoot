@@ -1,0 +1,15 @@
+{% if pic.status is not none %}
+    <div class="rating-overlay {% if pic.status == 'yes' %}green
+    {% elif pic.status == 'yes_edited' %}green
+    {% elif pic.status == 'yes_unedited' %}turquoise
+    {% elif pic.status == 'unsafe' %}yellow
+    {% elif pic.status == 'no' %}red
+    {% endif %}">
+        {% if pic.status == 'yes' %}{% trans %}Keep{% endtrans %}
+        {% elif pic.status == 'yes_edited' %}{% trans %}Edited{% endtrans %}
+        {% elif pic.status == 'yes_unedited' %}{% trans %}Uneditet{% endtrans %}
+        {% elif pic.status == 'unsafe' %}{% trans %}Insecure{% endtrans %}
+        {% elif pic.status == 'no' %}{% trans %}Don't keep{% endtrans %}
+        {% endif %}
+    </div>
+{% endif %}
