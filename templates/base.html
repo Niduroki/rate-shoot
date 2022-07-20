@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <!-- No viewport definition because otherwise filter buttons fail horribly - TODO -->
         <!--meta name="viewport" content="width=device-width, initial-scale=1"-->
         <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico">
         <link rel="stylesheet" href="/static/jquery.modal.min.css">
@@ -21,7 +22,7 @@
                 {% block content %}Missing content{% endblock %}
             </div>
             <footer>
-                V 0.3.3 –
+                V 0.3.4 –
                 <a href="/help/">{% trans %}Help{% endtrans %}</a> –
                 <a href="https://github.com/Niduroki/rate-shoot">Source</a>
             </footer>

@@ -1,6 +1,5 @@
 from flask import Flask, session, render_template, request, redirect, url_for, abort, jsonify, send_from_directory
 from flask_babel import Babel
-from string import ascii_lowercase
 from random import choice
 from datetime import datetime
 import db
@@ -51,10 +50,13 @@ class LinkConverter(BaseConverter):
 app.url_map.converters['link'] = LinkConverter
 
 
-def generate_string(length=10):
+def generate_link(length=10):
     retval = ""
     for i in range(0, length):
-        retval += choice(ascii_lowercase)
+        if i % 2 == 0:
+            retval += choice("bcdfghjkmnpqrstvwxyz")
+        else:
+            retval += choice("aeiou")
     return retval
 
 
@@ -271,7 +273,7 @@ def admin_createshoot():
             abort(400)
             raise
 
-        link = generate_string()
+        link = generate_link()
         db_session = db.get_session()
         obj = db.Shoot(
             link=link, description=description, max_images=limit, done=False,
