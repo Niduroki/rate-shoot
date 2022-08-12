@@ -15,9 +15,8 @@ EXPOSE 8000
 RUN adduser -S app && chown -R app /app
 
 # Remove gcc & musl-dev when Pillow is installed
-RUN apk add --no-cache gcc g++ musl-dev zlib-dev jpeg-dev freetype-dev ttf-freefont \
-    && pip install --no-cache-dir -r /app/requirements.txt gunicorn \
-    && apk del gcc g++ musl-dev
+RUN apk add --no-cache ttf-freefont \
+    && pip install --no-cache-dir -r /app/requirements.txt gunicorn
 
 USER app
 
