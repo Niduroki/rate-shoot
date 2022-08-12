@@ -27,19 +27,23 @@
                 {{ count }} <small>unedited images</small>
             {% endtrans %}
         {% endif %}
-    {% else %}
-        {% if shoot.max_images != 0 %}
-            {% trans trimmed count=shoot.keep_count(), max=shoot.max_images %}
-                {{ count }}/{{ max }} <small>image chosen</small>
-            {% pluralize max %}
-                {{ count }}/{{ max }} <small>images chosen</small>
-            {% endtrans %}
-        {% else %}
-            {% trans trimmed count=shoot.keep_count() %}
-                {{ count }} <small>image chosen</small>
-            {% pluralize %}
-                {{ count }} <small>images chosen</small>
-            {% endtrans %}
+        {% if shoot.uncertain_count() != 0 %}
+            <small class="uncertain-count">(+{{ shoot.uncertain_count() }})</small>
         {% endif %}
+    {% else %}
+        {{ shoot.keep_count() }}
+        {%- if shoot.uncertain_count() != 0 -%}
+            <small class="uncertain-count">(+{{ shoot.uncertain_count() }})</small>
+        {%- endif -%}
+        {%- if shoot.max_images != 0 -%}
+            /{{ shoot.max_images }}
+        {% endif %}
+        <small>
+            {% trans trimmed count=shoot.keep_count() %}
+                image chosen
+            {% pluralize count %}
+                images chosen
+            {% endtrans %}
+        </small>
     {% endif %}
 </span>

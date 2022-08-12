@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-07-20 17:06+0200\n"
-"PO-Revision-Date: 2022-07-20 17:08+0200\n"
+"POT-Creation-Date: 2022-08-13 00:18+0200\n"
+"PO-Revision-Date: 2022-08-13 00:21+0200\n"
 "Last-Translator: \n"
 "Language-Team: nl <LL@li.org>\n"
 "Language: nl\n"
@@ -228,7 +228,7 @@ msgstr "Dit foto echt verwijderen?"
 msgid "Insecure-comment"
 msgstr "Onzeker commentaar"
 
-#: templates/base.html:25
+#: templates/base.html:26
 msgid "Help"
 msgstr "Hulp"
 
@@ -389,19 +389,11 @@ msgid_plural "%(count)s <small>unedited images</small>"
 msgstr[0] "%(count)s <small>niet bewerkt foto</small>"
 msgstr[1] "%(count)s <small>niet bewerkt foto's</small>"
 
-#: templates/include/counter.html:32
-#, python-format
-msgid "%(count)s/%(max)s <small>image chosen</small>"
-msgid_plural "%(count)s/%(max)s <small>images chosen</small>"
-msgstr[0] "%(count)s/%(max)s <small>foto gekozen</small>"
-msgstr[1] "%(count)s/%(max)s <small>foto's gekozen</small>"
-
-#: templates/include/counter.html:38
-#, python-format
-msgid "%(count)s <small>image chosen</small>"
-msgid_plural "%(count)s <small>images chosen</small>"
-msgstr[0] "%(count)s <small>foto gekozen</small>"
-msgstr[1] "%(count)s <small>foto's gekozen</small>"
+#: templates/include/counter.html:42
+msgid "image chosen"
+msgid_plural "images chosen"
+msgstr[0] "foto gekozen"
+msgstr[1] "foto's gekozen"
 
 #: templates/include/rating-overlay.html:9
 msgid "Edited"
@@ -414,3 +406,13 @@ msgstr "Niet bewerkt"
 #: templates/include/rating-overlay.html:11
 msgid "Insecure"
 msgstr "Onzeker"
+
+#~ msgid "%(count)s/%(max)s <small>image chosen</small>"
+#~ msgid_plural "%(count)s/%(max)s <small>images chosen</small>"
+#~ msgstr[0] "%(count)s/%(max)s <small>foto gekozen</small>"
+#~ msgstr[1] "%(count)s/%(max)s <small>foto's gekozen</small>"
+
+#~ msgid "%(count)s <small>image chosen</small>"
+#~ msgid_plural "%(count)s <small>images chosen</small>"
+#~ msgstr[0] "%(count)s <small>foto gekozen</small>"
+#~ msgstr[1] "%(count)s <small>foto's gekozen</small>"

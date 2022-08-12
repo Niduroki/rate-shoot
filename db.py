@@ -43,6 +43,13 @@ class Shoot(Base):
                     count += 1
         return count
 
+    def uncertain_count(self):
+        count = 0
+        for pic in self.pictures:
+            if pic.status == "unsafe":
+                count += 1
+        return count
+
     def __repr__(self):
         return f"ID: {self.id}, Shooting with link {self.link}, Done = {self.done}"
 

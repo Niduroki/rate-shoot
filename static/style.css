@@ -115,6 +115,10 @@ header .right {
     position: absolute;
     float: right;
 }
+.uncertain-count {
+    position: relative;
+    top: -.5em;
+}
 
 .bar {
     height: 18px;
