@@ -242,13 +242,24 @@ $(function () {
     });
     $("#filter-all").click(function(e){
         if ($("#filter-all").hasClass("disabled")) {
-            $("#filter-all").removeClass("disabled");
-            $("#filter-all").text("Alles");
-            $(".border").parent().css("display", "inline-block");
+            // Filtering status
+            if ($("#filter-all").data("status") === "not-rated") {
+                // Not-Rated -> Rated
+                $("#filter-all").text("Rated").data("status", "rated");
+                $(".pic-grid-item a").css("display", "inline-block"); // Show all
+                // And then hide all without rating-border
+                $(".pic-grid-item a img:not(.border)").parent().css("display", "none");
+            } else if ($("#filter-all").data("status") === "rated") {
+                // Rated -> All
+                $("#filter-all").removeClass("disabled");
+                $("#filter-all").text("All").data("status", "all");
+                $(".pic-grid-item a").css("display", "inline-block"); // Show all
+            }
         } else {
+            // Initial status / All -> Not-Rated
             $("#filter-all").addClass("disabled");
-            $("#filter-all").text("Unbewertet");
-            $(".border").parent().css("display", "none");
+            $("#filter-all").text("Not rated").data("status", "not-rated");
+            $(".border").parent().css("display", "none"); // Hide all with rating-border
         }
         $grid.imagesLoaded().progress( function() {
             $grid.masonry('layout');
