@@ -21,6 +21,10 @@ try:
         app.config["DATABASE"] = config.DATABASE
     except AttributeError:
         pass
+    try:
+        app.config["WATERMARK_TEXT"] = config.WATERMARK_TEXT
+    except AttributeError:
+        pass
     app.config['LANGUAGES'] = {
         'en': 'English',
         'de': 'Deutsch',
@@ -478,6 +482,7 @@ def admin_upload():
 
         if watermark:
             # Apply a watermark
+            watermark_text = app.config.get('WATERMARK_TEXT', "SAMPLE")
             img = Image.open(os.path.join(app.config['UPLOAD_FOLDER'], sec_filename)).convert("RGBA")
             fnt = ImageFont.truetype("FreeSans", size=img.width//4)
             txt_img = Image.new("RGBA", img.size, (255, 255, 255, 0))
@@ -485,7 +490,7 @@ def admin_upload():
             offset = draw.textsize("SAMPLE", font=fnt)
             draw.text(
                 (img.width//2 - (offset[0]//2), img.height//2 - (offset[1]//2)),
-                "SAMPLE", font=fnt, fill=(255, 255, 255, 30)
+                watermark_text, font=fnt, fill=(255, 255, 255, 30)
             )
             rot = txt_img.rotate(30, expand=False, fillcolor=(255, 255, 255, 0))
             out = Image.alpha_composite(img, rot)
