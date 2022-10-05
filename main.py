@@ -9,6 +9,7 @@ from werkzeug.utils import secure_filename
 from sqlalchemy.orm.exc import NoResultFound
 from passlib.hash import pbkdf2_sha256
 from PIL import Image, ImageFont, ImageDraw
+from piexif import load as piexif_load
 
 app = Flask(__name__)
 
@@ -291,7 +292,12 @@ def admin_createshoot():
             if request.form['img_list'] != "":
                 images = request.form['img_list'].split(";")
                 for image in images:
-                    pic_obj = db.Pictures(shoot=obj, filename=image)
+                    image_name, image_rating = image.split("&rating=")
+                    pic_obj = db.Pictures(shoot=obj, filename=image_name)
+                    if image_rating == "1":
+                        pic_obj.star_rating = 1
+                    if image_rating == "2":
+                        pic_obj.star_rating = 2
                     db_session.add(pic_obj)
                 db_session.commit()
         except KeyError:
@@ -363,10 +369,14 @@ def admin_shoot_overview(shoot_link):
         except KeyError:
             # Route 2: Uploading images
             try:
-                images = request.form['img_list'].split(";")
-                for image in images:
-                    pic_obj = db.Pictures(shoot=obj, filename=image)
-                    db_session.add(pic_obj)
+                image_name = request.form['img_name']
+                image_rating = request.form['img_rating']
+                pic_obj = db.Pictures(shoot=obj, filename=image_name)
+                if image_rating == "1":
+                    pic_obj.star_rating = 1
+                elif image_rating == "2":
+                    pic_obj.star_rating = 2
+                db_session.add(pic_obj)
                 db_session.commit()
 
                 return jsonify(data="success")
@@ -480,6 +490,17 @@ def admin_upload():
 
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], sec_filename))
 
+        picture_path = os.path.join(app.config['UPLOAD_FOLDER'], sec_filename)
+        rating = "/"  # Default for missing exif rating -> No rating
+        try:
+            exif_rating = piexif_load(picture_path)['0th'][18246]
+            if exif_rating == 3 or exif_rating == 4:
+                rating = "1"
+            if exif_rating == 5:
+                rating = "2"
+        except KeyError:
+            pass
+
         if watermark:
             # Apply a watermark
             watermark_text = app.config.get('WATERMARK_TEXT', "SAMPLE")
@@ -499,6 +520,7 @@ def admin_upload():
 
         return jsonify(files=[{
             "name": sec_filename,
+            "rating": rating,
             "url": "/img/" + sec_filename,
         }, ])
 

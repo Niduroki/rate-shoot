@@ -26,9 +26,9 @@ $(function () {
                 $('<li></li>').text(file.name).appendTo($('#uploaded_list'));
                 old_val = $('#img_list').val();
                 if (old_val === "") {
-                    new_val = file.name;
+                    new_val = file.name + "&rating=" + file.rating;
                 } else {
-                    new_val = old_val + ";" + file.name;
+                    new_val = old_val + ";" + file.name + "&rating=" + file.rating;
                 }
                 $('#img_list').val(new_val);
             });
@@ -50,7 +50,7 @@ $(function () {
         },
         done: function (e, data) {
             $.each(data.result.files, function (index, file) {
-                $.post(".", {img_list: file.name}, function(data){
+                $.post(".", {img_name: file.name, img_rating: file.rating}, function(data){
                     var img_link = "/admin/" + $("#shoot_link_help").val() + "/" + file.name + "/";
                     var img_tag = "<img src='" + file.url + "'>";
                     var new_elem = $("<div class='pic-grid-item pic'><a href='" + img_link + "'>" + img_tag + "</a></div>");
