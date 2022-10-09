@@ -9,7 +9,7 @@ from werkzeug.utils import secure_filename
 from sqlalchemy.orm.exc import NoResultFound
 from passlib.hash import pbkdf2_sha256
 from PIL import Image, ImageFont, ImageDraw
-from piexif import load as piexif_load
+import pillow_avif
 
 app = Flask(__name__)
 
@@ -493,7 +493,7 @@ def admin_upload():
         picture_path = os.path.join(app.config['UPLOAD_FOLDER'], sec_filename)
         rating = "/"  # Default for missing exif rating -> No rating
         try:
-            exif_rating = piexif_load(picture_path)['0th'][18246]
+            exif_rating = Image.open(picture_path).getexif()[18246]
             if exif_rating == 3 or exif_rating == 4:
                 rating = "1"
             if exif_rating == 5:
