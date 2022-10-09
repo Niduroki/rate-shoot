@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-10-09 22:14+0200\n"
-"PO-Revision-Date: 2022-10-09 22:18+0200\n"
+"POT-Creation-Date: 2022-10-09 23:55+0200\n"
+"PO-Revision-Date: 2022-10-09 23:58+0200\n"
 "Last-Translator: \n"
 "Language-Team: nl <LL@li.org>\n"
 "Language: nl\n"
@@ -126,15 +126,15 @@ msgstr "<span id=\"prune-count-1\">count</span> DB items zonder foto's verwijder
 msgid "Removed <span id=\"prune-count-2\">count2</span> images without DB entry."
 msgstr "<span id=\"prune-count-2\">count2</span> foto's zonder DB item verwijderd."
 
-#: templates/admin_shoot_overview.html:14 templates/shoot_overview.html:9
+#: templates/admin_shoot_overview.html:14 templates/shoot_overview.html:13
 msgid "All"
 msgstr "Alle"
 
-#: templates/admin_shoot_overview.html:14 templates/shoot_overview.html:9
+#: templates/admin_shoot_overview.html:14 templates/shoot_overview.html:13
 msgid "Not rated"
 msgstr "Niet beoordeeld"
 
-#: templates/admin_shoot_overview.html:14 templates/shoot_overview.html:9
+#: templates/admin_shoot_overview.html:14 templates/shoot_overview.html:13
 msgid "Rated"
 msgstr "Beoordeeld"
 
@@ -162,7 +162,7 @@ msgstr "Houden/Onzeker filenamen"
 msgid "Edit shoot"
 msgstr "Shoot wijzigen"
 
-#: templates/admin_shoot_overview.html:60 templates/shoot_overview.html:32
+#: templates/admin_shoot_overview.html:60 templates/shoot_overview.html:41
 msgid "No images"
 msgstr "Geen foto's"
 
@@ -215,7 +215,7 @@ msgstr "Foto verwijderen"
 msgid "Show comment"
 msgstr "Toon commentaar"
 
-#: templates/admin_shoot_picture.html:41 templates/shoot_picture.html:38
+#: templates/admin_shoot_picture.html:41 templates/shoot_picture.html:39
 msgid "Next image"
 msgstr "Volgende foto"
 
@@ -227,7 +227,7 @@ msgstr "Dit foto echt verwijderen?"
 msgid "Insecure-comment"
 msgstr "Onzeker commentaar"
 
-#: templates/base.html:26
+#: templates/base.html:28
 msgid "Help"
 msgstr "Hulp"
 
@@ -324,35 +324,35 @@ msgstr "Nieuwe wachtwoord"
 msgid "Repeat new password"
 msgstr "Nieuwe wachtwoord herhalen"
 
-#: templates/shoot_picture.html:29
+#: templates/shoot_picture.html:30
 msgid "Keep edited"
 msgstr "Bewerkt houden"
 
-#: templates/shoot_picture.html:30
+#: templates/shoot_picture.html:31
 msgid "Keep unedited"
 msgstr "Niet bewerkt houden"
 
-#: templates/include/rating-overlay.html:8 templates/shoot_picture.html:32
+#: templates/include/rating-overlay.html:8 templates/shoot_picture.html:33
 msgid "Keep"
 msgstr "Houden"
 
-#: templates/shoot_picture.html:34
+#: templates/shoot_picture.html:35
 msgid "Insecure <small>(+ Comment)</small>"
 msgstr "Onzeker <small>(+ commentaar)</small>"
 
-#: templates/include/rating-overlay.html:12 templates/shoot_picture.html:35
+#: templates/include/rating-overlay.html:12 templates/shoot_picture.html:36
 msgid "Don't keep"
 msgstr "Niet houden"
 
-#: templates/shoot_picture.html:40
+#: templates/shoot_picture.html:41
 msgid "Skip"
 msgstr "Overspringen"
 
-#: templates/shoot_picture.html:50
+#: templates/shoot_picture.html:51
 msgid "Explain why \"insecure\"?"
 msgstr "Leg uit waarom \"onzeker\"?"
 
-#: templates/shoot_picture.html:52
+#: templates/shoot_picture.html:53
 msgid "Submit"
 msgstr "Verzenden"
 
@@ -385,10 +385,47 @@ msgstr[0] "%(count)s <small>niet bewerkt foto</small>"
 msgstr[1] "%(count)s <small>niet bewerkt foto's</small>"
 
 #: templates/include/counter.html:42
+#: templates/include/counter_shooting_info.html:42
 msgid "image chosen"
 msgid_plural "images chosen"
 msgstr[0] "foto gekozen"
 msgstr[1] "foto's gekozen"
+
+#: templates/include/counter_shooting_info.html:4
+#, python-format
+msgid "%(count)s/%(max)s edited image"
+msgid_plural "%(count)s/%(max)s edited images"
+msgstr[0] "%(count)s/%(max)s bewerkt foto"
+msgstr[1] "%(count)s/%(max)s bewerkt foto's"
+
+#: templates/include/counter_shooting_info.html:10
+#, python-format
+msgid "%(count)s edited image"
+msgid_plural "%(count)s edited images"
+msgstr[0] "%(count)s bewerkt foto"
+msgstr[1] "%(count)s bewerkt foto's"
+
+#: templates/include/counter_shooting_info.html:19
+#, python-format
+msgid "%(count)s/%(max)s unedited image"
+msgid_plural "%(count)s/%(max)s unedited images"
+msgstr[0] "%(count)s/%(max)s niet bewerkt foto"
+msgstr[1] "%(count)s/%(max)s niet bewerkt foto's"
+
+#: templates/include/counter_shooting_info.html:25
+#, python-format
+msgid "%(count)s unedited image"
+msgid_plural "%(count)s unedited images"
+msgstr[0] "%(count)s niet bewerkt foto"
+msgstr[1] "%(count)s niet bewerkt foto's"
+
+#: templates/include/counter_shooting_info.html:33
+#: templates/include/counter_shooting_info.html:49
+#, python-format
+msgid "(+%(count)s uncertain image)"
+msgid_plural "(+%(count)s uncertain images)"
+msgstr[0] "(+%(count)s onzeker foto)"
+msgstr[1] "(+%(count)s onzeker foto's)"
 
 #: templates/include/rating-overlay.html:9
 msgid "Edited"
