@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-10-09 22:10+0200\n"
-"PO-Revision-Date: 2022-10-09 22:11+0200\n"
+"POT-Creation-Date: 2022-10-09 22:14+0200\n"
+"PO-Revision-Date: 2022-10-09 22:15+0200\n"
 "Last-Translator: \n"
 "Language-Team: de <LL@li.org>\n"
 "Language: de\n"
@@ -128,9 +128,17 @@ msgstr "<span id=\"prune-count-1\">count</span> DB Einträge ohne Bilder entfern
 msgid "Removed <span id=\"prune-count-2\">count2</span> images without DB entry."
 msgstr "<span id=\"prune-count-2\">count2</span> Bilder ohne DB Eintrag entfernt."
 
-#: templates/admin_shoot_overview.html:14
+#: templates/admin_shoot_overview.html:14 templates/shoot_overview.html:9
 msgid "All"
 msgstr "Alle"
+
+#: templates/admin_shoot_overview.html:14 templates/shoot_overview.html:9
+msgid "Not rated"
+msgstr "Nicht bewertet"
+
+#: templates/admin_shoot_overview.html:14 templates/shoot_overview.html:9
+msgid "Rated"
+msgstr "Bewertet"
 
 #: templates/admin_shoot_overview.html:21
 msgid "Link to public page"

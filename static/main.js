@@ -241,24 +241,27 @@ $(function () {
         });
     });
     $("#filter-all").click(function(e){
+        const trans_all = $("#filter-all").data("transAll"),
+              trans_rated = $("#filter-all").data("transRated"),
+              trans_not_rated = $("#filter-all").data("transNotRated");
         if ($("#filter-all").hasClass("disabled")) {
             // Filtering status
             if ($("#filter-all").data("status") === "not-rated") {
                 // Not-Rated -> Rated
-                $("#filter-all").text("Rated").data("status", "rated");
+                $("#filter-all").text(trans_rated).data("status", "rated");
                 $(".pic-grid-item a").css("display", "inline-block"); // Show all
                 // And then hide all without rating-border
                 $(".pic-grid-item a img:not(.border)").parent().css("display", "none");
             } else if ($("#filter-all").data("status") === "rated") {
                 // Rated -> All
                 $("#filter-all").removeClass("disabled");
-                $("#filter-all").text("All").data("status", "all");
+                $("#filter-all").text(trans_all).data("status", "all");
                 $(".pic-grid-item a").css("display", "inline-block"); // Show all
             }
         } else {
             // Initial status / All -> Not-Rated
             $("#filter-all").addClass("disabled");
-            $("#filter-all").text("Not rated").data("status", "not-rated");
+            $("#filter-all").text(trans_not_rated).data("status", "not-rated");
             $(".border").parent().css("display", "none"); // Hide all with rating-border
         }
         $grid.imagesLoaded().progress( function() {
