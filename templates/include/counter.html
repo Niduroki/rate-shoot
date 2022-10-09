@@ -1,4 +1,4 @@
-<span class="small-title">
+<span class="small-title hide-small">
     {% if shoot.unedited_images %}
         {% if shoot.max_images != 0 %}
             {% trans trimmed count=shoot.keep_count().edited, max=shoot.max_images %}
@@ -26,6 +26,44 @@
             {% pluralize %}
                 {{ count }} <small>unedited images</small>
             {% endtrans %}
+        {% endif %}
+        {% if shoot.uncertain_count() != 0 %}
+            <small class="uncertain-count">(+{{ shoot.uncertain_count() }})</small>
+        {% endif %}
+    {% else %}
+        {{ shoot.keep_count() }}
+        {%- if shoot.uncertain_count() != 0 -%}
+            <small class="uncertain-count">(+{{ shoot.uncertain_count() }})</small>
+        {%- endif -%}
+        {%- if shoot.max_images != 0 -%}
+            /{{ shoot.max_images }}
+        {% endif %}
+        <small>
+            {% trans trimmed count=shoot.keep_count() %}
+                image chosen
+            {% pluralize count %}
+                images chosen
+            {% endtrans %}
+        </small>
+    {% endif %}
+</span>
+
+<span class="small-title hide-big">
+    {% if shoot.unedited_images %}
+        {% if shoot.max_images != 0 %}
+            {{ shoot.keep_count().edited }}/{{ shoot.max_images }}
+            <svg class="genericons-neue genericons-neue-paintbrush" width="16px" height="16px"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/static/genericons-neue.svg#paintbrush"></use></svg>
+        {% else %}
+            {{ shoot.keep_count().edited }}
+            <svg class="genericons-neue genericons-neue-paintbrush" width="16px" height="16px"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/static/genericons-neue.svg#paintbrush"></use></svg>
+        {% endif %}
+        –
+        {% if shoot.max_unedited != 0 %}
+            {{ shoot.keep_count().unedited }}/{{ shoot.max_unedited }}
+            <svg class="genericons-neue genericons-neue-heart" width="16px" height="16px"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/static/genericons-neue.svg#heart"></use></svg>
+        {% else %}
+            {{ shoot.keep_count().unedited }}
+            <svg class="genericons-neue genericons-neue-heart" width="16px" height="16px"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/static/genericons-neue.svg#heart"></use></svg>
         {% endif %}
         {% if shoot.uncertain_count() != 0 %}
             <small class="uncertain-count">(+{{ shoot.uncertain_count() }})</small>

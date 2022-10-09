@@ -1,0 +1,55 @@
+{% if shoot.unedited_images %}
+    <svg class="genericons-neue genericons-neue-paintbrush" width="16px" height="16px"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/static/genericons-neue.svg#paintbrush"></use></svg>
+    {% if shoot.max_images != 0 %}
+        {% trans trimmed count=shoot.keep_count().edited, max=shoot.max_images %}
+            {{ count }}/{{ max }} edited image
+        {% pluralize max %}
+            {{ count }}/{{ max }} edited images
+        {% endtrans %}
+    {% else %}
+        {% trans trimmed count=shoot.keep_count().edited %}
+            {{ count }} edited image
+        {% pluralize %}
+            {{ count }} edited images
+        {% endtrans %}
+    {% endif %}
+    <br>
+    <svg class="genericons-neue genericons-neue-heart" width="16px" height="16px"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/static/genericons-neue.svg#heart"></use></svg>
+    {% if shoot.max_unedited != 0 %}
+        {% trans trimmed count=shoot.keep_count().unedited, max=shoot.max_unedited %}
+            {{ count }}/{{ max }} unedited image
+        {% pluralize max %}
+            {{ count }}/{{ max }} unedited images
+        {% endtrans %}
+    {% else %}
+        {% trans trimmed count=shoot.keep_count().unedited %}
+            {{ count }} unedited image
+        {% pluralize %}
+            {{ count }} unedited images
+        {% endtrans %}
+    {% endif %}
+    <br>
+    {% if shoot.uncertain_count() != 0 %}
+        {% trans trimmed count=shoot.uncertain_count() %}
+            (+{{ count }} uncertain image)
+        {% pluralize %}
+            (+{{ count }} uncertain images)
+        {% endtrans %}
+    {% endif %}
+{% else %}
+    <svg class="genericons-neue genericons-neue-paintbrush" width="16px" height="16px"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/static/genericons-neue.svg#paintbrush"></use></svg>
+    {{ shoot.keep_count() }}{% if shoot.max_images != 0 %}/{{ shoot.max_images }}{% endif %}
+    {% trans trimmed count=shoot.keep_count() %}
+        image chosen
+    {% pluralize count %}
+        images chosen
+    {% endtrans %}
+    <br>
+    {% if shoot.uncertain_count() != 0 %}
+        {% trans trimmed count=shoot.uncertain_count() %}
+            (+{{ count }} uncertain image)
+        {% pluralize %}
+            (+{{ count }} uncertain images)
+        {% endtrans %}
+    {% endif %}
+{% endif %}

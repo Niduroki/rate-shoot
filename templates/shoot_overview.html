@@ -1,15 +1,24 @@
 {% extends "base.html" %}
+{% block head %}<meta name="viewport" content="width=device-width, initial-scale=1">{% endblock %}
 {% block title %}{{ shoot.description }}{% endblock %}
-{% block topleft %}<span class="title">{{ shoot.description }}</span>{% endblock %}
+{% block topleft %}
+<span class="title hide-small">{{ shoot.description }}</span>
+<div class="hide-big margin-left-s">{% include "include/counter.html" %}</div>
+{% endblock %}
 {% block topright %}
-{% include "include/counter.html" %}
+<div class="hide-small inline-block">{% include "include/counter.html" %}</div>
 <a id="filter-yes" class="btn green"><svg class="genericons-neue genericons-neue-show" width="16px" height="16px"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/static/genericons-neue.svg#show"></use></svg></a>
 <a id="filter-unsafe" class="btn yellow"><svg class="genericons-neue genericons-neue-show" width="16px" height="16px"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/static/genericons-neue.svg#show"></use></svg></a>
-<a id="filter-no" class="btn red"><svg class="genericons-neue genericons-neue-show" width="16px" height="16px"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/static/genericons-neue.svg#show"></use></svg></a>
-<a id="filter-all" class="btn grey" data-trans-all="{% trans %}All{% endtrans %}" data-trans-not-rated="{% trans %}Not rated{% endtrans %}" data-trans-rated="{% trans %}Rated{% endtrans %}">{% trans %}All{% endtrans %}</a>
+<a id="filter-no" class="btn red margin-right-s"><svg class="genericons-neue genericons-neue-show" width="16px" height="16px"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/static/genericons-neue.svg#show"></use></svg></a>
+<a id="filter-all" class="btn grey hide-small" data-trans-all="{% trans %}All{% endtrans %}" data-trans-not-rated="{% trans %}Not rated{% endtrans %}" data-trans-rated="{% trans %}Rated{% endtrans %}">{% trans %}All{% endtrans %}</a>
 {% endblock %}
 
 {% block content %}
+
+<div id="shooting-info" class="hide-big">
+    <h1>{{ shoot.description }}</h1>
+    {% include "include/counter_shooting_info.html" %}
+</div>
 
 <div class="pic-grid">
 {% for pic in pics %}

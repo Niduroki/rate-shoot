@@ -86,10 +86,10 @@ $(function () {
                 if (d.responseJSON.error === "too_many") {
                     $("#yes-btn").addClass("disabled").css("cursor", "not-allowed");
                     $("#yes-btn").addClass("shake");
-                    $("header .right .small-title").addClass("shake");
+                    $("header .right").addClass("shake");
                     setTimeout(function(){
                         $("#yes-btn").removeClass("shake");
-                        $("header .right .small-title").removeClass("shake");
+                        $("header .right").removeClass("shake");
                     }, 400);
                 } else {
                     alert("Error! " + d.responseJSON.error);
@@ -109,10 +109,10 @@ $(function () {
                 if (d.responseJSON.error === "too_many") {
                     $("#yes-edited-btn").addClass("disabled").css("cursor", "not-allowed");
                     $("#yes-edited-btn").addClass("shake");
-                    $("header .right .small-title").addClass("shake");
+                    $("header .right").addClass("shake");
                     setTimeout(function(){
                         $("#yes-edited-btn").removeClass("shake");
-                        $("header .right .small-title").removeClass("shake");
+                        $("header .right").removeClass("shake");
                     }, 400);
                 } else {
                     alert("Error! " + d.responseJSON.error);
@@ -132,10 +132,10 @@ $(function () {
                 if (d.responseJSON.error === "too_many") {
                     $("#yes-unedited-btn").addClass("disabled").css("cursor", "not-allowed");
                     $("#yes-unedited-btn").addClass("shake");
-                    $("header .right .small-title").addClass("shake");
+                    $("header .right ").addClass("shake");
                     setTimeout(function(){
                         $("#yes-unedited-btn").removeClass("shake");
-                        $("header .right .small-title").removeClass("shake");
+                        $("header .right").removeClass("shake");
                     }, 400);
                 } else {
                     alert("Error! " + d.responseJSON.error);
