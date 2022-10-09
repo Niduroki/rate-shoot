@@ -1,8 +1,10 @@
 {% extends "base.html" %}
 {% block title %}{{ shoot.description }}{% endblock %}
 {% block topleft %}
+<a href="/{{ shoot.link }}/">
+    <svg class="genericons-neue genericons-neue-previous" width="32px" height="32px"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/static/genericons-neue.svg#previous"></use></svg>
+</a>
 <span class="title">{{ shoot.description }}</span>
-<a href="/{{ shoot.link }}/">{% trans %}Back to shoot overview{% endtrans %}</a>
 {% endblock %}
 {% block topright %}
 {% include "include/counter.html" %}

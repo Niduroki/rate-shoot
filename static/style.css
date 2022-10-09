@@ -74,6 +74,10 @@ small {
 .btn.grey.disabled {background-color: #444;}
 .btn.grey.active {background-color: #666;} /* for star ratings */
 
+.margin-l {
+    margin: 2em;
+}
+
 header .title { font-size: 2em; margin-right: 1em;}
 header .small-title { font-size: 1.5em; }
 
@@ -100,8 +104,10 @@ footer {
     margin: .5em;
 }
 
-header .left a {
-    color: #228 !important;
+header .left .genericons-neue-previous {
+    position: relative;
+    top: .2em;
+    margin-right: .4em;
 }
 header .left {
     left: 1%;

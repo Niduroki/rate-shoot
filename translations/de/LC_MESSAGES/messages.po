@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-08-13 00:18+0200\n"
-"PO-Revision-Date: 2022-08-13 00:20+0200\n"
+"POT-Creation-Date: 2022-10-09 22:10+0200\n"
+"PO-Revision-Date: 2022-10-09 22:11+0200\n"
 "Last-Translator: \n"
 "Language-Team: de <LL@li.org>\n"
 "Language: de\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Generated-By: Babel 2.9.1\n"
-"X-Generator: Poedit 3.1\n"
+"X-Generator: Poedit 3.1.1\n"
 
 #: templates/404.html:2
 msgid "404 - Not found"
@@ -69,13 +69,12 @@ msgstr "Passwort:"
 msgid "Prune images"
 msgstr "Bilder säubern"
 
-#: templates/admin.html:4 templates/create_shoot.html:3 templates/pwchange.html:4
-#: templates/pwchange.html:8
+#: templates/admin.html:4 templates/pwchange.html:4 templates/pwchange.html:11
 msgid "Change password"
 msgstr "Passwort ändern"
 
-#: templates/admin.html:5 templates/admin_shoot_overview.html:11
-#: templates/admin_shoot_picture.html:10 templates/create_shoot.html:4
+#: templates/admin.html:5 templates/admin_shoot_overview.html:15
+#: templates/admin_shoot_picture.html:11 templates/create_shoot.html:3
 #: templates/pwchange.html:5
 msgid "Logout"
 msgstr "Abmelden"
@@ -84,9 +83,9 @@ msgstr "Abmelden"
 msgid "Admin overview"
 msgstr "Admin Übersicht"
 
-#: templates/admin.html:9 templates/create_shoot.html:7
-msgid "Create new shoot"
-msgstr "Neues Shoot erstellen"
+#: templates/admin.html:9
+msgid "Create new shooting"
+msgstr "Neues Shooting erstellen"
 
 #: templates/admin.html:14
 msgid ""
@@ -129,104 +128,96 @@ msgstr "<span id=\"prune-count-1\">count</span> DB Einträge ohne Bilder entfern
 msgid "Removed <span id=\"prune-count-2\">count2</span> images without DB entry."
 msgstr "<span id=\"prune-count-2\">count2</span> Bilder ohne DB Eintrag entfernt."
 
-#: templates/admin_shoot_overview.html:9
+#: templates/admin_shoot_overview.html:14
 msgid "All"
 msgstr "Alle"
 
-#: templates/admin_shoot_overview.html:10 templates/admin_shoot_picture.html:9
-msgid "Overview"
-msgstr "Übersicht"
-
-#: templates/admin_shoot_overview.html:17
+#: templates/admin_shoot_overview.html:21
 msgid "Link to public page"
 msgstr "Link zur öffentlichen Seite"
 
-#: templates/admin_shoot_overview.html:17
+#: templates/admin_shoot_overview.html:21
 msgid "Copied!"
 msgstr "Kopiert!"
 
-#: templates/admin_shoot_overview.html:24
+#: templates/admin_shoot_overview.html:28
 msgid "Upload more images"
 msgstr "Mehr Bilder hochladen"
 
-#: templates/admin_shoot_overview.html:27 templates/create_shoot.html:37
+#: templates/admin_shoot_overview.html:31 templates/create_shoot.html:39
 msgid "Apply watermark"
 msgstr "Wasserzeichen anwenden"
 
-#: templates/admin_shoot_overview.html:32
+#: templates/admin_shoot_overview.html:36
 msgid "Keep/Insecure filenames"
 msgstr "Behalten/Unsicher Dateinamen"
 
-#: templates/admin_shoot_overview.html:33 templates/admin_shoot_overview.html:61
+#: templates/admin_shoot_overview.html:37 templates/admin_shoot_overview.html:65
 msgid "Edit shoot"
 msgstr "Shooting bearbeiten"
 
-#: templates/admin_shoot_overview.html:56 templates/shoot_overview.html:32
+#: templates/admin_shoot_overview.html:60 templates/shoot_overview.html:32
 msgid "No images"
 msgstr "Keine Bilder"
 
-#: templates/admin_shoot_overview.html:65 templates/create_shoot.html:15
+#: templates/admin_shoot_overview.html:69 templates/create_shoot.html:17
 msgid "Description"
 msgstr "Beschreibung"
 
-#: templates/admin_shoot_overview.html:68 templates/create_shoot.html:18
+#: templates/admin_shoot_overview.html:72 templates/create_shoot.html:20
 msgid "Maximum amount of images (0=No limit)"
 msgstr "Maximale Anzahl an Bildern (0=Kein Limit)"
 
-#: templates/admin_shoot_overview.html:71 templates/create_shoot.html:21
+#: templates/admin_shoot_overview.html:75 templates/create_shoot.html:23
 msgid "Also keep unedited images?"
 msgstr "Auch unbearbeitete Bilder behalten?"
 
-#: templates/admin_shoot_overview.html:74
+#: templates/admin_shoot_overview.html:78
 msgid "Unticking this means that all \"Unedited\" data will be lost!"
 msgstr ""
 "Diesen Haken entfernen heißt, dass alle \"Unbearbeitet\" Daten verloren gehen!"
 
-#: templates/admin_shoot_overview.html:78 templates/create_shoot.html:24
+#: templates/admin_shoot_overview.html:82 templates/create_shoot.html:26
 msgid "Maximum amount of unedited images (0=No limit)"
 msgstr "Maximale Anzahl unbearbeiteter Bilder (0=Kein Limit)"
 
-#: templates/admin_shoot_overview.html:87
+#: templates/admin_shoot_overview.html:91
 msgid "List of edited images to keep"
 msgstr "Liste bearbeiteter zu behaltener Bilder"
 
-#: templates/admin_shoot_overview.html:95
+#: templates/admin_shoot_overview.html:99
 msgid "List of unedited images to keep"
 msgstr "Liste unbearbeiteter zu behaltener Bilder"
 
-#: templates/admin_shoot_overview.html:104
+#: templates/admin_shoot_overview.html:108
 msgid "List of images to keep"
 msgstr "Liste zu behaltener Bilder"
 
-#: templates/admin_shoot_overview.html:113
+#: templates/admin_shoot_overview.html:117
 msgid "List of insecure images"
 msgstr "Liste unsicherer Bilder"
 
-#: templates/admin_shoot_picture.html:5
-msgid "Back to shoot"
-msgstr "Zurück zum Shooting"
-
-#: templates/admin_shoot_picture.html:30
+#: templates/admin_shoot_picture.html:31
 msgid "Remove star"
 msgstr "Stern entfernen"
 
-#: templates/admin_shoot_picture.html:36 templates/admin_shoot_picture.html:50
+#: templates/admin_shoot_picture.html:37 templates/admin_shoot_picture.html:51
 msgid "Delete image"
 msgstr "Bild löschen"
 
-#: templates/admin_shoot_picture.html:38
+#: templates/admin_shoot_picture.html:39
 msgid "Show comment"
 msgstr "Kommentar anzeigen"
 
-#: templates/admin_shoot_picture.html:40 templates/shoot_picture.html:36
+#: templates/admin_shoot_picture.html:41 templates/shoot_picture.html:38
 msgid "Next image"
 msgstr "Nächstes Bild"
 
-#: templates/admin_shoot_picture.html:49
+#: templates/admin_shoot_picture.html:50
 msgid "Really delete this image?"
 msgstr "Dieses Bild wirklich löschen?"
 
-#: templates/admin_shoot_picture.html:55
+#: templates/admin_shoot_picture.html:56
 msgid "Insecure-comment"
 msgstr "Unsicher Kommentar"
 
@@ -234,15 +225,15 @@ msgstr "Unsicher Kommentar"
 msgid "Help"
 msgstr "Hilfe"
 
-#: templates/create_shoot.html:7 templates/pwchange.html:9
-msgid "Back to admin page"
-msgstr "Zurück zur Admin Seite"
+#: templates/create_shoot.html:9
+msgid "New shooting"
+msgstr "Neues Shooting"
 
-#: templates/create_shoot.html:33
+#: templates/create_shoot.html:35
 msgid "Upload images"
 msgstr "Bilder hochladen"
 
-#: templates/create_shoot.html:43
+#: templates/create_shoot.html:45
 msgid "Uploaded images:"
 msgstr "Hochgeladene Bilder:"
 
@@ -317,51 +308,47 @@ msgstr "Falsches Passwort!"
 msgid "Password changed, please login again!"
 msgstr "Passwort geändert, bitte neu anmelden!"
 
-#: templates/pwchange.html:14
+#: templates/pwchange.html:16
 msgid "Passwords do not match!"
 msgstr "Passwörter stimmen nicht überein!"
 
-#: templates/pwchange.html:18
+#: templates/pwchange.html:20
 msgid "New password"
 msgstr "Neues Passwort"
 
-#: templates/pwchange.html:21
+#: templates/pwchange.html:23
 msgid "Repeat new password"
 msgstr "Neues Passwort wiederholen"
 
-#: templates/shoot_picture.html:5
-msgid "Back to shoot overview"
-msgstr "Zurück zur Shooting Übersicht"
-
-#: templates/shoot_picture.html:27
+#: templates/shoot_picture.html:29
 msgid "Keep edited"
 msgstr "Bearbeitet behalten"
 
-#: templates/shoot_picture.html:28
+#: templates/shoot_picture.html:30
 msgid "Keep unedited"
 msgstr "Unbearbeitet behalten"
 
-#: templates/include/rating-overlay.html:8 templates/shoot_picture.html:30
+#: templates/include/rating-overlay.html:8 templates/shoot_picture.html:32
 msgid "Keep"
 msgstr "Behalten"
 
-#: templates/shoot_picture.html:32
+#: templates/shoot_picture.html:34
 msgid "Insecure <small>(+ Comment)</small>"
 msgstr "Unsicher <small>(+ Kommentar)</small>"
 
-#: templates/include/rating-overlay.html:12 templates/shoot_picture.html:33
+#: templates/include/rating-overlay.html:12 templates/shoot_picture.html:35
 msgid "Don't keep"
 msgstr "Nicht behalten"
 
-#: templates/shoot_picture.html:38
+#: templates/shoot_picture.html:40
 msgid "Skip"
 msgstr "Überspringen"
 
-#: templates/shoot_picture.html:48
+#: templates/shoot_picture.html:50
 msgid "Explain why \"insecure\"?"
 msgstr "Erkläre warum \"Unsicher\"?"
 
-#: templates/shoot_picture.html:50
+#: templates/shoot_picture.html:52
 msgid "Submit"
 msgstr "Senden"
 
@@ -420,3 +407,15 @@ msgstr "Unsicher"
 #~ msgid_plural "%(count)s <small>images chosen</small>"
 #~ msgstr[0] "%(count)s <small>Bild gewählt</small>"
 #~ msgstr[1] "%(count)s <small>Bilder gewählt</small>"
+
+#~ msgid "Overview"
+#~ msgstr "Übersicht"
+
+#~ msgid "Back to shoot"
+#~ msgstr "Zurück zum Shooting"
+
+#~ msgid "Back to admin page"
+#~ msgstr "Zurück zur Admin Seite"
+
+#~ msgid "Back to shoot overview"
+#~ msgstr "Zurück zur Shooting Übersicht"

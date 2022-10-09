@@ -1,12 +1,13 @@
 {% extends "base.html" %}
 {% block title %}{{ shoot.description }}{% endblock %}
 {% block topleft %}
+<a href="/admin/{{ shoot.link }}/">
+    <svg class="genericons-neue genericons-neue-previous" width="32px" height="32px"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/static/genericons-neue.svg#previous"></use></svg>
+</a>
 <span class="title">{{ shoot.description }}</span>
-<a href="/admin/{{ shoot.link }}/">{% trans %}Back to shoot{% endtrans %}</a>
 {% endblock %}
 {% block topright %}
 {% include "include/counter.html" %}
-<a href="/admin/" class="btn yellow">{% trans %}Overview{% endtrans %}</a>
 <a href="/logout/" class="btn yellow">{% trans %}Logout{% endtrans %}</a>
 {% endblock %}
 {% block content %}

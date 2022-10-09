@@ -1,13 +1,17 @@
 {% extends "base.html" %}
 {% block title %}{{ shoot.description }}{% endblock %}
-{% block topleft %}<span class="title">{{ shoot.description }}</span>{% endblock %}
+{% block topleft %}
+<a href="/admin/">
+    <svg class="genericons-neue genericons-neue-previous" width="32px" height="32px"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/static/genericons-neue.svg#previous"></use></svg>
+</a>
+<span class="title">{{ shoot.description }}</span>
+{% endblock %}
 {% block topright %}
 {% include "include/counter.html" %}
 <a id="filter-yes" class="btn green"><svg class="genericons-neue genericons-neue-show" width="16px" height="16px"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/static/genericons-neue.svg#show"></use></svg></a>
 <a id="filter-unsafe" class="btn yellow"><svg class="genericons-neue genericons-neue-show" width="16px" height="16px"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/static/genericons-neue.svg#show"></use></svg></a>
 <a id="filter-no" class="btn red"><svg class="genericons-neue genericons-neue-show" width="16px" height="16px"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/static/genericons-neue.svg#show"></use></svg></a>
 <a id="filter-all" class="btn grey">{% trans %}All{% endtrans %}</a>
-<a href="/admin/" class="btn yellow">{% trans %}Overview{% endtrans %}</a>
 <a href="/logout/" class="btn yellow">{% trans %}Logout{% endtrans %}</a>
 {% endblock %}
 {% block content %}

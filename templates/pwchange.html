@@ -5,15 +5,17 @@
 <a href="/logout/" class="btn yellow">{% trans %}Logout{% endtrans %}</a>
 {% endblock %}
 {% block topleft %}
+<a href="/admin/">
+    <svg class="genericons-neue genericons-neue-previous" width="32px" height="32px"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/static/genericons-neue.svg#previous"></use></svg>
+</a>
 <span class="title">{% trans %}Change password{% endtrans %}</span>
-<a href="/admin/">{% trans %}Back to admin page{% endtrans %}</a>
 {% endblock %}
 {% block content %}
 <form method="post">
   {% if wrongpw %}
     {% trans %}Passwords do not match!{% endtrans %}<br>
   {% endif %}
-  <table>
+  <table class="margin-l">
     <tr>
       <td>{% trans %}New password{% endtrans %}</td><td><input type="password" name="password"></td>
     </tr>
