@@ -1,11 +1,11 @@
 {% extends "base.html" %}
-{% block topleft %}<span class="title">{% trans %}404 - Not found{% endtrans %}</span>{% endblock %}
+{% block topleft %}<span class="title hide-small">{% trans %}404 - Not found{% endtrans %}</span>{% endblock %}
 {% block topright %}
 <a href="/help/" class="btn green">{% trans %}Help/Tutorial{% endtrans %}</a>
 <a href="#admin-login" rel="modal:open" class="btn yellow">{% trans %}Admin Login{% endtrans %}</a>
 {% endblock %}
 {% block content %}
-<h1>{% trans %}This page does not exist.{% endtrans %}</h1>
+<h1>404 – {% trans %}This page does not exist.{% endtrans %}</h1>
 <p>{% trans %}Something appeared to have gone wrong …{% endtrans %}</p>
 {% if request.path|length == 11 or request.path|length == 12 %}{# This indicates that this could be a shooting link that has been removed #}
 <br><p>

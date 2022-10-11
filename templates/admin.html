@@ -1,12 +1,12 @@
 {% extends "base.html" %}
 {% block topright %}
-<a href="#prune-modal" rel="modal:open" class="btn yellow">{% trans %}Prune images{% endtrans %}</a>
-<a href="/admin/password/" class="btn yellow">{% trans %}Change password{% endtrans %}</a>
-<a href="/logout/" class="btn yellow">{% trans %}Logout{% endtrans %}</a>
+<a href="#prune-modal" rel="modal:open" class="hide-small btn yellow">{% trans %}Prune images{% endtrans %}</a>
+<a href="/admin/password/" class="hide-small btn yellow">{% trans %}Change password{% endtrans %}</a>
+<a href="/logout/" class="hide-small btn yellow">{% trans %}Logout{% endtrans %}</a>
 {% endblock %}
 {% block topleft %}
 <span class="title">{% trans %}Admin overview{% endtrans %}</span>
-<a href="/admin/create/" class="btn turquoise">{% trans %}Create new shooting{% endtrans %}</a>
+<a href="/admin/create/" class="hide-small btn turquoise">{% trans %}Create new shooting{% endtrans %}</a>
 {% endblock %}
 {% block content %}
 {% if pw %}
@@ -14,6 +14,13 @@
         {% trans %}You are using the default password. You should change it immediately on <a href="/admin/password">this site</a>.{% endtrans %}
     </div>
 {% endif %}
+
+<div id="overview-container" class="hide-big">
+    <a href="/admin/create/" class="btn turquoise">{% trans %}Create new shooting{% endtrans %}</a>
+    <a href="#prune-modal" rel="modal:open" class="btn yellow">{% trans %}Prune images{% endtrans %}</a>
+    <a href="/admin/password/" class="btn yellow">{% trans %}Change password{% endtrans %}</a>
+    <a href="/logout/" class="btn yellow">{% trans %}Logout{% endtrans %}</a>
+</div>
 
 <div class="shoot-grid">
     {% for shoot in shoots %}

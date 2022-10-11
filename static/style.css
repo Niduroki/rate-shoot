@@ -215,7 +215,7 @@ header .right {
     width: 70%;
     display: inline-block;
 }
-.third-width #copy-confirm {
+#copy-confirm {
     float: right;
     width: 25%;
     display: none;
@@ -277,6 +277,16 @@ header .right {
     filter: invert(89%) sepia(0%) saturate(348%) hue-rotate(205deg) brightness(97%) contrast(79%);
 }
 
+#overview-container {
+    display: flex;
+    flex-direction: column;
+    margin: 1em 0;
+    font-size: 1.3em;
+}
+#overview-container .btn {
+    margin: 1em .2em 0 .2em;
+}
+
 @media only screen and (min-width: 801px) {
     .hide-big { display: none; }
 }
@@ -294,6 +304,25 @@ header .right {
 
     .pic-grid-item {
         width: 49%;
+    }
+
+    .shoot-grid-item {
+        margin: 1%;
+        width: 98%;
+    }
+
+    #admin-shoot-overview, .small-flex-column {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #admin-shoot-overview .third-width, #new-shooting-form .half-width {
+        width: 98%; /* Ignore half/third width on small viewports */
+        margin-bottom: 1em;
+    }
+
+    #edit-shoot-modal form {
+        overflow: scroll;
     }
 }
 

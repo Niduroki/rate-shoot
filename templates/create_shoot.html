@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block topright %}
-<a href="/logout/" class="btn yellow">{% trans %}Logout{% endtrans %}</a>
+<a href="/logout/" class="btn yellow hide-small">{% trans %}Logout{% endtrans %}</a>
 {% endblock %}
 {% block topleft %}
 <a href="/admin/">
@@ -9,7 +9,7 @@
 <span class="title">{% trans %}New shooting{% endtrans %}</span>
 {% endblock %}
 {% block content %}
-<div class="form">
+<div id="new-shooting-form" class="form small-flex-column">
    <div class="half-width">
       <form method="post">
          <table>
