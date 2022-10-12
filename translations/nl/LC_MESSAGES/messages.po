@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-10-09 23:55+0200\n"
-"PO-Revision-Date: 2022-10-09 23:58+0200\n"
+"POT-Creation-Date: 2022-10-12 19:40+0200\n"
+"PO-Revision-Date: 2022-10-12 19:42+0200\n"
 "Last-Translator: \n"
 "Language-Team: nl <LL@li.org>\n"
 "Language: nl\n"
@@ -63,17 +63,19 @@ msgstr "Admin-Login"
 msgid "Password:"
 msgstr "Wachtwoord:"
 
-#: templates/admin.html:3 templates/admin.html:56 templates/pwchange.html:3
+#: templates/admin.html:3 templates/admin.html:20 templates/admin.html:63
+#: templates/pwchange.html:3
 msgid "Prune images"
 msgstr "Foto's opruimen"
 
-#: templates/admin.html:4 templates/pwchange.html:4 templates/pwchange.html:11
+#: templates/admin.html:4 templates/admin.html:21 templates/pwchange.html:4
+#: templates/pwchange.html:11
 msgid "Change password"
 msgstr "Wachtwoord veranderen"
 
-#: templates/admin.html:5 templates/admin_shoot_overview.html:15
-#: templates/admin_shoot_picture.html:11 templates/create_shoot.html:3
-#: templates/pwchange.html:5
+#: templates/admin.html:5 templates/admin.html:22
+#: templates/admin_shoot_overview.html:15 templates/admin_shoot_picture.html:11
+#: templates/create_shoot.html:3 templates/pwchange.html:5
 msgid "Logout"
 msgstr "Afmelden"
 
@@ -81,7 +83,7 @@ msgstr "Afmelden"
 msgid "Admin overview"
 msgstr "Admin overzicht"
 
-#: templates/admin.html:9
+#: templates/admin.html:9 templates/admin.html:19
 msgid "Create new shooting"
 msgstr "Nieuwe shooting creëren"
 
@@ -93,48 +95,48 @@ msgstr ""
 "Je gebruikt het standaard wachtwoork. Je moet het onmiddellijk wijzigen op <a "
 "href=\"/admin/password\">deze pagina</a>."
 
-#: templates/admin.html:26
+#: templates/admin.html:33
 msgid "Placeholder"
 msgstr "Placeholder"
 
-#: templates/admin.html:32
+#: templates/admin.html:39
 msgid "Delete shoot"
 msgstr "Shoot verwijderen"
 
-#: templates/admin.html:37
+#: templates/admin.html:44
 msgid "No shoots."
 msgstr "Geen shoots."
 
-#: templates/admin.html:44
+#: templates/admin.html:51
 #, python-format
 msgid "Delete shoot \"%(description)s\" and its images?"
 msgstr "Shoot \"%(description)s\" en zijn foto's verwijderen?"
 
-#: templates/admin.html:46
+#: templates/admin.html:53
 msgid "Delete"
 msgstr "Verwijderen"
 
-#: templates/admin.html:51
+#: templates/admin.html:58
 msgid "Prune thumbnails?"
 msgstr "Thumbnails verwijderen?"
 
-#: templates/admin.html:53
+#: templates/admin.html:60
 msgid "Removed <span id=\"prune-count-1\">count</span> DB entries without images."
 msgstr "<span id=\"prune-count-1\">count</span> DB items zonder foto's verwijderd."
 
-#: templates/admin.html:54
+#: templates/admin.html:61
 msgid "Removed <span id=\"prune-count-2\">count2</span> images without DB entry."
 msgstr "<span id=\"prune-count-2\">count2</span> foto's zonder DB item verwijderd."
 
-#: templates/admin_shoot_overview.html:14 templates/shoot_overview.html:13
+#: templates/admin_shoot_overview.html:14 templates/shoot_overview.html:12
 msgid "All"
 msgstr "Alle"
 
-#: templates/admin_shoot_overview.html:14 templates/shoot_overview.html:13
+#: templates/admin_shoot_overview.html:14 templates/shoot_overview.html:12
 msgid "Not rated"
 msgstr "Niet beoordeeld"
 
-#: templates/admin_shoot_overview.html:14 templates/shoot_overview.html:13
+#: templates/admin_shoot_overview.html:14 templates/shoot_overview.html:12
 msgid "Rated"
 msgstr "Beoordeeld"
 
@@ -162,7 +164,7 @@ msgstr "Houden/Onzeker filenamen"
 msgid "Edit shoot"
 msgstr "Shoot wijzigen"
 
-#: templates/admin_shoot_overview.html:60 templates/shoot_overview.html:41
+#: templates/admin_shoot_overview.html:60 templates/shoot_overview.html:40
 msgid "No images"
 msgstr "Geen foto's"
 
@@ -207,27 +209,31 @@ msgstr "Lijst van onzeker foto's"
 msgid "Remove star"
 msgstr "Ster verwijderen"
 
-#: templates/admin_shoot_picture.html:37 templates/admin_shoot_picture.html:51
-msgid "Delete image"
-msgstr "Foto verwijderen"
-
-#: templates/admin_shoot_picture.html:39
+#: templates/admin_shoot_picture.html:38
 msgid "Show comment"
 msgstr "Toon commentaar"
 
-#: templates/admin_shoot_picture.html:41 templates/shoot_picture.html:39
+#: templates/admin_shoot_picture.html:41 templates/shoot_picture.html:37
+msgid "Remove rating"
+msgstr "Beoordeeling verwijderen"
+
+#: templates/admin_shoot_picture.html:43 templates/admin_shoot_picture.html:54
+msgid "Delete image"
+msgstr "Foto verwijderen"
+
+#: templates/admin_shoot_picture.html:44 templates/shoot_picture.html:41
 msgid "Next image"
 msgstr "Volgende foto"
 
-#: templates/admin_shoot_picture.html:50
+#: templates/admin_shoot_picture.html:53
 msgid "Really delete this image?"
 msgstr "Dit foto echt verwijderen?"
 
-#: templates/admin_shoot_picture.html:56
+#: templates/admin_shoot_picture.html:59
 msgid "Insecure-comment"
 msgstr "Onzeker commentaar"
 
-#: templates/base.html:28
+#: templates/base.html:25
 msgid "Help"
 msgstr "Hulp"
 
@@ -324,35 +330,35 @@ msgstr "Nieuwe wachtwoord"
 msgid "Repeat new password"
 msgstr "Nieuwe wachtwoord herhalen"
 
-#: templates/shoot_picture.html:30
+#: templates/shoot_picture.html:29
 msgid "Keep edited"
 msgstr "Bewerkt houden"
 
-#: templates/shoot_picture.html:31
+#: templates/shoot_picture.html:30
 msgid "Keep unedited"
 msgstr "Niet bewerkt houden"
 
-#: templates/include/rating-overlay.html:8 templates/shoot_picture.html:33
+#: templates/include/rating-overlay.html:8 templates/shoot_picture.html:32
 msgid "Keep"
 msgstr "Houden"
 
-#: templates/shoot_picture.html:35
+#: templates/shoot_picture.html:34
 msgid "Insecure <small>(+ Comment)</small>"
 msgstr "Onzeker <small>(+ commentaar)</small>"
 
-#: templates/include/rating-overlay.html:12 templates/shoot_picture.html:36
+#: templates/include/rating-overlay.html:12 templates/shoot_picture.html:35
 msgid "Don't keep"
 msgstr "Niet houden"
 
-#: templates/shoot_picture.html:41
+#: templates/shoot_picture.html:43
 msgid "Skip"
 msgstr "Overspringen"
 
-#: templates/shoot_picture.html:51
+#: templates/shoot_picture.html:53
 msgid "Explain why \"insecure\"?"
 msgstr "Leg uit waarom \"onzeker\"?"
 
-#: templates/shoot_picture.html:53
+#: templates/shoot_picture.html:55
 msgid "Submit"
 msgstr "Verzenden"
 

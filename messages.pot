@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-10-09 23:55+0200\n"
+"POT-Creation-Date: 2022-10-12 19:40+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -56,17 +56,19 @@ msgstr ""
 msgid "Password:"
 msgstr ""
 
-#: templates/admin.html:3 templates/admin.html:56 templates/pwchange.html:3
+#: templates/admin.html:3 templates/admin.html:20 templates/admin.html:63
+#: templates/pwchange.html:3
 msgid "Prune images"
 msgstr ""
 
-#: templates/admin.html:4 templates/pwchange.html:4 templates/pwchange.html:11
+#: templates/admin.html:4 templates/admin.html:21 templates/pwchange.html:4
+#: templates/pwchange.html:11
 msgid "Change password"
 msgstr ""
 
-#: templates/admin.html:5 templates/admin_shoot_overview.html:15
-#: templates/admin_shoot_picture.html:11 templates/create_shoot.html:3
-#: templates/pwchange.html:5
+#: templates/admin.html:5 templates/admin.html:22
+#: templates/admin_shoot_overview.html:15 templates/admin_shoot_picture.html:11
+#: templates/create_shoot.html:3 templates/pwchange.html:5
 msgid "Logout"
 msgstr ""
 
@@ -74,7 +76,7 @@ msgstr ""
 msgid "Admin overview"
 msgstr ""
 
-#: templates/admin.html:9
+#: templates/admin.html:9 templates/admin.html:19
 msgid "Create new shooting"
 msgstr ""
 
@@ -84,48 +86,48 @@ msgid ""
 "<a href=\"/admin/password\">this site</a>."
 msgstr ""
 
-#: templates/admin.html:26
+#: templates/admin.html:33
 msgid "Placeholder"
 msgstr ""
 
-#: templates/admin.html:32
+#: templates/admin.html:39
 msgid "Delete shoot"
 msgstr ""
 
-#: templates/admin.html:37
+#: templates/admin.html:44
 msgid "No shoots."
 msgstr ""
 
-#: templates/admin.html:44
+#: templates/admin.html:51
 #, python-format
 msgid "Delete shoot \"%(description)s\" and its images?"
 msgstr ""
 
-#: templates/admin.html:46
+#: templates/admin.html:53
 msgid "Delete"
 msgstr ""
 
-#: templates/admin.html:51
+#: templates/admin.html:58
 msgid "Prune thumbnails?"
 msgstr ""
 
-#: templates/admin.html:53
+#: templates/admin.html:60
 msgid "Removed <span id=\"prune-count-1\">count</span> DB entries without images."
 msgstr ""
 
-#: templates/admin.html:54
+#: templates/admin.html:61
 msgid "Removed <span id=\"prune-count-2\">count2</span> images without DB entry."
 msgstr ""
 
-#: templates/admin_shoot_overview.html:14 templates/shoot_overview.html:13
+#: templates/admin_shoot_overview.html:14 templates/shoot_overview.html:12
 msgid "All"
 msgstr ""
 
-#: templates/admin_shoot_overview.html:14 templates/shoot_overview.html:13
+#: templates/admin_shoot_overview.html:14 templates/shoot_overview.html:12
 msgid "Not rated"
 msgstr ""
 
-#: templates/admin_shoot_overview.html:14 templates/shoot_overview.html:13
+#: templates/admin_shoot_overview.html:14 templates/shoot_overview.html:12
 msgid "Rated"
 msgstr ""
 
@@ -154,7 +156,7 @@ msgstr ""
 msgid "Edit shoot"
 msgstr ""
 
-#: templates/admin_shoot_overview.html:60 templates/shoot_overview.html:41
+#: templates/admin_shoot_overview.html:60 templates/shoot_overview.html:40
 msgid "No images"
 msgstr ""
 
@@ -198,27 +200,31 @@ msgstr ""
 msgid "Remove star"
 msgstr ""
 
-#: templates/admin_shoot_picture.html:37 templates/admin_shoot_picture.html:51
-msgid "Delete image"
-msgstr ""
-
-#: templates/admin_shoot_picture.html:39
+#: templates/admin_shoot_picture.html:38
 msgid "Show comment"
 msgstr ""
 
-#: templates/admin_shoot_picture.html:41 templates/shoot_picture.html:39
+#: templates/admin_shoot_picture.html:41 templates/shoot_picture.html:37
+msgid "Remove rating"
+msgstr ""
+
+#: templates/admin_shoot_picture.html:43 templates/admin_shoot_picture.html:54
+msgid "Delete image"
+msgstr ""
+
+#: templates/admin_shoot_picture.html:44 templates/shoot_picture.html:41
 msgid "Next image"
 msgstr ""
 
-#: templates/admin_shoot_picture.html:50
+#: templates/admin_shoot_picture.html:53
 msgid "Really delete this image?"
 msgstr ""
 
-#: templates/admin_shoot_picture.html:56
+#: templates/admin_shoot_picture.html:59
 msgid "Insecure-comment"
 msgstr ""
 
-#: templates/base.html:28
+#: templates/base.html:25
 msgid "Help"
 msgstr ""
 
@@ -304,35 +310,35 @@ msgstr ""
 msgid "Repeat new password"
 msgstr ""
 
-#: templates/shoot_picture.html:30
+#: templates/shoot_picture.html:29
 msgid "Keep edited"
 msgstr ""
 
-#: templates/shoot_picture.html:31
+#: templates/shoot_picture.html:30
 msgid "Keep unedited"
 msgstr ""
 
-#: templates/include/rating-overlay.html:8 templates/shoot_picture.html:33
+#: templates/include/rating-overlay.html:8 templates/shoot_picture.html:32
 msgid "Keep"
 msgstr ""
 
-#: templates/shoot_picture.html:35
+#: templates/shoot_picture.html:34
 msgid "Insecure <small>(+ Comment)</small>"
 msgstr ""
 
-#: templates/include/rating-overlay.html:12 templates/shoot_picture.html:36
+#: templates/include/rating-overlay.html:12 templates/shoot_picture.html:35
 msgid "Don't keep"
 msgstr ""
 
-#: templates/shoot_picture.html:41
+#: templates/shoot_picture.html:43
 msgid "Skip"
 msgstr ""
 
-#: templates/shoot_picture.html:51
+#: templates/shoot_picture.html:53
 msgid "Explain why \"insecure\"?"
 msgstr ""
 
-#: templates/shoot_picture.html:53
+#: templates/shoot_picture.html:55
 msgid "Submit"
 msgstr ""
 
