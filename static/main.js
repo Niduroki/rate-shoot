@@ -173,6 +173,19 @@ $(function () {
         }
     });
 
+    $("#delete-rating-btn").click(function(e){
+        $.ajax(".", {
+            data: {rating: "none"},
+            type: "post",
+            success: function(d){
+                window.location.reload();
+            },
+            error: function(d){
+                alert("Error! " + d.responseJSON.error);
+            },
+        });
+    });
+
     $("#prune-btn").click(function(e){
         $.post("/admin/prune/", "", function(data){
             console.log(data);

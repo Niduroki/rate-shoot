@@ -150,7 +150,7 @@ def shoot_picture(shoot_link, picturename):
         except KeyError:
             return jsonify(error="Missing rating/comment data"), 400
 
-        if rating not in ["yes_edited", "yes_unedited", "yes", "unsafe", "no"]:
+        if rating not in ["yes_edited", "yes_unedited", "yes", "unsafe", "no", "none"]:
             return jsonify(error="invalid rating"), 400
         if not obj.unedited_images and rating in ["yes_edited", "yes_unedited"]:
             return jsonify(error="Not accepting edited/unedited data"), 400
@@ -170,7 +170,10 @@ def shoot_picture(shoot_link, picturename):
         ):
             return jsonify(error="too_many"), 400
 
-        pic.status = rating
+        if rating == "none":
+            pic.status = None
+        else:
+            pic.status = rating
         db_session.commit()
 
         not_rated = db_session.query(db.Pictures).filter(
@@ -402,9 +405,15 @@ def admin_shoot_picture(shoot_link, picturename):
     else:
         try:
             raw_rating = request.form['rating']
-            if raw_rating not in ["/", "0", "1", "2"]:
+            if raw_rating not in ["/", "0", "1", "2", "none"]:
                 return jsonify(error="Invalid rating"), 400
-            if raw_rating == "/":
+            if raw_rating == "none":
+                # Branch to remove image rating
+                pic.status = None
+                db_session.commit()
+                return jsonify(data="success")
+            elif raw_rating == "/":
+                # From here on branch to set star rating
                 rating = None
             else:
                 rating = int(raw_rating)

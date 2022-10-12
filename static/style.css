@@ -288,11 +288,11 @@ header .right {
 }
 
 @media only screen and (min-width: 801px) {
-    .hide-big { display: none; }
+    .hide-big { display: none !important; }
 }
 
 @media only screen and (max-width:800px){
-    .hide-small { display: none; }
+    .hide-small { display: none !important; }
     .rating-btns {
         display: flex;
         flex-direction: column;

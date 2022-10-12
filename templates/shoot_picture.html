@@ -33,6 +33,9 @@
         {% endif %}
         <a href="#unsafe-modal" rel="modal:open" class="btn yellow">{% trans %}Insecure <small>(+ Comment)</small>{% endtrans %}</a>
         <a id="no-btn" class="btn red">{% trans %}Don't keep{% endtrans %}</a>
+        {% if pic.status != None %}
+            <a id="delete-rating-btn" class="btn grey">{% trans %}Remove rating{% endtrans %}</a>
+        {% endif %}
         <a class="btn grey" href="{{ pic.next_pic_link() }}">
             {% if pic.status %}
                 {% trans %}Next image{% endtrans %}

@@ -7,7 +7,7 @@
 <span class="title hide-small">{{ shoot.description }}</span>
 {% endblock %}
 {% block topright %}
-<div class="margin-right-s">{% include "include/counter.html" %}</div>
+<div class="margin-right-s inline-block">{% include "include/counter.html" %}</div>
 <a href="/logout/" class="btn yellow hide-small">{% trans %}Logout{% endtrans %}</a>
 {% endblock %}
 {% block content %}
@@ -34,10 +34,13 @@
         <a id="star-half-btn" class="btn grey {% if pic.star_rating == 1 %}active{% endif %}"><svg class="genericons-neue genericons-neue-show" width="16px" height="16px"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/static/genericons-neue.svg#star-half"></use></svg></a>
         <a id="star-full-btn" class="btn grey {% if pic.star_rating == 2 %}active{% endif %}"><svg class="genericons-neue genericons-neue-show" width="16px" height="16px"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/static/genericons-neue.svg#star"></use></svg></a>
         –
-        <a href="#delete-modal" rel="modal:open" class="btn red">{% trans %}Delete image{% endtrans %}</a>
         {% if pic.status == "unsafe" %}
             <a href="#unsafe-modal" rel="modal:open" class="btn yellow">{% trans %}Show comment{% endtrans %}</a>
         {% endif %}
+        {% if pic.status != None %}
+            <a id="delete-rating-btn" class="btn yellow">{% trans %}Remove rating{% endtrans %}</a>
+        {% endif %}
+        <a href="#delete-modal" rel="modal:open" class="btn red">{% trans %}Delete image{% endtrans %}</a>
         <a class="btn grey" href="/admin/{{ pic.next_pic_link() }}">{% trans %}Next image{% endtrans %}</a>
     </div>
     <div class="filename">
