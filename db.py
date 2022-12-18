@@ -28,6 +28,22 @@ class Shoot(Base):
     unedited_images = Column(Boolean)  # Whether we can also choose unedited images
     max_unedited = Column(Integer)  # max unedited images to keep
 
+    def done_state(self):
+        status = "none"
+        green_possible = True
+        for pic in self.pictures:
+            if pic.status is None:
+                green_possible = False
+            else:
+                status = "some"
+            if not green_possible and status == "some":
+                return status
+
+        if status == "none":
+            return "none"
+        else:
+            return "all"
+
     def keep_count(self):
         if self.unedited_images:
             count = {'edited': 0, 'unedited': 0}
@@ -51,7 +67,7 @@ class Shoot(Base):
         return count
 
     def __repr__(self):
-        return f"ID: {self.id}, Shooting with link {self.link}, Done = {self.done}"
+        return f"ID: {self.id}, Shooting with link {self.link}"
 
 
 class Pictures(Base):

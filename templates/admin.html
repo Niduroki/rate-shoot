@@ -28,7 +28,7 @@
         <a href="/admin/{{ shoot.link }}/">
             {% if shoot.pictures|length %}
                 <img src="/img/{{ shoot.pictures[0].filename }}" class="focused border
-                {% if shoot.done %} green {% else %} red {% endif %}">
+                {% if shoot.done_state() == 'all' %} green {% elif shoot.done_state() == 'some' %} yellow {% else %} red {% endif %}">
             {% else %}
                 {% trans %}Placeholder{% endtrans %}
             {% endif %}
