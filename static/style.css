@@ -18,6 +18,10 @@ body {
 .rating-btns a {
     margin: 0 .5em;
 }
+.rating-btns .navigation a {
+    width: 4em;
+}
+
 .filename {
     text-align: center;
     margin: .5em;
@@ -287,8 +291,17 @@ header .right {
     margin: 1em .2em 0 .2em;
 }
 
+.genericons-neue-skip-back, .genericons-neue-skip-ahead {
+    position: relative;
+    top: 1px;
+}
+
 @media only screen and (min-width: 801px) {
     .hide-big { display: none !important; }
+
+    #home-icon {
+        margin-right: 1em;
+    }
 }
 
 @media only screen and (max-width:800px){
@@ -300,6 +313,12 @@ header .right {
     .rating-btns a {
         margin-bottom: 1em;
         width: 15em;
+    }
+    .rating-btns .navigation {
+        display: inline-flex;
+    }
+    .rating-btns .navigation a {
+        width: 6.5em;
     }
 
     .pic-grid-item {

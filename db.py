@@ -81,6 +81,13 @@ class Pictures(Base):
     comment = Column(String)
 
     shoot = relationship("Shoot", back_populates="pictures")
+
+    def prev_pic(self):
+        cur = self.shoot.pictures.index(self)
+        if cur == 0:
+            raise StopIteration
+        else:
+            return self.shoot.pictures[cur-1]
     
     def next_pic(self):
         cur = self.shoot.pictures.index(self)
@@ -88,6 +95,12 @@ class Pictures(Base):
             raise StopIteration
         else:
             return self.shoot.pictures[cur+1]
+
+    def prev_pic_link(self):
+        try:
+            return f"/{self.shoot.link}/{self.prev_pic().filename}/"
+        except StopIteration:
+            return f"/{self.shoot.link}/"
 
     def next_pic_link(self):
         try:

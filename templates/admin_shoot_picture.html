@@ -41,7 +41,14 @@
             <a id="delete-rating-btn" class="btn yellow">{% trans %}Remove rating{% endtrans %}</a>
         {% endif %}
         <a href="#delete-modal" rel="modal:open" class="btn red">{% trans %}Delete image{% endtrans %}</a>
-        <a class="btn grey" href="/admin/{{ pic.next_pic_link() }}">{% trans %}Next image{% endtrans %}</a>
+        <div class="navigation">
+            <a class="btn grey" href="{{ pic.prev_pic_link() }}">
+                <svg class="genericons-neue genericons-neue-skip-back" width="16px" height="16px"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/static/genericons-neue.svg#skip-back"></use></svg>
+            </a>
+            <a class="btn grey" href="{{ pic.next_pic_link() }}">
+                <svg class="genericons-neue genericons-neue-skip-ahead" width="16px" height="16px"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/static/genericons-neue.svg#skip-ahead"></use></svg>
+            </a>
+        </div>
     </div>
     <div class="filename">
         {{ pic.filename }}
