@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-10-12 19:40+0200\n"
-"PO-Revision-Date: 2022-10-12 19:42+0200\n"
+"POT-Creation-Date: 2022-12-26 22:25+0100\n"
+"PO-Revision-Date: 2022-12-26 22:27+0100\n"
 "Last-Translator: \n"
 "Language-Team: nl <LL@li.org>\n"
 "Language: nl\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Generated-By: Babel 2.9.1\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.2.2\n"
 
 #: templates/404.html:2
 msgid "404 - Not found"
@@ -217,19 +217,19 @@ msgstr "Toon commentaar"
 msgid "Remove rating"
 msgstr "Beoordeeling verwijderen"
 
-#: templates/admin_shoot_picture.html:43 templates/admin_shoot_picture.html:54
+#: templates/admin_shoot_picture.html:43 templates/admin_shoot_picture.html:63
 msgid "Delete image"
 msgstr "Foto verwijderen"
 
-#: templates/admin_shoot_picture.html:44 templates/shoot_picture.html:41
-msgid "Next image"
-msgstr "Volgende foto"
+#: templates/admin_shoot_picture.html:56
+msgid "Copied public link to clipboard"
+msgstr "Publieke link gekopieerd"
 
-#: templates/admin_shoot_picture.html:53
+#: templates/admin_shoot_picture.html:62
 msgid "Really delete this image?"
 msgstr "Dit foto echt verwijderen?"
 
-#: templates/admin_shoot_picture.html:59
+#: templates/admin_shoot_picture.html:68
 msgid "Insecure-comment"
 msgstr "Onzeker commentaar"
 
@@ -350,15 +350,15 @@ msgstr "Onzeker <small>(+ commentaar)</small>"
 msgid "Don't keep"
 msgstr "Niet houden"
 
-#: templates/shoot_picture.html:43
-msgid "Skip"
-msgstr "Overspringen"
+#: templates/shoot_picture.html:51
+msgid "Copied link to clipboard"
+msgstr "Link gekopieerd"
 
-#: templates/shoot_picture.html:53
+#: templates/shoot_picture.html:56
 msgid "Explain why \"insecure\"?"
 msgstr "Leg uit waarom \"onzeker\"?"
 
-#: templates/shoot_picture.html:55
+#: templates/shoot_picture.html:58
 msgid "Submit"
 msgstr "Verzenden"
 
@@ -466,3 +466,9 @@ msgstr "Onzeker"
 
 #~ msgid "Back to shoot overview"
 #~ msgstr "Terug naar shoot overzicht"
+
+#~ msgid "Next image"
+#~ msgstr "Volgende foto"
+
+#~ msgid "Skip"
+#~ msgstr "Overspringen"

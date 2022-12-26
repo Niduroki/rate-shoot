@@ -67,6 +67,19 @@ $(function () {
         }
     });
 
+    $("#filename-copy").click(function(){
+        var to_copy = document.location.protocol + "//" + document.location.host;
+        if (document.location.pathname.startsWith("/admin/")) {
+            to_copy += document.location.pathname.substring(6);
+        } else {
+            to_copy += document.location.pathname;
+        }
+        navigator.clipboard.writeText(to_copy).then(() => {
+            $('#copy-confirm').show();
+            $('#copy-confirm').fadeOut(2000);
+        },() => { alert("Error copying to clipboard"); });
+    });
+
     $("#public_link").click(function(){
         $(this).focus();
         $(this).select();

@@ -26,6 +26,11 @@ body {
     text-align: center;
     margin: .5em;
     font-size: .75em;
+    position: relative;
+}
+.filename svg {
+    position: relative;
+    top: .33em;
 }
 
 .comment-box {
@@ -224,6 +229,12 @@ header .right {
     width: 25%;
     display: none;
 }
+.filename #copy-confirm {
+    position: absolute;
+    top: .33em;
+    padding-left: 1em;
+    width: initial;
+}
 
 .third-width {
     display: inline-grid;
@@ -277,7 +288,7 @@ header .right {
     font-size: 1.6em;
 }
 
-#shooting-info svg {
+#shooting-info svg, .filename svg {
     filter: invert(89%) sepia(0%) saturate(348%) hue-rotate(205deg) brightness(97%) contrast(79%);
 }
 
@@ -301,6 +312,10 @@ header .right {
 
     #home-icon {
         margin-right: 1em;
+    }
+
+    .rating-btns {
+        margin-bottom: 1em;
     }
 }
 
@@ -342,6 +357,14 @@ header .right {
 
     #edit-shoot-modal form {
         overflow: scroll;
+    }
+
+    .filename #copy-confirm {
+        position: absolute;
+        top: 2em;
+        right: 15%;
+        padding-left: 0;
+        width: initial;
     }
 }
 

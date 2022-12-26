@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-10-12 19:40+0200\n"
+"POT-Creation-Date: 2022-12-26 22:25+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -208,19 +208,19 @@ msgstr ""
 msgid "Remove rating"
 msgstr ""
 
-#: templates/admin_shoot_picture.html:43 templates/admin_shoot_picture.html:54
+#: templates/admin_shoot_picture.html:43 templates/admin_shoot_picture.html:63
 msgid "Delete image"
 msgstr ""
 
-#: templates/admin_shoot_picture.html:44 templates/shoot_picture.html:41
-msgid "Next image"
+#: templates/admin_shoot_picture.html:56
+msgid "Copied public link to clipboard"
 msgstr ""
 
-#: templates/admin_shoot_picture.html:53
+#: templates/admin_shoot_picture.html:62
 msgid "Really delete this image?"
 msgstr ""
 
-#: templates/admin_shoot_picture.html:59
+#: templates/admin_shoot_picture.html:68
 msgid "Insecure-comment"
 msgstr ""
 
@@ -330,15 +330,15 @@ msgstr ""
 msgid "Don't keep"
 msgstr ""
 
-#: templates/shoot_picture.html:43
-msgid "Skip"
+#: templates/shoot_picture.html:51
+msgid "Copied link to clipboard"
 msgstr ""
 
-#: templates/shoot_picture.html:53
+#: templates/shoot_picture.html:56
 msgid "Explain why \"insecure\"?"
 msgstr ""
 
-#: templates/shoot_picture.html:55
+#: templates/shoot_picture.html:58
 msgid "Submit"
 msgstr ""
 
