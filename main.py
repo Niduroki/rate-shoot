@@ -16,7 +16,6 @@ app = Flask(__name__)
 try:
     import data.config as config
     app.config['UPLOAD_FOLDER'] = config.UPLOAD_FOLDER
-    app.config['SITE_URL'] = config.SITE_URL
     app.secret_key = config.SECRET_KEY
     try:
         app.config["DATABASE"] = config.DATABASE
@@ -37,7 +36,6 @@ except ModuleNotFoundError:
         os.mkdir(os.path.join(data_path, "img/"))
     with open(data_path + "config.py", "w") as f:
         f.write("UPLOAD_FOLDER = '" + os.path.join(data_path, "img/") + "'\n")
-        f.write("SITE_URL = 'change.me.in.config.py'\n")
         f.write("SECRET_KEY = " + str(os.urandom(20)) + "\n")
     db.get_session()
 

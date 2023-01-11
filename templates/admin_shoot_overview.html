@@ -20,7 +20,7 @@
         <div>
             <span class="title">{% trans %}Link to public page{% endtrans %}</span> <span id="copy-confirm">{% trans %}Copied!{% endtrans %}</span>
         </div>
-        <input type="text" id="public_link" readonly value="{{ config.SITE_URL }}/{{ shoot.link }}/">
+        <input type="text" id="public_link" readonly data-link="{{ shoot.link }}">
     </div>
     <input id="shoot_link_help" type="hidden" value="{{ shoot.link }}"><!-- required for fileupload in here -->
     <div class="third-width">

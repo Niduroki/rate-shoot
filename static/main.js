@@ -80,13 +80,19 @@ $(function () {
         },() => { alert("Error copying to clipboard"); });
     });
 
-    $("#public_link").click(function(){
-        $(this).focus();
-        $(this).select();
-        document.execCommand('copy');
-        $('#copy-confirm').show();
-        $('#copy-confirm').fadeOut(2000);
-    });
+    if ($("#public_link").index !== -1) {
+        $("#public_link").val(
+            document.location.protocol + "//" + document.location.host +
+            "/" + $("#public_link").data('link') + "/"
+        );
+        $("#public_link").click(function(){
+            $(this).focus();
+            $(this).select();
+            document.execCommand('copy');
+            $('#copy-confirm').show();
+            $('#copy-confirm').fadeOut(2000);
+        });
+    }
 
     $("#yes-btn").click(function(e){
         $.ajax(".", {
