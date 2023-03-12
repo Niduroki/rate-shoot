@@ -1,9 +1,12 @@
-from sqlalchemy import create_engine, Column, Integer, String, DateTime, Boolean, ForeignKey
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker, relationship
+from sqlalchemy import create_engine, ForeignKey
+from sqlalchemy.orm import sessionmaker, relationship, DeclarativeBase, Mapped, mapped_column
 from flask import current_app
+from datetime import datetime
+from typing import List
 
-Base = declarative_base()
+
+class Base(DeclarativeBase):
+    pass
 
 
 class Passwords(Base):
@@ -12,21 +15,23 @@ class Passwords(Base):
     """
     __tablename__ = "passwords"
     
-    id = Column(Integer, primary_key=True)
-    password = Column(String)
+    id: Mapped[int] = mapped_column(primary_key=True)
+    password: Mapped[str]
 
 
 class Shoot(Base):
     __tablename__ = "shoot"
 
-    id = Column(Integer, primary_key=True)
-    link = Column(String)
-    description = Column(String)
-    creation = Column(DateTime)
-    max_images = Column(Integer)  # max images to give a "keep" to (if we also accept unedited images, this is edited)
-    done = Column(Boolean)
-    unedited_images = Column(Boolean)  # Whether we can also choose unedited images
-    max_unedited = Column(Integer)  # max unedited images to keep
+    id: Mapped[int] = mapped_column(primary_key=True)
+    link: Mapped[str]
+    description: Mapped[str]
+    creation: Mapped[datetime]
+    max_images: Mapped[int]  # max images to give a "keep" to (if we also accept unedited images, this is edited)
+    done: Mapped[bool]
+    unedited_images: Mapped[bool]  # Whether we can also choose unedited images
+    max_unedited: Mapped[int]  # max unedited images to keep
+
+    pictures: Mapped[List["Pictures"]] = relationship(back_populates="shoot", order_by="Pictures.filename")
 
     def done_state(self):
         status = "none"
@@ -73,14 +78,14 @@ class Shoot(Base):
 class Pictures(Base):
     __tablename__ = "pictures"
 
-    id = Column(Integer, primary_key=True)
-    shoot_id = Column(Integer, ForeignKey('shoot.id'))
-    filename = Column(String, unique=True)
-    star_rating = Column(Integer)
-    status = Column(String)  # Keep/Don't keep
-    comment = Column(String)
+    id: Mapped[int] = mapped_column(primary_key=True)
+    shoot_id: Mapped[int] = mapped_column(ForeignKey('shoot.id'))
+    filename: Mapped[str] = mapped_column(unique=True)
+    star_rating: Mapped[int]
+    status: Mapped[str]  # Keep/Don't keep
+    comment: Mapped[str]
 
-    shoot = relationship("Shoot", back_populates="pictures")
+    shoot: Mapped[List["Shoot"]] = relationship(back_populates="pictures")
 
     def prev_pic(self):
         cur = self.shoot.pictures.index(self)
@@ -112,7 +117,7 @@ class Pictures(Base):
         return f"ID: {self.id}, for shoot id: {self.shoot_id}"
 
 
-Shoot.pictures = relationship("Pictures", back_populates="shoot", order_by="Pictures.filename")
+
 
 
 def get_session():
