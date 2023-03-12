@@ -39,11 +39,12 @@ except ModuleNotFoundError:
         f.write("SECRET_KEY = " + str(os.urandom(20)) + "\n")
     db.get_session()
 
-babel = Babel(app)
 
-@babel.localeselector
 def get_locale():
     return request.accept_languages.best_match(app.config['LANGUAGES'].keys())
+
+
+babel = Babel(app, locale_selector=get_locale)
 
 
 class LinkConverter(BaseConverter):
