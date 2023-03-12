@@ -494,9 +494,21 @@ def admin_upload():
         return jsonify(error="No file selected")
     if file:
         sec_filename = secure_filename(filename)
-        # Check if the file already exists and rename it silently
+        # Check if the file already exists and rename it silently following _c1, _c2, _c3, ... policy
         if os.path.isfile(os.path.join(app.config['UPLOAD_FOLDER'], sec_filename)):
-            sec_filename = os.path.splitext(sec_filename)[0] + "_conflict" + os.path.splitext(sec_filename)[1]
+            filename_base = os.path.splitext(sec_filename)[0]
+            filename_ext = os.path.splitext(sec_filename)[1]
+            # Find existing conflict files
+            searching = True
+            search_index = 0
+            while searching:
+                search_index += 1
+                if not os.path.isfile(os.path.join(
+                        app.config['UPLOAD_FOLDER'],  f"{filename_base}_c{search_index}{filename_ext}"
+                )):
+                    searching = False
+
+            sec_filename = f"{filename_base}_c{search_index}{filename_ext}"
 
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], sec_filename))
 
