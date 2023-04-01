@@ -74,6 +74,10 @@ def check_login(session):
 def not_found(e):
     return render_template("404.html")
 
+@app.errorhandler(403)
+def login_required(e):
+    return redirect(url_for('.index', login_required=1))
+
 
 @app.route('/', methods=["get", "post"])
 def index():
@@ -84,7 +88,8 @@ def index():
             pw = "0"
             if request.args.get('pw') in ["1", "2"]:
                 pw = request.args.get('pw')
-            return render_template("index.html", pw=pw)
+            login_required_param = (request.args.get('login_required') == "1")
+            return render_template("index.html", pw=pw, login_required=login_required_param)
     if request.method == "POST":
         # Check password for admin login
         try:

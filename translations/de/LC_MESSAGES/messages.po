@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-12-26 22:25+0100\n"
-"PO-Revision-Date: 2022-12-26 22:26+0100\n"
+"POT-Creation-Date: 2023-04-01 12:46+0200\n"
+"PO-Revision-Date: 2023-04-01 12:47+0200\n"
 "Last-Translator: \n"
 "Language-Team: de <LL@li.org>\n"
 "Language: de\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"Generated-By: Babel 2.9.1\n"
+"Generated-By: Babel 2.12.1\n"
 "X-Generator: Poedit 3.2.2\n"
 
 #: templates/404.html:2
@@ -57,11 +57,11 @@ msgstr ""
 "bald fertig!<br>\n"
 "Falls du noch weitere Fragen hast, kontaktiere mich gerne!\n"
 
-#: templates/404.html:22 templates/index.html:19
+#: templates/404.html:22 templates/index.html:22
 msgid "Admin-Login"
 msgstr "Admin-Login"
 
-#: templates/404.html:23 templates/index.html:20
+#: templates/404.html:23 templates/index.html:23
 msgid "Password:"
 msgstr "Passwort:"
 
@@ -321,6 +321,10 @@ msgstr "Falsches Passwort!"
 #: templates/index.html:14
 msgid "Password changed, please login again!"
 msgstr "Passwort geändert, bitte neu anmelden!"
+
+#: templates/index.html:17
+msgid "You need to log in to see this page."
+msgstr "Du musst dich anmelden um diese Seite zu sehen."
 
 #: templates/pwchange.html:16
 msgid "Passwords do not match!"

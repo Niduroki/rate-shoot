@@ -13,6 +13,9 @@
 {% elif pw == "2" %}
 <span class="btn green">{% trans %}Password changed, please login again!{% endtrans %}</span>
 {% endif %}
+{% if login_required %}
+<span class="btn red">{% trans %}You need to log in to see this page.{% endtrans %}</span>
+{% endif %}
 
 <div id="admin-login" class="modal">
   <form method="post" action="/">
