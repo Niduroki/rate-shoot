@@ -58,7 +58,9 @@ class Shoot(Base):
             print(self.keep_count())
             if self.max_images == self.keep_count():
                 return "all"
-            elif (self.max_images == self.keep_count()['edited']) and (self.max_unedited == self.keep_count()['unedited']):
+            elif self.unedited_images and \
+                    (self.max_images == self.keep_count()['edited']) and \
+                    (self.max_unedited == self.keep_count()['unedited']):
                 return "all"
             elif self.keep_count() != 0:
                 return "some"
