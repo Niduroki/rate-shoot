@@ -54,8 +54,6 @@ class Shoot(Base):
         else:
             # Case: Max images.
             # If [max_images] are rated: "all", if some images are rated: "some"; if none are rated: "none"
-            print(self.max_images)
-            print(self.keep_count())
             if self.max_images == self.keep_count():
                 return "all"
             elif self.unedited_images and \
