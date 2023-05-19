@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-05-19 12:05+0200\n"
-"PO-Revision-Date: 2023-05-19 12:06+0200\n"
+"POT-Creation-Date: 2023-05-19 13:49+0200\n"
+"PO-Revision-Date: 2023-05-19 13:49+0200\n"
 "Last-Translator: \n"
 "Language-Team: nl <LL@li.org>\n"
 "Language: nl\n"
@@ -334,6 +334,7 @@ msgstr "Nieuwe wachtwoord"
 msgid "Repeat new password"
 msgstr "Nieuwe wachtwoord herhalen"
 
+#: templates/include/rating-overlay.html:8 templates/include/rating-overlay.html:9
 #: templates/shoot_picture.html:29 templates/shoot_picture.html:32
 msgid "Edit"
 msgstr "Bewerken"
@@ -346,7 +347,7 @@ msgstr "Niet bewerkt houden"
 msgid "Insecure <small>(+ Comment)</small>"
 msgstr "Onzeker <small>(+ commentaar)</small>"
 
-#: templates/shoot_picture.html:35
+#: templates/include/rating-overlay.html:12 templates/shoot_picture.html:35
 msgid "Veto"
 msgstr "Veto"
 
@@ -433,25 +434,13 @@ msgid_plural "(+%(count)s uncertain images)"
 msgstr[0] "(+%(count)s onzeker foto)"
 msgstr[1] "(+%(count)s onzeker foto's)"
 
-#: templates/include/rating-overlay.html:8
-msgid "Keep"
-msgstr "Houden"
-
-#: templates/include/rating-overlay.html:9
-msgid "Edited"
-msgstr "Bewerkt"
-
 #: templates/include/rating-overlay.html:10
-msgid "Uneditet"
+msgid "Unedited"
 msgstr "Niet bewerkt"
 
 #: templates/include/rating-overlay.html:11
 msgid "Insecure"
 msgstr "Onzeker"
-
-#: templates/include/rating-overlay.html:12
-msgid "Don't keep"
-msgstr "Niet houden"
 
 #~ msgid "%(count)s/%(max)s <small>image chosen</small>"
 #~ msgid_plural "%(count)s/%(max)s <small>images chosen</small>"
@@ -483,3 +472,12 @@ msgstr "Niet houden"
 
 #~ msgid "Keep edited"
 #~ msgstr "Bewerkt houden"
+
+#~ msgid "Keep"
+#~ msgstr "Houden"
+
+#~ msgid "Edited"
+#~ msgstr "Bewerkt"
+
+#~ msgid "Don't keep"
+#~ msgstr "Niet houden"

@@ -5,11 +5,11 @@
     {% elif pic.status == 'unsafe' %}yellow
     {% elif pic.status == 'no' %}red
     {% endif %}">
-        {% if pic.status == 'yes' %}{% trans %}Keep{% endtrans %}
-        {% elif pic.status == 'yes_edited' %}{% trans %}Edited{% endtrans %}
-        {% elif pic.status == 'yes_unedited' %}{% trans %}Uneditet{% endtrans %}
+        {% if pic.status == 'yes' %}{% trans %}Edit{% endtrans %}
+        {% elif pic.status == 'yes_edited' %}{% trans %}Edit{% endtrans %}
+        {% elif pic.status == 'yes_unedited' %}{% trans %}Unedited{% endtrans %}
         {% elif pic.status == 'unsafe' %}{% trans %}Insecure{% endtrans %}
-        {% elif pic.status == 'no' %}{% trans %}Don't keep{% endtrans %}
+        {% elif pic.status == 'no' %}{% trans %}Veto{% endtrans %}
         {% endif %}
     </div>
 {% endif %}

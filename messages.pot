@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-05-19 12:05+0200\n"
+"POT-Creation-Date: 2023-05-19 13:49+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -314,7 +314,9 @@ msgstr ""
 msgid "Repeat new password"
 msgstr ""
 
-#: templates/shoot_picture.html:29 templates/shoot_picture.html:32
+#: templates/include/rating-overlay.html:8
+#: templates/include/rating-overlay.html:9 templates/shoot_picture.html:29
+#: templates/shoot_picture.html:32
 msgid "Edit"
 msgstr ""
 
@@ -326,7 +328,7 @@ msgstr ""
 msgid "Insecure <small>(+ Comment)</small>"
 msgstr ""
 
-#: templates/shoot_picture.html:35
+#: templates/include/rating-overlay.html:12 templates/shoot_picture.html:35
 msgid "Veto"
 msgstr ""
 
@@ -413,23 +415,11 @@ msgid_plural "(+%(count)s uncertain images)"
 msgstr[0] ""
 msgstr[1] ""
 
-#: templates/include/rating-overlay.html:8
-msgid "Keep"
-msgstr ""
-
-#: templates/include/rating-overlay.html:9
-msgid "Edited"
-msgstr ""
-
 #: templates/include/rating-overlay.html:10
-msgid "Uneditet"
+msgid "Unedited"
 msgstr ""
 
 #: templates/include/rating-overlay.html:11
 msgid "Insecure"
-msgstr ""
-
-#: templates/include/rating-overlay.html:12
-msgid "Don't keep"
 msgstr ""
 
