@@ -34,20 +34,36 @@ class Shoot(Base):
     pictures: Mapped[List["Pictures"]] = relationship(back_populates="shoot", order_by="Pictures.filename")
 
     def done_state(self):
-        status = "none"
-        green_possible = True
-        for pic in self.pictures:
-            if pic.status is None:
-                green_possible = False
-            else:
-                status = "some"
-            if not green_possible and status == "some":
-                return status
+        if self.max_images == 0:
+            # Case: No max images.
+            # If everything is rated: "all"; Some are rated: "some"; None are rated: "none"
+            status = "none"
+            green_possible = True
+            for pic in self.pictures:
+                if pic.status is None:
+                    green_possible = False
+                else:
+                    status = "some"
+                if not green_possible and status == "some":
+                    return status
 
-        if status == "none":
-            return "none"
+            if status == "none":
+                return "none"
+            else:
+                return "all"
         else:
-            return "all"
+            # Case: Max images.
+            # If [max_images] are rated: "all", if some images are rated: "some"; if none are rated: "none"
+            print(self.max_images)
+            print(self.keep_count())
+            if self.max_images == self.keep_count():
+                return "all"
+            elif (self.max_images == self.keep_count()['edited']) and (self.max_unedited == self.keep_count()['unedited']):
+                return "all"
+            elif self.keep_count() != 0:
+                return "some"
+            else:
+                return "none"
 
     def keep_count(self):
         if self.unedited_images:
