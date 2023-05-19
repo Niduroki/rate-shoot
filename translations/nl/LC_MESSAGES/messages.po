@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-04-01 12:46+0200\n"
-"PO-Revision-Date: 2023-04-01 12:49+0200\n"
+"POT-Creation-Date: 2023-05-19 12:05+0200\n"
+"PO-Revision-Date: 2023-05-19 12:06+0200\n"
 "Last-Translator: \n"
 "Language-Team: nl <LL@li.org>\n"
 "Language: nl\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Generated-By: Babel 2.12.1\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.3.1\n"
 
 #: templates/404.html:2
 msgid "404 - Not found"
@@ -334,25 +334,21 @@ msgstr "Nieuwe wachtwoord"
 msgid "Repeat new password"
 msgstr "Nieuwe wachtwoord herhalen"
 
-#: templates/shoot_picture.html:29
-msgid "Keep edited"
-msgstr "Bewerkt houden"
+#: templates/shoot_picture.html:29 templates/shoot_picture.html:32
+msgid "Edit"
+msgstr "Bewerken"
 
 #: templates/shoot_picture.html:30
 msgid "Keep unedited"
 msgstr "Niet bewerkt houden"
 
-#: templates/include/rating-overlay.html:8 templates/shoot_picture.html:32
-msgid "Keep"
-msgstr "Houden"
-
 #: templates/shoot_picture.html:34
 msgid "Insecure <small>(+ Comment)</small>"
 msgstr "Onzeker <small>(+ commentaar)</small>"
 
-#: templates/include/rating-overlay.html:12 templates/shoot_picture.html:35
-msgid "Don't keep"
-msgstr "Niet houden"
+#: templates/shoot_picture.html:35
+msgid "Veto"
+msgstr "Veto"
 
 #: templates/shoot_picture.html:51
 msgid "Copied link to clipboard"
@@ -437,6 +433,10 @@ msgid_plural "(+%(count)s uncertain images)"
 msgstr[0] "(+%(count)s onzeker foto)"
 msgstr[1] "(+%(count)s onzeker foto's)"
 
+#: templates/include/rating-overlay.html:8
+msgid "Keep"
+msgstr "Houden"
+
 #: templates/include/rating-overlay.html:9
 msgid "Edited"
 msgstr "Bewerkt"
@@ -448,6 +448,10 @@ msgstr "Niet bewerkt"
 #: templates/include/rating-overlay.html:11
 msgid "Insecure"
 msgstr "Onzeker"
+
+#: templates/include/rating-overlay.html:12
+msgid "Don't keep"
+msgstr "Niet houden"
 
 #~ msgid "%(count)s/%(max)s <small>image chosen</small>"
 #~ msgid_plural "%(count)s/%(max)s <small>images chosen</small>"
@@ -476,3 +480,6 @@ msgstr "Onzeker"
 
 #~ msgid "Skip"
 #~ msgstr "Overspringen"
+
+#~ msgid "Keep edited"
+#~ msgstr "Bewerkt houden"

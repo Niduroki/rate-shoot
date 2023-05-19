@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-04-01 12:46+0200\n"
-"PO-Revision-Date: 2023-04-01 12:47+0200\n"
+"POT-Creation-Date: 2023-05-19 12:05+0200\n"
+"PO-Revision-Date: 2023-05-19 12:05+0200\n"
 "Last-Translator: \n"
 "Language-Team: de <LL@li.org>\n"
 "Language: de\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Generated-By: Babel 2.12.1\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.3.1\n"
 
 #: templates/404.html:2
 msgid "404 - Not found"
@@ -338,25 +338,21 @@ msgstr "Neues Passwort"
 msgid "Repeat new password"
 msgstr "Neues Passwort wiederholen"
 
-#: templates/shoot_picture.html:29
-msgid "Keep edited"
-msgstr "Bearbeitet behalten"
+#: templates/shoot_picture.html:29 templates/shoot_picture.html:32
+msgid "Edit"
+msgstr "Bearbeiten"
 
 #: templates/shoot_picture.html:30
 msgid "Keep unedited"
 msgstr "Unbearbeitet behalten"
 
-#: templates/include/rating-overlay.html:8 templates/shoot_picture.html:32
-msgid "Keep"
-msgstr "Behalten"
-
 #: templates/shoot_picture.html:34
 msgid "Insecure <small>(+ Comment)</small>"
 msgstr "Unsicher <small>(+ Kommentar)</small>"
 
-#: templates/include/rating-overlay.html:12 templates/shoot_picture.html:35
-msgid "Don't keep"
-msgstr "Nicht behalten"
+#: templates/shoot_picture.html:35
+msgid "Veto"
+msgstr "Veto"
 
 #: templates/shoot_picture.html:51
 msgid "Copied link to clipboard"
@@ -441,6 +437,10 @@ msgid_plural "(+%(count)s uncertain images)"
 msgstr[0] "(+%(count)s unsicheres Bild)"
 msgstr[1] "(+%(count)s unsichere Bilder)"
 
+#: templates/include/rating-overlay.html:8
+msgid "Keep"
+msgstr "Behalten"
+
 #: templates/include/rating-overlay.html:9
 msgid "Edited"
 msgstr "Bearbeitet"
@@ -452,6 +452,10 @@ msgstr "Unbearbeitet"
 #: templates/include/rating-overlay.html:11
 msgid "Insecure"
 msgstr "Unsicher"
+
+#: templates/include/rating-overlay.html:12
+msgid "Don't keep"
+msgstr "Nicht behalten"
 
 #~ msgid "%(count)s/%(max)s <small>image chosen</small>"
 #~ msgid_plural "%(count)s/%(max)s <small>images chosen</small>"
@@ -480,3 +484,6 @@ msgstr "Unsicher"
 
 #~ msgid "Skip"
 #~ msgstr "Überspringen"
+
+#~ msgid "Keep edited"
+#~ msgstr "Bearbeitet behalten"

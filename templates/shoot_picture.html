@@ -26,13 +26,13 @@
 <div style="position: relative">
     <div class="rating-btns">
         {% if shoot.unedited_images %}
-            <a id="yes-edited-btn" class="btn green">{% trans %}Keep edited{% endtrans %}</a>
+            <a id="yes-edited-btn" class="btn green">{% trans %}Edit{% endtrans %}</a>
             <a id="yes-unedited-btn" class="btn turquoise">{% trans %}Keep unedited{% endtrans %}</a>
         {% else %}
-            <a id="yes-btn" class="btn green">{% trans %}Keep{% endtrans %}</a>
+            <a id="yes-btn" class="btn green">{% trans %}Edit{% endtrans %}</a>
         {% endif %}
         <a href="#unsafe-modal" rel="modal:open" class="btn yellow">{% trans %}Insecure <small>(+ Comment)</small>{% endtrans %}</a>
-        <a id="no-btn" class="btn red">{% trans %}Don't keep{% endtrans %}</a>
+        <a id="no-btn" class="btn red">{% trans %}Veto{% endtrans %}</a>
         {% if pic.status != None %}
             <a id="delete-rating-btn" class="btn grey">{% trans %}Remove rating{% endtrans %}</a>
         {% endif %}
