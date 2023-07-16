@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-05-19 13:49+0200\n"
-"PO-Revision-Date: 2023-05-19 13:49+0200\n"
+"POT-Creation-Date: 2023-07-16 09:44+0200\n"
+"PO-Revision-Date: 2023-07-16 09:46+0200\n"
 "Last-Translator: \n"
 "Language-Team: nl <LL@li.org>\n"
 "Language: nl\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Generated-By: Babel 2.12.1\n"
-"X-Generator: Poedit 3.3.1\n"
+"X-Generator: Poedit 3.3.2\n"
 
 #: templates/404.html:2
 msgid "404 - Not found"
@@ -152,7 +152,7 @@ msgstr "Gekopieerd!"
 msgid "Upload more images"
 msgstr "Meer foto's uploaden"
 
-#: templates/admin_shoot_overview.html:31 templates/create_shoot.html:39
+#: templates/admin_shoot_overview.html:31 templates/create_shoot.html:42
 msgid "Apply watermark"
 msgstr "Plaats watermerk"
 
@@ -189,19 +189,23 @@ msgstr ""
 msgid "Maximum amount of unedited images (0=No limit)"
 msgstr "Maximaal antaal niet bewerkte foto's (0=Geen limiet)"
 
-#: templates/admin_shoot_overview.html:91
+#: templates/admin_shoot_overview.html:85 templates/create_shoot.html:29
+msgid "Hide \"Veto\" button?"
+msgstr "\"Veto\" knop verbergen?"
+
+#: templates/admin_shoot_overview.html:94
 msgid "List of edited images to keep"
 msgstr "Lijst van bewerkte foto's te houden"
 
-#: templates/admin_shoot_overview.html:99
+#: templates/admin_shoot_overview.html:102
 msgid "List of unedited images to keep"
 msgstr "Lijst van niet bewerkte foto's te houden"
 
-#: templates/admin_shoot_overview.html:108
+#: templates/admin_shoot_overview.html:111
 msgid "List of images to keep"
 msgstr "Lijst van foto's te houden"
 
-#: templates/admin_shoot_overview.html:117
+#: templates/admin_shoot_overview.html:120
 msgid "List of insecure images"
 msgstr "Lijst van onzeker foto's"
 
@@ -213,7 +217,7 @@ msgstr "Ster verwijderen"
 msgid "Show comment"
 msgstr "Toon commentaar"
 
-#: templates/admin_shoot_picture.html:41 templates/shoot_picture.html:37
+#: templates/admin_shoot_picture.html:41 templates/shoot_picture.html:39
 msgid "Remove rating"
 msgstr "Beoordeeling verwijderen"
 
@@ -241,11 +245,11 @@ msgstr "Hulp"
 msgid "New shooting"
 msgstr "Nieuw shooting"
 
-#: templates/create_shoot.html:35
+#: templates/create_shoot.html:38
 msgid "Upload images"
 msgstr "Foto's uploaden"
 
-#: templates/create_shoot.html:45
+#: templates/create_shoot.html:48
 msgid "Uploaded images:"
 msgstr "Geüploade foto's:"
 
@@ -347,19 +351,19 @@ msgstr "Niet bewerkt houden"
 msgid "Insecure <small>(+ Comment)</small>"
 msgstr "Onzeker <small>(+ commentaar)</small>"
 
-#: templates/include/rating-overlay.html:12 templates/shoot_picture.html:35
+#: templates/include/rating-overlay.html:12 templates/shoot_picture.html:36
 msgid "Veto"
 msgstr "Veto"
 
-#: templates/shoot_picture.html:51
+#: templates/shoot_picture.html:53
 msgid "Copied link to clipboard"
 msgstr "Link gekopieerd"
 
-#: templates/shoot_picture.html:56
+#: templates/shoot_picture.html:58
 msgid "Explain why \"insecure\"?"
 msgstr "Leg uit waarom \"onzeker\"?"
 
-#: templates/shoot_picture.html:58
+#: templates/shoot_picture.html:60
 msgid "Submit"
 msgstr "Verzenden"
 

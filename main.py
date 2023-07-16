@@ -284,6 +284,10 @@ def admin_createshoot():
                 # Unedited is not checked -> Limit unedited is None
                 unedited = False
                 limit_unedited = None
+            try:
+                hideveto = (request.form['hideveto'] == "on")  # Hide Veto is checked
+            except KeyError:
+                hideveto = False  # Hide Veto is not checked
         except KeyError:
             abort(400)
             raise
@@ -292,7 +296,7 @@ def admin_createshoot():
         db_session = db.get_session()
         obj = db.Shoot(
             link=link, description=description, max_images=limit, done=False,
-            unedited_images=unedited, max_unedited=limit_unedited,
+            hideveto=hideveto, unedited_images=unedited, max_unedited=limit_unedited,
             creation=datetime.now()
         )
         db_session.add(obj)
@@ -370,6 +374,14 @@ def admin_shoot_overview(shoot_link):
                     if picture.status == "yes":
                         picture.status = "yes_edited"
 
+            try:
+                hideveto = (request.form['hideveto'] == "on")  # Hide Veto is checked
+            except KeyError:
+                hideveto = False  # Hide Veto is not checked
+
+            # TODO we should probably do something here, in case things were veto'ed before, but now veto is hidden
+
+            obj.hideveto = hideveto
             obj.description = description
             obj.max_images = limit
             obj.unedited_images = unedited

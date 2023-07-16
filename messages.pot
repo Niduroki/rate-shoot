@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-05-19 13:49+0200\n"
+"POT-Creation-Date: 2023-07-16 09:44+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -143,7 +143,7 @@ msgstr ""
 msgid "Upload more images"
 msgstr ""
 
-#: templates/admin_shoot_overview.html:31 templates/create_shoot.html:39
+#: templates/admin_shoot_overview.html:31 templates/create_shoot.html:42
 msgid "Apply watermark"
 msgstr ""
 
@@ -180,19 +180,23 @@ msgstr ""
 msgid "Maximum amount of unedited images (0=No limit)"
 msgstr ""
 
-#: templates/admin_shoot_overview.html:91
+#: templates/admin_shoot_overview.html:85 templates/create_shoot.html:29
+msgid "Hide \"Veto\" button?"
+msgstr ""
+
+#: templates/admin_shoot_overview.html:94
 msgid "List of edited images to keep"
 msgstr ""
 
-#: templates/admin_shoot_overview.html:99
+#: templates/admin_shoot_overview.html:102
 msgid "List of unedited images to keep"
 msgstr ""
 
-#: templates/admin_shoot_overview.html:108
+#: templates/admin_shoot_overview.html:111
 msgid "List of images to keep"
 msgstr ""
 
-#: templates/admin_shoot_overview.html:117
+#: templates/admin_shoot_overview.html:120
 msgid "List of insecure images"
 msgstr ""
 
@@ -204,7 +208,7 @@ msgstr ""
 msgid "Show comment"
 msgstr ""
 
-#: templates/admin_shoot_picture.html:41 templates/shoot_picture.html:37
+#: templates/admin_shoot_picture.html:41 templates/shoot_picture.html:39
 msgid "Remove rating"
 msgstr ""
 
@@ -232,11 +236,11 @@ msgstr ""
 msgid "New shooting"
 msgstr ""
 
-#: templates/create_shoot.html:35
+#: templates/create_shoot.html:38
 msgid "Upload images"
 msgstr ""
 
-#: templates/create_shoot.html:45
+#: templates/create_shoot.html:48
 msgid "Uploaded images:"
 msgstr ""
 
@@ -328,19 +332,19 @@ msgstr ""
 msgid "Insecure <small>(+ Comment)</small>"
 msgstr ""
 
-#: templates/include/rating-overlay.html:12 templates/shoot_picture.html:35
+#: templates/include/rating-overlay.html:12 templates/shoot_picture.html:36
 msgid "Veto"
 msgstr ""
 
-#: templates/shoot_picture.html:51
+#: templates/shoot_picture.html:53
 msgid "Copied link to clipboard"
 msgstr ""
 
-#: templates/shoot_picture.html:56
+#: templates/shoot_picture.html:58
 msgid "Explain why \"insecure\"?"
 msgstr ""
 
-#: templates/shoot_picture.html:58
+#: templates/shoot_picture.html:60
 msgid "Submit"
 msgstr ""
 

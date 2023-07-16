@@ -1,5 +1,6 @@
-from sqlalchemy import create_engine, ForeignKey
+from sqlalchemy import create_engine, ForeignKey, text
 from sqlalchemy.orm import sessionmaker, relationship, DeclarativeBase, Mapped, mapped_column
+from sqlalchemy.engine import reflection
 from flask import current_app
 from datetime import datetime
 from typing import List
@@ -28,6 +29,7 @@ class Shoot(Base):
     creation: Mapped[datetime]
     max_images: Mapped[int]  # max images to give a "keep" to (if we also accept unedited images, this is edited)
     done: Mapped[bool]
+    hideveto: Mapped[bool]  # Whether to hide the veto button
     unedited_images: Mapped[bool]  # Whether we can also choose unedited images
     max_unedited: Mapped[int]  # max unedited images to keep
 
@@ -134,6 +136,20 @@ class Pictures(Base):
 
 
 
+def table_has_column(engine, table, column):
+    insp = reflection.Inspector.from_engine(engine)
+    has_column = False
+    for col in insp.get_columns(table):
+        if column not in col['name']:
+            continue
+        has_column = True
+    return has_column
+
+
+def check_migrations(engine, session):
+    # Self-made migration
+    if not table_has_column(engine, "shoot", "hideveto"):
+        session.execute(text("ALTER TABLE shoot ADD COLUMN hideveto BOOL"))
 
 
 def get_session():
@@ -143,4 +159,6 @@ def get_session():
         db_uri = 'sqlite:////app/data/rate.db'
     engine = create_engine(db_uri)
     Base.metadata.create_all(engine)
-    return sessionmaker(bind=engine)()
+    session = sessionmaker(bind=engine)()
+    check_migrations(engine, session)
+    return session

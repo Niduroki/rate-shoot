@@ -32,7 +32,9 @@
             <a id="yes-btn" class="btn green">{% trans %}Edit{% endtrans %}</a>
         {% endif %}
         <a href="#unsafe-modal" rel="modal:open" class="btn yellow">{% trans %}Insecure <small>(+ Comment)</small>{% endtrans %}</a>
-        <a id="no-btn" class="btn red">{% trans %}Veto{% endtrans %}</a>
+        {% if not shoot.hideveto %}
+            <a id="no-btn" class="btn red">{% trans %}Veto{% endtrans %}</a>
+        {% endif %}
         {% if pic.status != None %}
             <a id="delete-rating-btn" class="btn grey">{% trans %}Remove rating{% endtrans %}</a>
         {% endif %}

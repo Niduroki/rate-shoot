@@ -81,6 +81,9 @@
          <tr id="max_unedited_count" {% if not shoot.unedited_images %}class="hidden"{% endif %}>
             <td>{% trans %}Maximum amount of unedited images (0=No limit){% endtrans %}</td><td><input type="number" name="limit_unedited" value="{% if shoot.unedited_images %}{{ shoot.max_unedited }}{% else %}0{% endif %}"></td>
          </tr>
+         <tr>
+            <td>{% trans %}Hide "Veto" button?{% endtrans %}</td><td><input type="checkbox" name="hideveto" value="on"></td>
+         </tr>
          </table>
          <input type="submit">
     </form>
