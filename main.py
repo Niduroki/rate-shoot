@@ -548,7 +548,7 @@ def admin_upload():
             fnt = ImageFont.truetype("FreeSans", size=img.width//4)
             txt_img = Image.new("RGBA", img.size, (255, 255, 255, 0))
             draw = ImageDraw.Draw(txt_img)
-            offset = draw.textsize("SAMPLE", font=fnt)
+            offset = draw.textlength("SAMPLE", font=fnt)
             draw.text(
                 (img.width//2 - (offset[0]//2), img.height//2 - (offset[1]//2)),
                 watermark_text, font=fnt, fill=(255, 255, 255, 30)
