@@ -1,9 +1,9 @@
-Flask==3.0.2
-sqlalchemy==2.0.29
-pytest==8.1.1
+Flask==3.0.3
+sqlalchemy==2.0.31
+pytest==8.2.2
 passlib==1.7.4
 Flask-Babel==4.0.0
-alembic==1.13.1
+alembic==1.13.2
 Pillow==10.3.0
 pillow-avif-plugin==1.4.3
 greenlet==3.0.3
