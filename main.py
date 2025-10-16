@@ -9,7 +9,6 @@ from werkzeug.utils import secure_filename
 from sqlalchemy.orm.exc import NoResultFound
 from passlib.hash import pbkdf2_sha256
 from PIL import Image, ImageFont, ImageDraw
-import pillow_avif
 
 app = Flask(__name__)
 
